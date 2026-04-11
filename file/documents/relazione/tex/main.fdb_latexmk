@@ -1,11 +1,12 @@
 # Fdb version 4
-["biber main"] 1775897019.96261 "main.bcf" "main.bbl" "main" 1775897161.46824 0
-  "main.bcf" 1775897161 107344 2b6718e36ed1b4c5d53027adc6b2edbd "pdflatex"
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1775899709.67583 -1
+  "bibliografia.bib" 1775896163 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "main.bcf" 1775899709 107344 2b6718e36ed1b4c5d53027adc6b2edbd "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1775897159.90139 "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" "main.pdf" "main" 1775897161.46901 0
+["pdflatex"] 1775899708.10655 "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" "main.pdf" "main" 1775899709.67652 0
   "../imgs/logo.png" 1775896250 6363 61fec6f949b053f855e4d54cea2e2efc ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775896364 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/grego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1775896216 13333849 ac7de138e0cb50d3f5bbe6a91f971ad1 ""
@@ -14,6 +15,11 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768654 4524 6bce29db5bc272ba5f332261583fee9c ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr7t.tfm" 1136768654 2124 2601a75482e9426d33db523edf23570a ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768654 4408 25b74d011a4c66b7f212c0cc3c90061b ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768654 2288 f478fc8fed18759effb59f3dad7f3084 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/zptmcm7m.tfm" 1136768654 2232 db256afffc8202da192b4641df14d602 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/zptmcm7t.tfm" 1136768654 2172 1d00c2a0d10f23031be62329457a870c ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/zptmcm7v.tfm" 1136768654 1032 20febbd0f0c9a48eb78616f897008286 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/zptmcm7y.tfm" 1136768654 1520 ad7b3c1a480a03b3e41b5fbb13d938f2 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 fea0975e20ec51c992338362f05f1146 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 687528a208fbfc1f00832bb96cccebbb ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/vf/adobe/times/ptmb7t.vf" 1136768654 1372 788387fea833ef5963f4c5bffe33eb89 ""
@@ -203,7 +209,11 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/pgfplots/pgfplots.sty" 1621075461 4904 ee78b44e85d6fccf08cd99370557481e ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/pgfplots/pgfplotstable.sty" 1621075461 1440 4c1495abf57fc4dd215ebbf2a95b1cf8 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/mathptmx.sty" 1585926771 4760 6e41de2b7a83dfa5d2c4b0a2fe01f046 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/omlztmcm.fd" 1585253778 429 12564a37a279e4e0b533cdf5e03eeb7c ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/omsztmcm.fd" 1585253778 365 f4ce75d394e7d9ac12ca7aac4045ed77 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/omxztmcm.fd" 1585253778 346 c8cddcc90b6f567b28408eb374773c9c ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
+  "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ztmcm.fd" 1585253778 346 aee7226812ba4138ac67a018466b488d ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/refcount/refcount.sty" 1576433952 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1751104012 9684 a33a14b82ce60d6e77cb9be689d79ee6 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/subfig/subfig.sty" 1121281010 22049 9ef165ca6df8815c92e693146a376c92 ""
@@ -214,13 +224,13 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" 1775897159 1976 a5cbe65a334af172859fdb789637d07b ""
-  "main.aux" 1775897161 508 e3ff6214d5e86381b47225afe476635f "pdflatex"
+  "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" 1775899705 2629 61cf7affa8618fa6a3a52f61d6c7decb ""
+  "main.aux" 1775899709 2886 bba4513d02ef486669d778f10bbd0e45 "pdflatex"
   "main.bbl" 1775897021 486 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.out" 1775897161 74 c3490bb8dac855eb1fe0afd8ed94ef01 "pdflatex"
-  "main.run.xml" 1775897161 2307 bf6ceb3555aadcd71ee87d4770d42729 "pdflatex"
-  "main.tex" 1775897159 1976 a5cbe65a334af172859fdb789637d07b ""
-  "main.toc" 1775897161 108 5a9bbe0a57a649bdf30837c7c6f406a1 "pdflatex"
+  "main.out" 1775899709 2343 fec7432f09cc575cd57174d10812e7d3 "pdflatex"
+  "main.run.xml" 1775899709 2307 bf6ceb3555aadcd71ee87d4770d42729 "pdflatex"
+  "main.tex" 1775899705 2629 61cf7affa8618fa6a3a52f61d6c7decb ""
+  "main.toc" 1775899709 1666 bb438de4479446b7239934b053b00dd5 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"

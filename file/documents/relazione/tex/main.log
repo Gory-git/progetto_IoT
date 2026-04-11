@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  11 APR 2026 10:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  11 APR 2026 11:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1017,14 +1017,37 @@ Package hyperref Info: Link coloring OFF on input line 44.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-<../imgs/logo.png, id=10, 459.7175pt x 110.4125pt>
+<../imgs/logo.png, id=90, 459.7175pt x 110.4125pt>
 File: ../imgs/logo.png Graphic file (type png)
 <use ../imgs/logo.png>
 Package pdftex.def Info: ../imgs/logo.png  used on input line 51.
 (pdftex.def)             Requested size: 332.10184pt x 79.76648pt.
  [1
 
-{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <../imgs/logo.png>] (main.toc)
+{C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <../imgs/logo.png>] (main.toc
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 5.
+ (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 5.
+ (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 5.
+ (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 5.
+ (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1032,30 +1055,30 @@ Package pdftex.def Info: ../imgs/logo.png  used on input line 51.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.81 \end{document}
-                    [1] (main.aux)
+l.79 \newpage
+              [1] [2] [3] [4] [5] [6] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C3490BB8DAC855EB1FE0AFD8ED94EF01;74.
+(rerunfilecheck)             Checksum: FEC7432F09CC575CD57174D10812E7D3;2343.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42376 strings out of 467867
- 967711 string characters out of 5418334
- 1909286 words of memory out of 5000000
- 70668 multiletter control sequences out of 15000+600000
- 638409 words of font info for 54 fonts, out of 8000000 for 9000
+ 42484 strings out of 467867
+ 969733 string characters out of 5418334
+ 1915286 words of memory out of 5000000
+ 70734 multiletter control sequences out of 15000+600000
+ 646020 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,11n,133p,793b,1821s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (2 pages, 34750 bytes).
+Output written on main.pdf (7 pages, 59421 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
- 4 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 164 PDF objects out of 1000 (max. 8388607)
+ 29 named destinations out of 1000 (max. 500000)
+ 186 words of extra memory for PDF output out of 10000 (max. 10000000)
 
