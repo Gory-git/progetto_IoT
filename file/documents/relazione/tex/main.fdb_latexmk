@@ -1,18 +1,17 @@
 # Fdb version 4
-["biber main"] 1775930005.11199 "main.bcf" "main.bbl" "main" 1775930814.91583 0
+["biber main"] 1775930005.11199 "main.bcf" "main.bbl" "main" 1775931372.77839 0
   "bibliografia.bib" 1775903834 941 06f9ef0d7cf7287b8fc17bb35bd5cfbc ""
-  "main.bcf" 1775930814 108019 1a2be55f7d270cf60394beab898b3a7c "pdflatex"
+  "main.bcf" 1775931372 108019 1a2be55f7d270cf60394beab898b3a7c "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1775930812.88447 "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" "main.pdf" "main" 1775930814.91651 0
+["pdflatex"] 1775931370.91071 "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" "main.pdf" "main" 1775931372.77916 0
   "../imgs/PCB.jpeg" 1775926429 242831 78825e1b034e87b305fe40b95f860259 ""
   "../imgs/boot_log.png" 1775928610 174629 56528c29149dcf9b7764e394550c6fbf ""
   "../imgs/eeprom.jpeg" 1775927014 16756 c252b7104c5208cbc1f5bbcba6e3447e ""
   "../imgs/extender.jpg" 1775906191 20577 29e3653530b16ca0badef4a7da28966d ""
   "../imgs/logo.png" 1775896250 6363 61fec6f949b053f855e4d54cea2e2efc ""
-  "../imgs/ordine.png" 1775930763 145760 36cc2766b725484638b866736800c6d3 ""
   "../imgs/placeholder.png" 1775927511 7347 ad8f7cda52e75c7af10171af672860f8 ""
   "../imgs/uart.jpeg" 1775926990 30591 269221e8908c2e8996d952bcafe80079 ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775896364 82507 a9eef8696c92627b87e9975edea03b2a ""
@@ -235,13 +234,13 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" 1775930812 8245 2e3a08bc39074152e28a99459d40bb2a ""
-  "main.aux" 1775930814 5521 612556ad2b1b64f6c7bd1ca0695096e3 "pdflatex"
+  "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" 1775931370 8301 39f6f0628cabc896443e98751729b9e2 ""
+  "main.aux" 1775931372 5389 f1a0f271940ce8fc83ccf9bcbae94dbb "pdflatex"
   "main.bbl" 1775930007 2163 7aa4211230080c5003a3b02200d7d824 "biber main"
-  "main.out" 1775930814 3747 65ce668a2ad011a1f828130affd54568 "pdflatex"
-  "main.run.xml" 1775930814 2307 5677c5ba60ee1c4f844da08d55e85d30 "pdflatex"
-  "main.tex" 1775930812 8245 2e3a08bc39074152e28a99459d40bb2a ""
-  "main.toc" 1775930814 2483 49bab9b9d1ab69edaf652bff2397c33e "pdflatex"
+  "main.out" 1775931372 3747 65ce668a2ad011a1f828130affd54568 "pdflatex"
+  "main.run.xml" 1775931372 2307 5677c5ba60ee1c4f844da08d55e85d30 "pdflatex"
+  "main.tex" 1775931370 8301 39f6f0628cabc896443e98751729b9e2 ""
+  "main.toc" 1775931372 2483 eefcd9c703214d18e484b42eb1733262 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"
