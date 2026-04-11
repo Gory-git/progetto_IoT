@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 0 "main.bcf" "main.bbl" "main" 1775899709.67583 -1
+["biber main"] 0 "main.bcf" "main.bbl" "main" 1775900773.50905 -1
   "bibliografia.bib" 1775896163 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "main.bcf" 1775899709 107344 2b6718e36ed1b4c5d53027adc6b2edbd "pdflatex"
+  "main.bcf" 1775900773 107344 2b6718e36ed1b4c5d53027adc6b2edbd "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1775899708.10655 "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" "main.pdf" "main" 1775899709.67652 0
+["pdflatex"] 1775900771.89597 "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" "main.pdf" "main" 1775900773.50973 0
   "../imgs/logo.png" 1775896250 6363 61fec6f949b053f855e4d54cea2e2efc ""
   "C:/Users/grego/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1775896364 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/grego/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1775896216 13333849 ac7de138e0cb50d3f5bbe6a91f971ad1 ""
@@ -224,13 +224,13 @@
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/grego/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1656236919 4937 4ce600ce9bd4ec84d0250eb6892fcf4f ""
-  "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" 1775899705 2629 61cf7affa8618fa6a3a52f61d6c7decb ""
-  "main.aux" 1775899709 2886 bba4513d02ef486669d778f10bbd0e45 "pdflatex"
+  "c:/Users/grego/Documents/progetto_IoT/file/documents/relazione/tex/main.tex" 1775900769 2626 1352ee1efbd872169e2208f840dcc004 ""
+  "main.aux" 1775900773 2876 7694cfebda80e55820feece061b26a83 "pdflatex"
   "main.bbl" 1775897021 486 76d65a242ec496c9b4361af646ff12cb "biber main"
-  "main.out" 1775899709 2343 fec7432f09cc575cd57174d10812e7d3 "pdflatex"
-  "main.run.xml" 1775899709 2307 bf6ceb3555aadcd71ee87d4770d42729 "pdflatex"
-  "main.tex" 1775899705 2629 61cf7affa8618fa6a3a52f61d6c7decb ""
-  "main.toc" 1775899709 1666 bb438de4479446b7239934b053b00dd5 "pdflatex"
+  "main.out" 1775900773 2333 428bb440093456fe90c7c88ad140f366 "pdflatex"
+  "main.run.xml" 1775900773 2307 bf6ceb3555aadcd71ee87d4770d42729 "pdflatex"
+  "main.tex" 1775900769 2626 1352ee1efbd872169e2208f840dcc004 ""
+  "main.toc" 1775900773 1656 2f7ba4041a2d46020654959659fb7d12 "pdflatex"
   (generated)
   "main.aux"
   "main.bcf"
