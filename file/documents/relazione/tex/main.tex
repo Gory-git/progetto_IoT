@@ -5,7 +5,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{tikz,pgf}
 \usepackage{mathptmx}
-\usepackage[italian]{babel} %% Abbiamo istruito LaTeX ad usare la lingua italiana.
+%\usepackage[italian]{babel} %% Abbiamo istruito LaTeX ad usare la lingua italiana.
 \usepackage{todonotes}
 \usepackage{subfig}
 \usepackage{fancyhdr}
@@ -46,20 +46,20 @@ sorting=none
 \begin{titlepage}
     \begin{center}
     \vspace*{0.2cm}
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.8\textwidth]{../imgs/logo.png}
-        \end{figure}
-            \vspace{5mm}
-            \uppercase{\normalsize Dipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica}\\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{../imgs/logo.png}
+    \end{figure}
+        \vspace{5mm}
+        \uppercase{\normalsize Dipartimento di Ingegneria Informatica, Modellistica, Elettronica e Sistemistica}\\
     \end{center}
-
+    \vspace{45mm}
     \begin{center}    
-        {\LARGE{\bf IoT Security Report: Aigital AP Analysis}}\\	
+        {\LARGE{\bf IoT Security Report: Aigital Wi-Fi Extender Analysis}}\\	
         \vspace{7mm}
     \end{center}
     
-    \vspace{25mm}
+    \vspace{45mm}
     \noindent
     \begin{center}
     	{\large{\bf Curcio Salvatore (Mat.263696) 
@@ -67,7 +67,7 @@ sorting=none
         \\ Voci Gregorio (Mat. 230631)}}
     \end{center}
     
-    \vspace{30mm}
+    \vspace{15mm}
     
 %% Anno Accademico %%
     \centering{\large \uppercase{ A.Y. 2025/2026 }}
@@ -79,7 +79,29 @@ sorting=none
 \newpage
 
 \section{Introduction}
-    In this report we will discuss our security analysis of a Wi-Fi access point produced by Aigital.
+    In this report we will discuss our security analysis of a Wi-Fi extender produced by Aigital.
+    \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{../imgs/extender.jpg}
+        \end{figure}
+
+    \subsection{Device Informations}
+        The Aigital Wi-Fi Extender is a device that allows to extend the coverage of a Wi-Fi network.
+        \\
+        It was bought in 2019 and is still available for purchase on Amazon\footnote{\url{https://amazon.it/dp/B0DR7ZT2CS}} and it is sold at a price of around 20 euros.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.9\textwidth]{../imgs/ordine.png}
+            \caption{Order details}
+        \end{figure}
+        
+        The device has a web interface for configuration and management, which is accessible through the local network on 192.168.10.253.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{../imgs/placeholder.png}
+            \caption{Web interface}
+        \end{figure}
+
     \subsection{Objectives}
         As we will see in the next sections, our main goal was to exploit the CVE-2023-30403\cite{CVE-2023-30403}, CVE-2023-30404\cite{CVE-2023-30404} and CVE-2023-30405\cite{CVE-2023-30405} vulnerabilities, which allow for login by-pass, remote code execution and cross-site scripting respectively. 
         \\
@@ -93,18 +115,69 @@ sorting=none
             \item A USB-to-TTL adapter for analyzing the UART communication
             \item A CH341A programmer with a soic clip for dumping the EEPROM with flashrom
             \item Binwalk for firmware analysis
-            \item Ghidra for reverse engineering the firmware
+            \item Ghidra and Cutter for reverse engineering the firmware
             \item A custom script for patching the firmware
         \end{itemize}
+        All of our codes are available on our GitHub repository\footnote{\url{https://github.com/Gory-git/progetto_IoT}}.
 
 \newpage
 \section{Analysis}
-    \cite{mandomat}
     \subsection{Hardware}
-        \subsubsection{Eeprom}
+        Opening the device we exposed the PCB, which is shown in the figure below. 
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{../imgs/PCB.jpeg}
+            \caption{PCB of the Aigital Wi-Fi Extender (after de-soldering the eeprom and inserting a connector to make the UART easier to read)}
+        \end{figure}
+        
+        % We can see that the device is powered by a Mediatek MT7628NN\cite{MT7628NN}, which is a SoC designed for IoT devices.
+        By a visual inspection of the PCB we identified the pins of the UART interface, yellow arrow, the eeprom, green arrowand the following chips:
+        \begin{itemize}
+            \item chip 1 % TODO
+            \item chip 2 % TODO
+            \item chip 3 % TODO
+        \end{itemize}
+
         \subsubsection{UART}
+            Using a digital multimeter we individuated the pins of the UART interface, which are shown in the figure below, and are (from left to right):
+            \begin{itemize}
+                \item Pin 1: VCC (red arrow)
+                \item Pin 2: TX (yellow arrow)
+                \item Pin 3: RX (green arrow)
+                \item Pin 4: GND (blue arrow)
+            \end{itemize}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../imgs/uart.jpeg}
+                \caption{UART interface}
+            \end{figure}
+            Once we identified the pins of the UART interface, we found, with some patience, the correct baud rate for the communication, which is 38400 baud.
+            \\
+            Booting the device and connecting to the UART interface with a USB-to-TTL adapter we were able to read the boot log of the device, which is shown in the figure below.
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.8\textwidth]{../imgs/boot_log.png}
+                \caption{Boot log of the device}
+            \end{figure}
+            Unfortunately, no U-Boot console is available, but the boot log is still very useful for us, since it allows us to identify rlx-linux as the operating system running on the device. 
+            The os we found, rlx-linux, is a custom open source Linux distribution for embedded devices.
+            \\
+            We tried to submit in the login  some common default credentials, unfortunately, we were not able to log in to the device. 
+            
+            \subsubsection{Eeprom}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\textwidth]{../imgs/eeprom.jpeg}
+                \caption{EEPROM}
+            \end{figure}
+            
+    \subsection{Information Gathering}
+        \cite{mandomat}
     \subsection{Software}
         \subsubsection{Eeprom Dumping}
+        \subsubsection{Binary Analysis}
+        \subsubsection{Firmware Emulation}
         \subsubsection{Firmware Analysis}
 
 \newpage
@@ -122,7 +195,7 @@ sorting=none
 \section{Fixing}
     \subsection{Binary Patching}
         \subsubsection{Patching Login By-pass}
-            % aggiunta dei cookies di sessione e rimozione del meccanismo time based
+            % aggiunta dei cookies di sessione e/o rimozione del meccanismo time based
         \subsubsection{Patching RCE}
             % rimozione della funzione che permette l'esecuzione di comandi arbitrari
         \subsubsection{Patching XSS}
@@ -131,5 +204,7 @@ sorting=none
 
 \newpage
 \section{Conclusion}
+
+\newpage
 \printbibliography
 \end{document}
