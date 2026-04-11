@@ -1,0 +1,7 @@
+1: scrivere script per l'estrazione delle credenziali utente
+2: scrivere script per sfruttare l'xss
+3: scrivere analisi per ogni comando presente sul router
+4: tentare di ottenere una shell
+5: rendere portabile l'emulazione del firmware ottenuta con firmadyne
+6: studiare come sistemare il firmware
+7: studiare come ricompilare il firmware

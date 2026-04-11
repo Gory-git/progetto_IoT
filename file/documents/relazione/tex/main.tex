@@ -55,7 +55,7 @@ sorting=none
     \end{center}
 
     \begin{center}    
-        {\LARGE{\bf Report Project IoT Security }}\\	
+        {\LARGE{\bf IoT Security Report: Aigital AP Analysis}}\\	
         \vspace{7mm}
     \end{center}
     
@@ -79,11 +79,27 @@ sorting=none
 \newpage
 
 \section{Introduction}
+    In this report we will discuss our security analysis of a Wi-Fi access point produced by Aigital.
     \subsection{Objectives}
+        As we will see in the next sections, our main goal was to exploit the CVE-2023-30403\cite{CVE-2023-30403}, CVE-2023-30404\cite{CVE-2023-30404} and CVE-2023-30405\cite{CVE-2023-30405} vulnerabilities, which allow for login by-pass, remote code execution and cross-site scripting respectively. 
+        \\
+        We also wanted to analyze the firmware of the device, in order to find other potential vulnerabilities and to understand how the device works.
+        \\
+        Finally, we wanted to patch the CVEs compiling a custom firmware.
     \subsection{Tools Used}
+        We used a variety of tools for our analysis, including:
+        \begin{itemize}
+            \item A digital multimeter for individuating the pins of the UART interface
+            \item A USB-to-TTL adapter for analyzing the UART communication
+            \item A CH341A programmer with a soic clip for dumping the EEPROM with flashrom
+            \item Binwalk for firmware analysis
+            \item Ghidra for reverse engineering the firmware
+            \item A custom script for patching the firmware
+        \end{itemize}
 
 \newpage
 \section{Analysis}
+    \cite{mandomat}
     \subsection{Hardware}
         \subsubsection{Eeprom}
         \subsubsection{UART}
@@ -93,19 +109,27 @@ sorting=none
 
 \newpage
 \section{Exploiting}
+    \subsection{Login By-pass}
+        \subsubsection{Exploitation}
     \subsection{RCE}
-    \subsection{Gaining Shell}
-    \subsection{Arp Poisoning}
+        \subsubsection{Executing Commands}
+        \subsubsection{Gaining Shell}
+        \subsubsection{Arp Poisoning}
+    \subsection{XSS}
+        \subsubsection{Exploitation}
 
 \newpage
-\section{Countermeasures}
+\section{Fixing}
     \subsection{Binary Patching}
+        \subsubsection{Patching Login By-pass}
+            % aggiunta dei cookies di sessione e rimozione del meccanismo time based
         \subsubsection{Patching RCE}
+            % rimozione della funzione che permette l'esecuzione di comandi arbitrari
         \subsubsection{Patching XSS}
+            % sanificazione dell'input dell'utente
     \subsection{Compiling Firmware}
 
 \newpage
 \section{Conclusion}
-
-% \printbibliography
+\printbibliography
 \end{document}
