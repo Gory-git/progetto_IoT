@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  11 APR 2026 20:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  12 APR 2026 10:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1022,34 +1022,34 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
-<../imgs/placeholder.png, id=177, 602.25pt x 401.5pt>
-File: ../imgs/placeholder.png Graphic file (type png)
-<use ../imgs/placeholder.png>
-Package pdftex.def Info: ../imgs/placeholder.png  used on input line 102.
-(pdftex.def)             Requested size: 207.56285pt x 138.37674pt.
- [2 <../imgs/extender.jpg> <../imgs/placeholder.png>]
+<../imgs/web_page.jpeg, id=177, 2549.525pt x 1517.67pt>
+File: ../imgs/web_page.jpeg Graphic file (type jpg)
+<use ../imgs/web_page.jpeg>
+Package pdftex.def Info: ../imgs/web_page.jpeg  used on input line 102.
+(pdftex.def)             Requested size: 332.10184pt x 197.67455pt.
+ [2 <../imgs/extender.jpg> <../imgs/web_page.jpeg>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 115.
  (C:\Users\grego\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [3]
-<../imgs/PCB.jpeg, id=201, 594.72188pt x 1006.51031pt>
+<../imgs/PCB.jpeg, id=199, 594.72188pt x 1006.51031pt>
 File: ../imgs/PCB.jpeg Graphic file (type jpg)
 <use ../imgs/PCB.jpeg>
 Package pdftex.def Info: ../imgs/PCB.jpeg  used on input line 131.
 (pdftex.def)             Requested size: 207.56285pt x 351.27025pt.
  [4 <../imgs/PCB.jpeg>]
-<../imgs/uart.jpeg, id=207, 411.78844pt x 168.63pt>
+<../imgs/uart.jpeg, id=205, 411.78844pt x 168.63pt>
 File: ../imgs/uart.jpeg Graphic file (type jpg)
 <use ../imgs/uart.jpeg>
 Package pdftex.def Info: ../imgs/uart.jpeg  used on input line 153.
 (pdftex.def)             Requested size: 332.10184pt x 135.99773pt.
-<../imgs/boot_log.png, id=208, 844.65562pt x 962.84718pt>
+<../imgs/boot_log.png, id=206, 844.65562pt x 962.84718pt>
 File: ../imgs/boot_log.png Graphic file (type png)
 <use ../imgs/boot_log.png>
 Package pdftex.def Info: ../imgs/boot_log.png  used on input line 161.
 (pdftex.def)             Requested size: 332.10184pt x 378.57948pt.
  [5 <../imgs/uart.jpeg>]
-<../imgs/eeprom.jpeg, id=214, 161.85469pt x 170.88844pt>
+<../imgs/eeprom.jpeg, id=213, 161.85469pt x 170.88844pt>
 File: ../imgs/eeprom.jpeg Graphic file (type jpg)
 <use ../imgs/eeprom.jpeg>
 Package pdftex.def Info: ../imgs/eeprom.jpeg  used on input line 172.
@@ -1067,16 +1067,16 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  41719 strings out of 467867
- 956545 string characters out of 5418334
+ 956531 string characters out of 5418334
  1891275 words of memory out of 5000000
  69951 multiletter control sequences out of 15000+600000
  656903 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,12n,133p,793b,1292s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (12 pages, 531034 bytes).
+Output written on main.pdf (12 pages, 803701 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
+ 292 PDF objects out of 1000 (max. 8388607)
  57 named destinations out of 1000 (max. 500000)
  296 words of extra memory for PDF output out of 10000 (max. 10000000)
 
