@@ -39,259 +39,259 @@
 [    0.000000] CPU frequency 320.00 MHz
 [    0.000000] Console: colour dummy device 80x25
 [    0.004000] Calibrating delay loop... 847.87 BogoMIPS (lpj=1695744)
-[    0.056000] pid_max: default: 32768 minimum: 301
-[    0.056000] Mount-cache hash table entries: 512
-[    0.064000] Performance counters: No available PMU.
-[    0.072000] NET: Registered protocol family 16
-[    0.084000] bio: create slab <bio-0> at 0
-[    0.084000] vgaarb: loaded
-[    0.088000] SCSI subsystem initialized
-[    0.088000] libata version 3.00 loaded.
-[    0.088000] usbcore: registered new interface driver usbfs
-[    0.088000] usbcore: registered new interface driver hub
-[    0.088000] usbcore: registered new device driver usb
-[    0.092000] pci 0000:00:00.0: [11ab:4620] type 0 class 0x000600
-[    0.092000] pci 0000:00:00.0: reg 10: [mem 0x00000000-0x00000fff pref]
-[    0.092000] pci 0000:00:00.0: reg 14: [mem 0x01000000-0x01000fff pref]
-[    0.092000] pci 0000:00:00.0: reg 18: [mem 0x1c000000-0x1c000fff]
-[    0.092000] pci 0000:00:00.0: reg 1c: [mem 0x1f000000-0x1f000fff]
-[    0.092000] pci 0000:00:00.0: reg 20: [mem 0x1be00000-0x1be00fff]
-[    0.092000] pci 0000:00:00.0: reg 24: [io  0x14000000-0x14000fff]
-[    0.096000] pci 0000:00:0a.0: [8086:7110] type 0 class 0x000601
-[    0.096000] pci 0000:00:0a.1: [8086:7111] type 0 class 0x000101
-[    0.096000] pci 0000:00:0a.1: reg 20: [io  0x0000-0x000f]
-[    0.096000] pci 0000:00:0a.2: [8086:7112] type 0 class 0x000c03
-[    0.096000] pci 0000:00:0a.2: reg 20: [io  0x0000-0x001f]
-[    0.096000] pci 0000:00:0a.3: [8086:7113] type 0 class 0x000680
-[    0.096000] pci 0000:00:0a.3: address space collision: [io  0x1100-0x110f] conflicts with GT-64120 PCI I/O [io  0x1000-0x1fffff]
-[    0.100000] pci 0000:00:12.0: [1013:00b8] type 0 class 0x000300
-[    0.100000] pci 0000:00:12.0: reg 10: [mem 0x00000000-0x01ffffff pref]
-[    0.100000] pci 0000:00:12.0: reg 14: [mem 0x00000000-0x00000fff]
-[    0.100000] pci 0000:00:12.0: reg 30: [mem 0x00000000-0x0000ffff pref]
-[    0.100000] pci 0000:00:13.0: [8086:100e] type 0 class 0x000200
-[    0.100000] pci 0000:00:13.0: reg 10: [mem 0x00000000-0x0001ffff]
-[    0.100000] pci 0000:00:13.0: reg 14: [io  0x0000-0x003f]
-[    0.100000] pci 0000:00:13.0: reg 30: [mem 0x00000000-0x0003ffff pref]
-[    0.100000] pci 0000:00:14.0: [8086:100e] type 0 class 0x000200
-[    0.100000] pci 0000:00:14.0: reg 10: [mem 0x00000000-0x0001ffff]
-[    0.100000] pci 0000:00:14.0: reg 14: [io  0x0000-0x003f]
-[    0.100000] pci 0000:00:14.0: reg 30: [mem 0x00000000-0x0003ffff pref]
-[    0.104000] pci 0000:00:15.0: [8086:100e] type 0 class 0x000200
-[    0.104000] pci 0000:00:15.0: reg 10: [mem 0x00000000-0x0001ffff]
-[    0.104000] pci 0000:00:15.0: reg 14: [io  0x0000-0x003f]
-[    0.104000] pci 0000:00:15.0: reg 30: [mem 0x00000000-0x0003ffff pref]
-[    0.104000] pci 0000:00:16.0: [8086:100e] type 0 class 0x000200
-[    0.104000] pci 0000:00:16.0: reg 10: [mem 0x00000000-0x0001ffff]
-[    0.104000] pci 0000:00:16.0: reg 14: [io  0x0000-0x003f]
-[    0.104000] pci 0000:00:16.0: reg 30: [mem 0x00000000-0x0003ffff pref]
-[    0.104000] vgaarb: device added: PCI:0000:00:12.0,decodes=io+mem,owns=none,locks=none
-[    0.108000] pci 0000:00:0a.3: BAR 8: [io  0x1100-0x110f] has bogus alignment
-[    0.108000] pci 0000:00:12.0: BAR 0: assigned [mem 0x10000000-0x11ffffff pref]
-[    0.108000] pci 0000:00:12.0: BAR 0: set to [mem 0x10000000-0x11ffffff pref] (PCI address [0x10000000-0x11ffffff])
-[    0.108000] pci 0000:00:13.0: BAR 6: assigned [mem 0x12000000-0x1203ffff pref]
-[    0.108000] pci 0000:00:14.0: BAR 6: assigned [mem 0x12040000-0x1207ffff pref]
-[    0.108000] pci 0000:00:15.0: BAR 6: assigned [mem 0x12080000-0x120bffff pref]
-[    0.108000] pci 0000:00:16.0: BAR 6: assigned [mem 0x120c0000-0x120fffff pref]
-[    0.112000] pci 0000:00:13.0: BAR 0: assigned [mem 0x12100000-0x1211ffff]
-[    0.112000] pci 0000:00:13.0: BAR 0: set to [mem 0x12100000-0x1211ffff] (PCI address [0x12100000-0x1211ffff])
-[    0.112000] pci 0000:00:14.0: BAR 0: assigned [mem 0x12120000-0x1213ffff]
-[    0.112000] pci 0000:00:14.0: BAR 0: set to [mem 0x12120000-0x1213ffff] (PCI address [0x12120000-0x1213ffff])
-[    0.112000] pci 0000:00:15.0: BAR 0: assigned [mem 0x12140000-0x1215ffff]
-[    0.112000] pci 0000:00:15.0: BAR 0: set to [mem 0x12140000-0x1215ffff] (PCI address [0x12140000-0x1215ffff])
-[    0.112000] pci 0000:00:16.0: BAR 0: assigned [mem 0x12160000-0x1217ffff]
-[    0.112000] pci 0000:00:16.0: BAR 0: set to [mem 0x12160000-0x1217ffff] (PCI address [0x12160000-0x1217ffff])
-[    0.112000] pci 0000:00:12.0: BAR 6: assigned [mem 0x12180000-0x1218ffff pref]
-[    0.112000] pci 0000:00:12.0: BAR 1: assigned [mem 0x12190000-0x12190fff]
-[    0.116000] pci 0000:00:12.0: BAR 1: set to [mem 0x12190000-0x12190fff] (PCI address [0x12190000-0x12190fff])
-[    0.116000] pci 0000:00:13.0: BAR 1: assigned [io  0x1000-0x103f]
-[    0.116000] pci 0000:00:13.0: BAR 1: set to [io  0x1000-0x103f] (PCI address [0x1000-0x103f])
-[    0.116000] pci 0000:00:14.0: BAR 1: assigned [io  0x1040-0x107f]
-[    0.116000] pci 0000:00:14.0: BAR 1: set to [io  0x1040-0x107f] (PCI address [0x1040-0x107f])
-[    0.116000] pci 0000:00:15.0: BAR 1: assigned [io  0x1080-0x10bf]
-[    0.116000] pci 0000:00:15.0: BAR 1: set to [io  0x1080-0x10bf] (PCI address [0x1080-0x10bf])
-[    0.116000] pci 0000:00:16.0: BAR 1: assigned [io  0x10c0-0x10ff]
-[    0.116000] pci 0000:00:16.0: BAR 1: set to [io  0x10c0-0x10ff] (PCI address [0x10c0-0x10ff])
-[    0.116000] pci 0000:00:0a.2: BAR 4: assigned [io  0x1400-0x141f]
-[    0.116000] pci 0000:00:0a.2: BAR 4: set to [io  0x1400-0x141f] (PCI address [0x1400-0x141f])
-[    0.116000] pci 0000:00:0a.1: BAR 4: assigned [io  0x1420-0x142f]
-[    0.120000] pci 0000:00:0a.1: BAR 4: set to [io  0x1420-0x142f] (PCI address [0x1420-0x142f])
-[    0.124000] cfg80211: Calling CRDA to update world regulatory domain
-[    0.128000] Switching to clocksource MIPS
-[    0.132000] Switched to NOHz mode on CPU #0
-[    0.132000] NET: Registered protocol family 2
-[    0.132000] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
-[    0.136000] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
-[    0.136000] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
-[    0.136000] TCP: Hash tables configured (established 8192 bind 8192)
-[    0.136000] TCP reno registered
-[    0.136000] UDP hash table entries: 256 (order: 0, 4096 bytes)
-[    0.140000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
-[    0.140000] NET: Registered protocol family 1
-[    0.140000] PCI: CLS 0 bytes, default 64
-[    0.204000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
-[    0.204000] Registering unionfs 2.6 (for 2.6.39.4)
-[    0.204000] JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
-[    0.208000] ROMFS MTD (C) 2007 Red Hat, Inc.
-[    0.208000] msgmni has been set to 492
-[    0.212000] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
-[    0.212000] io scheduler noop registered
-[    0.212000] io scheduler cfq registered (default)
-[    0.212000] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 1
-[    0.216000] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
-[    0.216000] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
-[    0.248000] PCI: Enabling device 0000:00:12.0 (0000 -> 0002)
-[    0.248000] cirrusfb 0000:00:12.0: Cirrus Logic chipset on PCI bus, RAM (4096 kB) at 0x10000000
-[    0.480000] Console: switching to colour frame buffer device 80x30
-[    0.496000] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
-[    0.520000] serial8250.0: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
-[    0.524000] console [ttyS0] enabled, bootconsole disabled
-[    0.524000] console [ttyS0] enabled, bootconsole disabled
-[    0.544000] serial8250.0: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
-[    0.548000] brd: module loaded
-[    0.552000] loop: module loaded
-[    0.552000] ata_piix 0000:00:0a.1: version 2.13
-[    0.552000] PCI: Enabling device 0000:00:0a.1 (0000 -> 0001)
-[    0.556000] PCI: Setting latency timer of device 0000:00:0a.1 to 64
-[    0.560000] scsi0 : ata_piix
-[    0.560000] scsi1 : ata_piix
-[    0.560000] ata1: PATA max UDMA/33 cmd 0x1f0 ctl 0x3f6 bmdma 0x1420 irq 14
-[    0.560000] ata2: PATA max UDMA/33 cmd 0x170 ctl 0x376 bmdma 0x1428 irq 15
-[    0.564000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
-[    0.564000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
-[    0.564000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
-[    0.568000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
-[    0.568000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
-[    0.568000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
-[    0.568000] NAND device: Manufacturer ID: 0x98, Chip ID: 0x39 (Toshiba NAND 128MiB 1,8V 8-bit)
-[    0.568000] flash size: 128 MiB
-[    0.568000] page size: 512 bytes
-[    0.568000] OOB area size: 16 bytes
-[    0.568000] sector size: 16 KiB
-[    0.568000] pages number: 262144
-[    0.572000] pages per sector: 32
-[    0.572000] bus width: 8
-[    0.572000] bits in sector size: 14
-[    0.572000] bits in page size: 9
-[    0.572000] bits in OOB size: 4
-[    0.572000] flash size with OOB: 135168 KiB
-[    0.572000] page address bytes: 4
-[    0.572000] sector address bytes: 3
-[    0.572000] options: 0x62
-[    0.572000] Scanning device for bad blocks
-[    0.616000] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
-[    0.616000] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
-[    0.624000] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
-[    0.624000] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
-[    0.624000] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
-[    0.624000] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
-[    0.624000] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
-[    0.628000] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
-[    0.628000] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
-[    0.628000] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
-[    0.628000] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
-[    0.628000] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
-[    0.632000] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
-[    0.632000] e1000: Copyright (c) 1999-2006 Intel Corporation.
-[    0.632000] PCI: Enabling device 0000:00:13.0 (0000 -> 0003)
-[    0.632000] PCI: Setting latency timer of device 0000:00:13.0 to 64
-[    0.892000] ata2.01: NODEV after polling detection
-[    0.896000] ata2.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
-[    0.896000] ata2.00: configured for UDMA/33
-[    0.900000] ata1.01: NODEV after polling detection
-[    0.900000] ata1.00: ATA-7: QEMU HARDDISK, 2.5+, max UDMA/100
-[    0.900000] ata1.00: 32768 sectors, multi 16: LBA48 
-[    0.900000] ata1.00: configured for UDMA/33
-[    0.908000] scsi 0:0:0:0: Direct-Access     ATA      QEMU HARDDISK    2.5+ PQ: 0 ANSI: 5
-[    0.912000] scsi 1:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
-[    0.916000] sd 0:0:0:0: [sda] 32768 512-byte logical blocks: (16.7 MB/16.0 MiB)
-[    0.916000] sd 0:0:0:0: [sda] Write Protect is off
-[    0.916000] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
-[    0.916000] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
-[    0.940000] e1000 0000:00:13.0: eth0: (PCI:33MHz:32-bit) 52:54:00:12:34:56
-[    0.940000] e1000 0000:00:13.0: eth0: Intel(R) PRO/1000 Network Connection
-[    0.940000] PCI: Enabling device 0000:00:14.0 (0000 -> 0003)
-[    0.940000] PCI: Setting latency timer of device 0000:00:14.0 to 64
-[    0.948000]  sda: sda1
-[    0.956000] sd 0:0:0:0: [sda] Attached SCSI disk
-[    1.232000] e1000 0000:00:14.0: eth1: (PCI:33MHz:32-bit) 52:54:00:12:34:57
-[    1.232000] e1000 0000:00:14.0: eth1: Intel(R) PRO/1000 Network Connection
-[    1.232000] PCI: Enabling device 0000:00:15.0 (0000 -> 0003)
-[    1.232000] PCI: Setting latency timer of device 0000:00:15.0 to 64
-[    1.528000] e1000 0000:00:15.0: eth2: (PCI:33MHz:32-bit) 52:54:00:12:34:58
-[    1.528000] e1000 0000:00:15.0: eth2: Intel(R) PRO/1000 Network Connection
-[    1.528000] PCI: Enabling device 0000:00:16.0 (0000 -> 0003)
-[    1.528000] PCI: Setting latency timer of device 0000:00:16.0 to 64
-[    1.820000] e1000 0000:00:16.0: eth3: (PCI:33MHz:32-bit) 52:54:00:12:34:59
-[    1.820000] e1000 0000:00:16.0: eth3: Intel(R) PRO/1000 Network Connection
-[    1.820000] e1000e: Intel(R) PRO/1000 Network Driver - 1.3.10-k2
-[    1.820000] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
-[    1.820000] pcnet32: pcnet32.c:v1.35 21.Apr.2008 tsbogend@alpha.franken.de
-[    1.820000] PPP generic driver version 2.4.2
-[    1.820000] PPP Deflate Compression module registered
-[    1.828000] PPP MPPE Compression module registered
-[    1.828000] NET: Registered protocol family 24
-[    1.828000] tun: Universal TUN/TAP device driver, 1.6
-[    1.828000] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
-[    1.828000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
-[    1.828000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
-[    1.828000] uhci_hcd: USB Universal Host Controller Interface driver
-[    1.828000] PCI: Enabling device 0000:00:0a.2 (0000 -> 0001)
-[    1.832000] PCI: Setting latency timer of device 0000:00:0a.2 to 64
-[    1.832000] uhci_hcd 0000:00:0a.2: UHCI Host Controller
-[    1.832000] uhci_hcd 0000:00:0a.2: new USB bus registered, assigned bus number 1
-[    1.832000] uhci_hcd 0000:00:0a.2: irq 11, io base 0x00001400
-[    1.840000] hub 1-0:1.0: USB hub found
-[    1.840000] hub 1-0:1.0: 2 ports detected
-[    1.840000] Initializing USB Mass Storage driver...
-[    1.840000] usbcore: registered new interface driver usb-storage
-[    1.840000] USB Mass Storage support registered.
-[    1.844000] serio: i8042 KBD port at 0x60,0x64 irq 1
-[    1.848000] serio: i8042 AUX port at 0x60,0x64 irq 12
-[    1.848000] mousedev: PS/2 mouse device common for all mice
-[    1.852000] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
-[    1.852000] rtc0: alarms up to one day, 242 bytes nvram
-[    1.852000] i2c /dev entries driver
-[    1.852000] piix4_smbus 0000:00:0a.3: SMBus Host Controller at 0x1100, revision 0
-[    1.852000] sdhci: Secure Digital Host Controller Interface driver
-[    1.856000] sdhci: Copyright(c) Pierre Ossman
-[    1.856000] usbcore: registered new interface driver usbhid
-[    1.856000] usbhid: USB HID core driver
-[    1.856000] Netfilter messages via NETLINK v0.30.
-[    1.856000] nf_conntrack version 0.5.0 (3941 buckets, 15764 max)
-[    1.860000] ctnetlink v0.93: registering with nfnetlink.
-[    1.860000] IPv4 over IPv4 tunneling driver
-[    1.860000] ip_tables: (C) 2000-2006 Netfilter Core Team
-[    1.864000] arp_tables: (C) 2002 David S. Miller
-[    1.864000] TCP cubic registered
-[    1.864000] Initializing XFRM netlink socket
-[    1.868000] NET: Registered protocol family 10
-[    1.872000] ip6_tables: (C) 2000-2006 Netfilter Core Team
-[    1.872000] IPv6 over IPv4 tunneling driver
-[    1.876000] NET: Registered protocol family 17
-[    1.876000] Bridge firewalling registered
-[    1.876000] Ebtables v2.0 registered
-[    1.876000] 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
-[    1.876000] All bugs added by David S. Miller <davem@redhat.com>
-[    1.876000] lib80211: common routines for IEEE802.11 drivers
-[    1.876000] lib80211_crypt: registered algorithm 'NULL'
-[    1.880000] rtc_cmos rtc_cmos: setting system clock to 2026-04-15 09:14:08 UTC (1776244448)
-[    1.948000] input: AT Raw Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
-[    2.152000] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input1
-[    2.172000] EXT2-fs (sda1): warning: mounting unchecked fs, running e2fsck is recommended
-[    2.176000] VFS: Mounted root (ext2 filesystem) on device 8:1.
-[    2.180000] Freeing prom memory: 956k freed
-[    2.224000] Freeing unused kernel memory: 240k freed
-[    2.264000] firmadyne: sys_reboot[PID: 53 (init)]: magic1:fee1dead, magic2:28121969, cmd:0
-[    2.272000] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:1, protocol:0
-[    2.272000] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:2, protocol:0
+[    0.028000] pid_max: default: 32768 minimum: 301
+[    0.028000] Mount-cache hash table entries: 512
+[    0.036000] Performance counters: No available PMU.
+[    0.044000] NET: Registered protocol family 16
+[    0.056000] bio: create slab <bio-0> at 0
+[    0.056000] vgaarb: loaded
+[    0.060000] SCSI subsystem initialized
+[    0.060000] libata version 3.00 loaded.
+[    0.060000] usbcore: registered new interface driver usbfs
+[    0.060000] usbcore: registered new interface driver hub
+[    0.060000] usbcore: registered new device driver usb
+[    0.064000] pci 0000:00:00.0: [11ab:4620] type 0 class 0x000600
+[    0.064000] pci 0000:00:00.0: reg 10: [mem 0x00000000-0x00000fff pref]
+[    0.064000] pci 0000:00:00.0: reg 14: [mem 0x01000000-0x01000fff pref]
+[    0.064000] pci 0000:00:00.0: reg 18: [mem 0x1c000000-0x1c000fff]
+[    0.068000] pci 0000:00:00.0: reg 1c: [mem 0x1f000000-0x1f000fff]
+[    0.068000] pci 0000:00:00.0: reg 20: [mem 0x1be00000-0x1be00fff]
+[    0.068000] pci 0000:00:00.0: reg 24: [io  0x14000000-0x14000fff]
+[    0.068000] pci 0000:00:0a.0: [8086:7110] type 0 class 0x000601
+[    0.068000] pci 0000:00:0a.1: [8086:7111] type 0 class 0x000101
+[    0.068000] pci 0000:00:0a.1: reg 20: [io  0x0000-0x000f]
+[    0.068000] pci 0000:00:0a.2: [8086:7112] type 0 class 0x000c03
+[    0.068000] pci 0000:00:0a.2: reg 20: [io  0x0000-0x001f]
+[    0.072000] pci 0000:00:0a.3: [8086:7113] type 0 class 0x000680
+[    0.072000] pci 0000:00:0a.3: address space collision: [io  0x1100-0x110f] conflicts with GT-64120 PCI I/O [io  0x1000-0x1fffff]
+[    0.072000] pci 0000:00:12.0: [1013:00b8] type 0 class 0x000300
+[    0.072000] pci 0000:00:12.0: reg 10: [mem 0x00000000-0x01ffffff pref]
+[    0.072000] pci 0000:00:12.0: reg 14: [mem 0x00000000-0x00000fff]
+[    0.072000] pci 0000:00:12.0: reg 30: [mem 0x00000000-0x0000ffff pref]
+[    0.072000] pci 0000:00:13.0: [8086:100e] type 0 class 0x000200
+[    0.072000] pci 0000:00:13.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.076000] pci 0000:00:13.0: reg 14: [io  0x0000-0x003f]
+[    0.076000] pci 0000:00:13.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.076000] pci 0000:00:14.0: [8086:100e] type 0 class 0x000200
+[    0.076000] pci 0000:00:14.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.076000] pci 0000:00:14.0: reg 14: [io  0x0000-0x003f]
+[    0.076000] pci 0000:00:14.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.076000] pci 0000:00:15.0: [8086:100e] type 0 class 0x000200
+[    0.076000] pci 0000:00:15.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.076000] pci 0000:00:15.0: reg 14: [io  0x0000-0x003f]
+[    0.076000] pci 0000:00:15.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.076000] pci 0000:00:16.0: [8086:100e] type 0 class 0x000200
+[    0.080000] pci 0000:00:16.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.080000] pci 0000:00:16.0: reg 14: [io  0x0000-0x003f]
+[    0.080000] pci 0000:00:16.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.080000] vgaarb: device added: PCI:0000:00:12.0,decodes=io+mem,owns=none,locks=none
+[    0.080000] pci 0000:00:0a.3: BAR 8: [io  0x1100-0x110f] has bogus alignment
+[    0.084000] pci 0000:00:12.0: BAR 0: assigned [mem 0x10000000-0x11ffffff pref]
+[    0.084000] pci 0000:00:12.0: BAR 0: set to [mem 0x10000000-0x11ffffff pref] (PCI address [0x10000000-0x11ffffff])
+[    0.084000] pci 0000:00:13.0: BAR 6: assigned [mem 0x12000000-0x1203ffff pref]
+[    0.084000] pci 0000:00:14.0: BAR 6: assigned [mem 0x12040000-0x1207ffff pref]
+[    0.084000] pci 0000:00:15.0: BAR 6: assigned [mem 0x12080000-0x120bffff pref]
+[    0.084000] pci 0000:00:16.0: BAR 6: assigned [mem 0x120c0000-0x120fffff pref]
+[    0.084000] pci 0000:00:13.0: BAR 0: assigned [mem 0x12100000-0x1211ffff]
+[    0.084000] pci 0000:00:13.0: BAR 0: set to [mem 0x12100000-0x1211ffff] (PCI address [0x12100000-0x1211ffff])
+[    0.084000] pci 0000:00:14.0: BAR 0: assigned [mem 0x12120000-0x1213ffff]
+[    0.088000] pci 0000:00:14.0: BAR 0: set to [mem 0x12120000-0x1213ffff] (PCI address [0x12120000-0x1213ffff])
+[    0.088000] pci 0000:00:15.0: BAR 0: assigned [mem 0x12140000-0x1215ffff]
+[    0.088000] pci 0000:00:15.0: BAR 0: set to [mem 0x12140000-0x1215ffff] (PCI address [0x12140000-0x1215ffff])
+[    0.088000] pci 0000:00:16.0: BAR 0: assigned [mem 0x12160000-0x1217ffff]
+[    0.088000] pci 0000:00:16.0: BAR 0: set to [mem 0x12160000-0x1217ffff] (PCI address [0x12160000-0x1217ffff])
+[    0.088000] pci 0000:00:12.0: BAR 6: assigned [mem 0x12180000-0x1218ffff pref]
+[    0.088000] pci 0000:00:12.0: BAR 1: assigned [mem 0x12190000-0x12190fff]
+[    0.088000] pci 0000:00:12.0: BAR 1: set to [mem 0x12190000-0x12190fff] (PCI address [0x12190000-0x12190fff])
+[    0.088000] pci 0000:00:13.0: BAR 1: assigned [io  0x1000-0x103f]
+[    0.092000] pci 0000:00:13.0: BAR 1: set to [io  0x1000-0x103f] (PCI address [0x1000-0x103f])
+[    0.092000] pci 0000:00:14.0: BAR 1: assigned [io  0x1040-0x107f]
+[    0.092000] pci 0000:00:14.0: BAR 1: set to [io  0x1040-0x107f] (PCI address [0x1040-0x107f])
+[    0.092000] pci 0000:00:15.0: BAR 1: assigned [io  0x1080-0x10bf]
+[    0.092000] pci 0000:00:15.0: BAR 1: set to [io  0x1080-0x10bf] (PCI address [0x1080-0x10bf])
+[    0.092000] pci 0000:00:16.0: BAR 1: assigned [io  0x10c0-0x10ff]
+[    0.092000] pci 0000:00:16.0: BAR 1: set to [io  0x10c0-0x10ff] (PCI address [0x10c0-0x10ff])
+[    0.092000] pci 0000:00:0a.2: BAR 4: assigned [io  0x1400-0x141f]
+[    0.092000] pci 0000:00:0a.2: BAR 4: set to [io  0x1400-0x141f] (PCI address [0x1400-0x141f])
+[    0.092000] pci 0000:00:0a.1: BAR 4: assigned [io  0x1420-0x142f]
+[    0.096000] pci 0000:00:0a.1: BAR 4: set to [io  0x1420-0x142f] (PCI address [0x1420-0x142f])
+[    0.104000] Switching to clocksource MIPS
+[    0.108000] Switched to NOHz mode on CPU #0
+[    0.108000] NET: Registered protocol family 2
+[    0.108000] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.112000] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.112000] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.112000] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.116000] TCP reno registered
+[    0.116000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.116000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.116000] NET: Registered protocol family 1
+[    0.116000] PCI: CLS 0 bytes, default 64
+[    0.180000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.180000] Registering unionfs 2.6 (for 2.6.39.4)
+[    0.180000] JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.184000] ROMFS MTD (C) 2007 Red Hat, Inc.
+[    0.184000] msgmni has been set to 492
+[    0.188000] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.188000] io scheduler noop registered
+[    0.188000] io scheduler cfq registered (default)
+[    0.188000] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 1
+[    0.192000] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
+[    0.192000] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
+[    0.224000] PCI: Enabling device 0000:00:12.0 (0000 -> 0002)
+[    0.224000] cirrusfb 0000:00:12.0: Cirrus Logic chipset on PCI bus, RAM (4096 kB) at 0x10000000
+[    0.456000] Console: switching to colour frame buffer device 80x30
+[    0.468000] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    0.496000] serial8250.0: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    0.496000] console [ttyS0] enabled, bootconsole disabled
+[    0.496000] console [ttyS0] enabled, bootconsole disabled
+[    0.520000] serial8250.0: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
+[    0.524000] brd: module loaded
+[    0.524000] loop: module loaded
+[    0.524000] ata_piix 0000:00:0a.1: version 2.13
+[    0.524000] PCI: Enabling device 0000:00:0a.1 (0000 -> 0001)
+[    0.528000] PCI: Setting latency timer of device 0000:00:0a.1 to 64
+[    0.532000] scsi0 : ata_piix
+[    0.536000] scsi1 : ata_piix
+[    0.536000] ata1: PATA max UDMA/33 cmd 0x1f0 ctl 0x3f6 bmdma 0x1420 irq 14
+[    0.536000] ata2: PATA max UDMA/33 cmd 0x170 ctl 0x376 bmdma 0x1428 irq 15
+[    0.540000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.540000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.540000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.540000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.540000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.540000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.540000] NAND device: Manufacturer ID: 0x98, Chip ID: 0x39 (Toshiba NAND 128MiB 1,8V 8-bit)
+[    0.544000] flash size: 128 MiB
+[    0.544000] page size: 512 bytes
+[    0.544000] OOB area size: 16 bytes
+[    0.544000] sector size: 16 KiB
+[    0.544000] pages number: 262144
+[    0.544000] pages per sector: 32
+[    0.544000] bus width: 8
+[    0.544000] bits in sector size: 14
+[    0.544000] bits in page size: 9
+[    0.544000] bits in OOB size: 4
+[    0.544000] flash size with OOB: 135168 KiB
+[    0.544000] page address bytes: 4
+[    0.544000] sector address bytes: 3
+[    0.548000] options: 0x62
+[    0.548000] Scanning device for bad blocks
+[    0.588000] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
+[    0.592000] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
+[    0.596000] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
+[    0.596000] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
+[    0.600000] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
+[    0.600000] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
+[    0.600000] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
+[    0.600000] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
+[    0.600000] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
+[    0.604000] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
+[    0.604000] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
+[    0.604000] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
+[    0.604000] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    0.604000] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    0.608000] PCI: Enabling device 0000:00:13.0 (0000 -> 0003)
+[    0.608000] PCI: Setting latency timer of device 0000:00:13.0 to 64
+[    0.608000] cfg80211: Calling CRDA to update world regulatory domain
+[    0.868000] ata2.01: NODEV after polling detection
+[    0.872000] ata2.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[    0.872000] ata2.00: configured for UDMA/33
+[    0.876000] ata1.01: NODEV after polling detection
+[    0.876000] ata1.00: ATA-7: QEMU HARDDISK, 2.5+, max UDMA/100
+[    0.876000] ata1.00: 32768 sectors, multi 16: LBA48 
+[    0.876000] ata1.00: configured for UDMA/33
+[    0.884000] scsi 0:0:0:0: Direct-Access     ATA      QEMU HARDDISK    2.5+ PQ: 0 ANSI: 5
+[    0.888000] scsi 1:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[    0.892000] sd 0:0:0:0: [sda] 32768 512-byte logical blocks: (16.7 MB/16.0 MiB)
+[    0.892000] sd 0:0:0:0: [sda] Write Protect is off
+[    0.892000] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    0.892000] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    0.916000] e1000 0000:00:13.0: eth0: (PCI:33MHz:32-bit) 52:54:00:12:34:56
+[    0.916000] e1000 0000:00:13.0: eth0: Intel(R) PRO/1000 Network Connection
+[    0.916000] PCI: Enabling device 0000:00:14.0 (0000 -> 0003)
+[    0.916000] PCI: Setting latency timer of device 0000:00:14.0 to 64
+[    0.928000]  sda: sda1
+[    0.932000] sd 0:0:0:0: [sda] Attached SCSI disk
+[    1.208000] e1000 0000:00:14.0: eth1: (PCI:33MHz:32-bit) 52:54:00:12:34:57
+[    1.208000] e1000 0000:00:14.0: eth1: Intel(R) PRO/1000 Network Connection
+[    1.208000] PCI: Enabling device 0000:00:15.0 (0000 -> 0003)
+[    1.208000] PCI: Setting latency timer of device 0000:00:15.0 to 64
+[    1.508000] e1000 0000:00:15.0: eth2: (PCI:33MHz:32-bit) 52:54:00:12:34:58
+[    1.508000] e1000 0000:00:15.0: eth2: Intel(R) PRO/1000 Network Connection
+[    1.508000] PCI: Enabling device 0000:00:16.0 (0000 -> 0003)
+[    1.508000] PCI: Setting latency timer of device 0000:00:16.0 to 64
+[    1.804000] e1000 0000:00:16.0: eth3: (PCI:33MHz:32-bit) 52:54:00:12:34:59
+[    1.804000] e1000 0000:00:16.0: eth3: Intel(R) PRO/1000 Network Connection
+[    1.804000] e1000e: Intel(R) PRO/1000 Network Driver - 1.3.10-k2
+[    1.804000] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
+[    1.804000] pcnet32: pcnet32.c:v1.35 21.Apr.2008 tsbogend@alpha.franken.de
+[    1.804000] PPP generic driver version 2.4.2
+[    1.808000] PPP Deflate Compression module registered
+[    1.812000] PPP MPPE Compression module registered
+[    1.812000] NET: Registered protocol family 24
+[    1.812000] tun: Universal TUN/TAP device driver, 1.6
+[    1.812000] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    1.812000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.812000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.816000] uhci_hcd: USB Universal Host Controller Interface driver
+[    1.816000] PCI: Enabling device 0000:00:0a.2 (0000 -> 0001)
+[    1.816000] PCI: Setting latency timer of device 0000:00:0a.2 to 64
+[    1.816000] uhci_hcd 0000:00:0a.2: UHCI Host Controller
+[    1.816000] uhci_hcd 0000:00:0a.2: new USB bus registered, assigned bus number 1
+[    1.820000] uhci_hcd 0000:00:0a.2: irq 11, io base 0x00001400
+[    1.824000] hub 1-0:1.0: USB hub found
+[    1.824000] hub 1-0:1.0: 2 ports detected
+[    1.828000] Initializing USB Mass Storage driver...
+[    1.828000] usbcore: registered new interface driver usb-storage
+[    1.828000] USB Mass Storage support registered.
+[    1.832000] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    1.832000] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    1.832000] mousedev: PS/2 mouse device common for all mice
+[    1.836000] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    1.836000] rtc0: alarms up to one day, 242 bytes nvram
+[    1.836000] i2c /dev entries driver
+[    1.836000] piix4_smbus 0000:00:0a.3: SMBus Host Controller at 0x1100, revision 0
+[    1.840000] sdhci: Secure Digital Host Controller Interface driver
+[    1.840000] sdhci: Copyright(c) Pierre Ossman
+[    1.840000] usbcore: registered new interface driver usbhid
+[    1.840000] usbhid: USB HID core driver
+[    1.840000] Netfilter messages via NETLINK v0.30.
+[    1.844000] nf_conntrack version 0.5.0 (3941 buckets, 15764 max)
+[    1.844000] ctnetlink v0.93: registering with nfnetlink.
+[    1.844000] IPv4 over IPv4 tunneling driver
+[    1.848000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    1.848000] arp_tables: (C) 2002 David S. Miller
+[    1.852000] TCP cubic registered
+[    1.852000] Initializing XFRM netlink socket
+[    1.852000] NET: Registered protocol family 10
+[    1.856000] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    1.860000] IPv6 over IPv4 tunneling driver
+[    1.860000] NET: Registered protocol family 17
+[    1.860000] Bridge firewalling registered
+[    1.860000] Ebtables v2.0 registered
+[    1.864000] 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+[    1.864000] All bugs added by David S. Miller <davem@redhat.com>
+[    1.864000] lib80211: common routines for IEEE802.11 drivers
+[    1.864000] lib80211_crypt: registered algorithm 'NULL'
+[    1.864000] rtc_cmos rtc_cmos: setting system clock to 2026-04-15 12:50:35 UTC (1776257435)
+[    1.936000] input: AT Raw Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+[    2.140000] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input1
+[    2.160000] EXT2-fs (sda1): warning: mounting unchecked fs, running e2fsck is recommended
+[    2.168000] VFS: Mounted root (ext2 filesystem) on device 8:1.
+[    2.168000] Freeing prom memory: 956k freed
+[    2.212000] Freeing unused kernel memory: 240k freed
+[    2.252000] firmadyne: sys_reboot[PID: 53 (init)]: magic1:fee1dead, magic2:28121969, cmd:0
+[    2.260000] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:1, protocol:0
+[    2.264000] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:2, protocol:0
 init started: BusyBox v1.13.4 (2013-12-29 13:17:23 CST)
-[    2.284000] firmadyne: sys_socket[PID: 54 (init)]: family:1, type:1, protocol:0
-[    2.284000] firmadyne: sys_socket[PID: 54 (init)]: family:1, type:2, protocol:0
-[    2.284000] firmadyne: do_execve: /firmadyne/console
-[    2.284000] OFFSETS: offset of pid: 0xc4 offset of comm: 0x1a4
-[    2.356000] firmadyne: sys_socket[PID: 56 (ifconfig)]: family:2, type:1, protocol:0
-[    2.360000] firmadyne: __inet_insert_ifa[PID: 56 (ifconfig)]: device:lo ifa:0x7f000001
-[    2.364000] firmadyne: __inet_insert_ifa[PID: 56 (ifconfig)]: device:lo ifa:0x7f000001
+[    2.276000] firmadyne: sys_socket[PID: 54 (init)]: family:1, type:1, protocol:0
+[    2.276000] firmadyne: sys_socket[PID: 54 (init)]: family:1, type:2, protocol:0
+[    2.276000] firmadyne: do_execve: /firmadyne/console
+[    2.276000] OFFSETS: offset of pid: 0xc4 offset of comm: 0x1a4
+[    2.348000] firmadyne: sys_socket[PID: 56 (ifconfig)]: family:2, type:1, protocol:0
+[    2.356000] firmadyne: __inet_insert_ifa[PID: 56 (ifconfig)]: device:lo ifa:0x7f000001
+[    2.356000] firmadyne: __inet_insert_ifa[PID: 56 (ifconfig)]: device:lo ifa:0x7f000001
 mount: mounting proc on /proc failed: No such file or directory
 Invalid web image! Expect w6cg
 Invalid hw setting signature [sig=  ]!
@@ -694,62 +694,271 @@ sysconf init error!
 /etc/init.d/rcS: line 93: can't create /proc/sys/net/ipv4/netfilter/ip_conntrack_generic_timeout: nonexistent directory
 /etc/init.d/rcS: line 94: can't create /proc/sys/net/ipv4/rt_cache_rebuild_count: nonexistent directory
 /etc/init.d/rcS: line 95: can't create /proc/sys/net/netfilter/nf_conntrack_expect_max: nonexistent directory
-[    3.364000] firmadyne: sys_socket[PID: 109 (boa)]: family:2, type:1, protocol:0
-[    3.364000] do_page_fault() #2: sending SIGSEGV to boa for invalid read access from
-[    3.364000] 00000000 (epc == 2b65f4a0, ra == 2b6280c0)
-[    3.364000] Cpu 0
-[    3.364000] $ 0   : 00000000 1000a400 00a45022 00000000
-[    3.364000] $ 4   : 00a45022 00000000 00000004 00000004
-[    3.364000] $ 8   : 00000001 2b6473fc f0000000 00000001
-[    3.368000] $12   : 80672812 c8829100 00000000 2b629318
-[    3.368000] $16   : 7fbcd920 2b640128 00a4501e 00000000
-[    3.368000] $20   : 00469120 7fbcd8a2 00000000 00447cdc
-[    3.368000] $24   : 00000062 2b65f3d0                  
-[    3.368000] $28   : 2b64d6b0 7fbcd838 00460000 2b6280c0
-[    3.368000] Hi    : 00000174
-[    3.368000] Lo    : 00038e1d
-[    3.368000] epc   : 2b65f4a0 0x2b65f4a0
-[    3.368000]     Not tainted
-[    3.368000] ra    : 2b6280c0 0x2b6280c0
-[    3.368000] Status: 0000a413    USER EXL IE 
-[    3.368000] Cause : 10800008
-[    3.368000] BadVA : 00000000
-[    3.368000] PrId  : 00019300 (MIPS 24Kc)
-[    3.368000] Modules linked in:
-[    3.368000] Process boa (pid: 109, threadinfo=8f042000, task=8f02f630, tls=00000000)
-[    3.372000] Stack : 00000000 00000001 00000006 00000100 2b64d6b0 7fbcd850 00aa0004 00000008
-[    3.372000]         00000008 7fbcd860 7fbcd920 2b640128 00a4501e 00000000 00469120 7fbcd8a2
-[    3.372000]         00000000 00447cdc 00460000 2b627f74 00000062 00000009 0000001d 2b626f30
-[    3.372000]         2b64d6b0 00447cdc 00000000 2b5fe8e8 2b649c0c 2b6473fc 00a45018 00000003
-[    3.372000]         00a4501e 00000001 00469120 00447c6c 00447de0 00447cdc 00460000 2b628164
-[    3.372000]         ...
-[    3.372000] Call Trace:
-[    3.372000] 
-[    3.372000] 
-[    3.372000] Code: ac88fffc  18c00006  00c53821 <80a80000> 24840001  24a50001  14a7fffc  a088ffff  03e00008 
-[    3.376000] boa/109: potentially unexpected fatal signal 11.
-[    3.376000] 
-[    3.376000] Cpu 0
-[    3.376000] $ 0   : 00000000 1000a400 00a45022 00000000
-[    3.376000] $ 4   : 00a45022 00000000 00000004 00000004
-[    3.376000] $ 8   : 00000001 2b6473fc f0000000 00000001
-[    3.376000] $12   : 80672812 c8829100 00000000 2b629318
-[    3.376000] $16   : 7fbcd920 2b640128 00a4501e 00000000
-[    3.376000] $20   : 00469120 7fbcd8a2 00000000 00447cdc
-[    3.376000] $24   : 00000062 2b65f3d0                  
-[    3.376000] $28   : 2b64d6b0 7fbcd838 00460000 2b6280c0
-[    3.376000] Hi    : 00000174
-[    3.380000] Lo    : 00038e1d
-[    3.380000] epc   : 2b65f4a0 0x2b65f4a0
-[    3.380000]     Not tainted
-[    3.380000] ra    : 2b6280c0 0x2b6280c0
-[    3.380000] Status: 0000a413    USER EXL IE 
-[    3.380000] Cause : 10800008
-[    3.380000] BadVA : 00000000
-[    3.380000] PrId  : 00019300 (MIPS 24Kc)
+[    3.380000] firmadyne: sys_socket[PID: 109 (boa)]: family:2, type:1, protocol:0
+[    3.384000] do_page_fault() #2: sending SIGSEGV to boa for invalid read access from
+[    3.384000] 00000000 (epc == 2b3044a0, ra == 2b2cd0c0)
+[    3.384000] Cpu 0
+[    3.384000] $ 0   : 00000000 1000a400 00bd3022 00000000
+[    3.384000] $ 4   : 00bd3022 00000000 00000004 00000004
+[    3.384000] $ 8   : 00000001 2b2ec3fc f0000000 00000001
+[    3.384000] $12   : 80672812 c9b3be00 00000000 2b2ce318
+[    3.384000] $16   : 7fe7e1f0 2b2e5128 00bd301e 00000000
+[    3.384000] $20   : 00469120 7fe7e172 00000000 00447cdc
+[    3.388000] $24   : 00000062 2b3043d0                  
+[    3.388000] $28   : 2b2f26b0 7fe7e108 00460000 2b2cd0c0
+[    3.388000] Hi    : 00000174
+[    3.388000] Lo    : 00038e1d
+[    3.388000] epc   : 2b3044a0 0x2b3044a0
+[    3.388000]     Not tainted
+[    3.388000] ra    : 2b2cd0c0 0x2b2cd0c0
+[    3.388000] Status: 0000a413    USER EXL IE 
+[    3.388000] Cause : 10800008
+[    3.388000] BadVA : 00000000
+[    3.388000] PrId  : 00019300 (MIPS 24Kc)
+[    3.388000] Modules linked in:
+[    3.388000] Process boa (pid: 109, threadinfo=8f008000, task=8fb7c8e8, tls=00000000)
+[    3.392000] Stack : 00000000 00000001 00000006 00000100 2b2f26b0 7fe7e120 00aa0004 00000008
+[    3.392000]         00000008 7fe7e130 7fe7e1f0 2b2e5128 00bd301e 00000000 00469120 7fe7e172
+[    3.392000]         00000000 00447cdc 00460000 2b2ccf74 00000062 00000009 0000001d 2b2cbf30
+[    3.392000]         2b2f26b0 00447cdc 00000000 2b2a38e8 2b2eec0c 2b2ec3fc 00bd3018 00000003
+[    3.392000]         00bd301e 00000001 00469120 00447c6c 00447de0 00447cdc 00460000 2b2cd164
+[    3.392000]         ...
+[    3.392000] Call Trace:
+[    3.392000]  (Bad stack address)
+[    3.392000] 
+[    3.392000] Code: ac88fffc  18c00006  00c53821 <80a80000> 24840001  24a50001  14a7fffc  a088ffff  03e00008 
+[    3.396000] boa/109: potentially unexpected fatal signal 11.
+[    3.396000] 
+[    3.396000] Cpu 0
+[    3.396000] $ 0   : 00000000 1000a400 00bd3022 00000000
+[    3.396000] $ 4   : 00bd3022 00000000 00000004 00000004
+[    3.396000] $ 8   : 00000001 2b2ec3fc f0000000 00000001
+[    3.396000] $12   : 80672812 c9b3be00 00000000 2b2ce318
+[    3.396000] $16   : 7fe7e1f0 2b2e5128 00bd301e 00000000
+[    3.396000] $20   : 00469120 7fe7e172 00000000 00447cdc
+[    3.396000] $24   : 00000062 2b3043d0                  
+[    3.400000] $28   : 2b2f26b0 7fe7e108 00460000 2b2cd0c0
+[    3.400000] Hi    : 00000174
+[    3.400000] Lo    : 00038e1d
+[    3.400000] epc   : 2b3044a0 0x2b3044a0
+[    3.400000]     Not tainted
+[    3.400000] ra    : 2b2cd0c0 0x2b2cd0c0
+[    3.400000] Status: 0000a413    USER EXL IE 
+[    3.400000] Cause : 10800008
+[    3.400000] BadVA : 00000000
+[    3.400000] PrId  : 00019300 (MIPS 24Kc)
 Segmentation fault
-[    3.384000] firmadyne: sys_socket[PID: 114 (init)]: family:1, type:1, protocol:0
-[    3.384000] firmadyne: sys_socket[PID: 114 (init)]: family:1, type:2, protocol:0
+[    3.404000] firmadyne: sys_socket[PID: 114 (init)]: family:1, type:1, protocol:0
+[    3.404000] firmadyne: sys_socket[PID: 114 (init)]: family:1, type:2, protocol:0
 
-rlx-linux login: [  340.492000] firmadyne: sys_socket[PID: 117 (busybox)]: family:1, type:1, protocol:0
-[  340.496000] firmadyne: sys_socket[PID: 117 (busybox)]: family:1, type:2, protocol:0
+rlx-linux login: [  297.524000] firmadyne: sys_socket[PID: 124 (telnetd)]: family:1, type:1, protocol:0
+[  297.524000] firmadyne: sys_socket[PID: 124 (telnetd)]: family:1, type:2, protocol:0
+[  806.896000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.900000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.904000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.904000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.908000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.908000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.912000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.912000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.912000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.916000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.916000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.920000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.920000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.920000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.924000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.924000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.924000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.924000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.928000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.928000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.928000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.928000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.928000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.932000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.932000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.932000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.932000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.932000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.936000] firmadyne: sys_socket[PID: 128 (iptables)]: family:2, type:3, protocol:255
+[  806.940000] firmadyne: sys_setsockopt[PID: 128 (iptables)]: fd:3, level:0, optname:64
+[  806.940000] firmadyne: sys_setsockopt[PID: 128 (iptables)]: fd:3, level:0, optname:65
+[  814.432000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.432000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.432000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.436000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.436000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.436000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.440000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.440000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.440000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.444000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.444000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.444000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.448000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.448000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.448000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.448000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.452000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.452000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.452000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.456000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.456000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.456000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.460000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.460000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.460000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.460000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.464000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.464000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.468000] firmadyne: sys_socket[PID: 177 (iptables)]: family:2, type:3, protocol:255
+[  814.468000] firmadyne: sys_setsockopt[PID: 177 (iptables)]: fd:3, level:0, optname:64
+[  814.472000] firmadyne: sys_setsockopt[PID: 177 (iptables)]: fd:3, level:0, optname:65
+[  821.860000] firmadyne: sys_socket[PID: 226 (telnetd)]: family:1, type:1, protocol:0
+[  821.860000] firmadyne: sys_socket[PID: 226 (telnetd)]: family:1, type:2, protocol:0
+[ 1099.552000] firmadyne: sys_socket[PID: 230 (telnetd)]: family:1, type:1, protocol:0
+[ 1099.556000] firmadyne: sys_socket[PID: 230 (telnetd)]: family:1, type:2, protocol:0
+[ 1147.744000] firmadyne: sys_socket[PID: 233 (ifconfig)]: family:2, type:1, protocol:0
+[ 1147.748000] firmadyne: sys_socket[PID: 233 (ifconfig)]: family:2, type:1, protocol:0
+[ 1147.748000] firmadyne: sys_socket[PID: 233 (ifconfig)]: family:2, type:1, protocol:0
+[ 1288.420000] firmadyne: sys_socket[PID: 241 (telnetd)]: family:1, type:1, protocol:0
+[ 1288.420000] firmadyne: sys_socket[PID: 241 (telnetd)]: family:1, type:2, protocol:0
+[ 1324.216000] firmadyne: sys_socket[PID: 243 (telnetd)]: family:1, type:1, protocol:0
+[ 1324.216000] firmadyne: sys_socket[PID: 243 (telnetd)]: family:1, type:2, protocol:0
+[ 1413.412000] firmadyne: sys_socket[PID: 249 (telnetd)]: family:1, type:1, protocol:0
+[ 1413.416000] firmadyne: sys_socket[PID: 249 (telnetd)]: family:1, type:2, protocol:0
+[ 1472.284000] firmadyne: sys_socket[PID: 251 (busybox)]: family:1, type:1, protocol:0
+[ 1472.288000] firmadyne: sys_socket[PID: 251 (busybox)]: family:1, type:2, protocol:0
+[ 1605.292000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.292000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.292000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.296000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.296000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.296000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.296000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.308000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1605.308000] firmadyne: sys_socket[PID: 259 (ifconfig)]: family:2, type:1, protocol:0
+[ 1653.976000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1653.976000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1653.984000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1653.988000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1653.992000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1653.996000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1653.996000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1654.000000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1654.004000] firmadyne: sys_socket[PID: 261 (ifconfig)]: family:2, type:1, protocol:0
+[ 1689.920000] firmadyne: sys_socket[PID: 262 (ifconfig)]: family:2, type:1, protocol:0
+[ 1689.924000] firmadyne: __inet_insert_ifa[PID: 262 (ifconfig)]: device:eth0 ifa:0xc0a80afd
+[ 1689.936000] e1000: eth0 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[ 1689.956000] 8021q: adding VLAN 0 to HW filter on device eth0
+[ 1700.112000] eth0: no IPv6 routers present
+[ 1700.904000] firmadyne: sys_socket[PID: 263 (ifconfig)]: family:2, type:1, protocol:0
+[ 1871.932000] firmadyne: sys_socket[PID: 264 (boa)]: family:2, type:1, protocol:0
+[ 1871.936000] do_page_fault() #2: sending SIGSEGV to boa for invalid read access from
+[ 1871.936000] 00000000 (epc == 2b8be4a0, ra == 2b8870c0)
+[ 1871.940000] Cpu 0
+[ 1871.940000] $ 0   : 00000000 1000a400 005dc022 00000000
+[ 1871.940000] $ 4   : 005dc022 00000000 00000004 00000004
+[ 1871.940000] $ 8   : 00000001 2b8a63fc f0000000 00000001
+[ 1871.940000] $12   : 80672812 d8149000 000001b3 2b888318
+[ 1871.940000] $16   : 7fe4ce30 2b89f128 005dc01e 00000000
+[ 1871.944000] $20   : 00469120 7fe4cdb2 00000000 00447cdc
+[ 1871.944000] $24   : 00000062 2b8be3d0                  
+[ 1871.944000] $28   : 2b8ac6b0 7fe4cd48 00460000 2b8870c0
+[ 1871.944000] Hi    : 00000174
+[ 1871.944000] Lo    : 00038e1d
+[ 1871.944000] epc   : 2b8be4a0 0x2b8be4a0
+[ 1871.944000]     Not tainted
+[ 1871.944000] ra    : 2b8870c0 0x2b8870c0
+[ 1871.944000] Status: 0000a413    USER EXL IE 
+[ 1871.948000] Cause : 10800008
+[ 1871.948000] BadVA : 00000000
+[ 1871.948000] PrId  : 00019300 (MIPS 24Kc)
+[ 1871.948000] Modules linked in:
+[ 1871.948000] Process boa (pid: 264, threadinfo=8f08e000, task=8fb7c038, tls=0041cbdc)
+[ 1871.948000] Stack : 00000000 00000001 00000006 00000100 2b8ac6b0 7fe4cd60 00aa0004 00000008
+[ 1871.952000]         00000008 7fe4cd70 7fe4ce30 2b89f128 005dc01e 00000000 00469120 7fe4cdb2
+[ 1871.952000]         00000000 00447cdc 00460000 2b886f74 00000062 00000009 0000001d 2b885f30
+[ 1871.952000]         2b8ac6b0 00447cdc 00000000 2b85d8e8 2b8a8c0c 2b8a63fc 005dc018 00000003
+[ 1871.952000]         005dc01e 00000001 00469120 00447c6c 00447de0 00447cdc 00460000 2b887164
+[ 1871.956000]         ...
+[ 1871.956000] Call Trace:
+[ 1871.956000] 
+[ 1871.956000] 
+[ 1871.956000] Code: ac88fffc  18c00006  00c53821 <80a80000> 24840001  24a50001  14a7fffc  a088ffff  03e00008 
+[ 1871.956000] boa/264: potentially unexpected fatal signal 11.
+[ 1871.956000] 
+[ 1871.956000] Cpu 0
+[ 1871.956000] $ 0   : 00000000 1000a400 005dc022 00000000
+[ 1871.960000] $ 4   : 005dc022 00000000 00000004 00000004
+[ 1871.960000] $ 8   : 00000001 2b8a63fc f0000000 00000001
+[ 1871.960000] $12   : 80672812 d8149000 000001b3 2b888318
+[ 1871.960000] $16   : 7fe4ce30 2b89f128 005dc01e 00000000
+[ 1871.960000] $20   : 00469120 7fe4cdb2 00000000 00447cdc
+[ 1871.964000] $24   : 00000062 2b8be3d0                  
+[ 1871.964000] $28   : 2b8ac6b0 7fe4cd48 00460000 2b8870c0
+[ 1871.964000] Hi    : 00000174
+[ 1871.964000] Lo    : 00038e1d
+[ 1871.964000] epc   : 2b8be4a0 0x2b8be4a0
+[ 1871.964000]     Not tainted
+[ 1871.964000] ra    : 2b8870c0 0x2b8870c0
+[ 1871.964000] Status: 0000a413    USER EXL IE 
+[ 1871.964000] Cause : 10800008
+[ 1871.964000] BadVA : 00000000
+[ 1871.964000] PrId  : 00019300 (MIPS 24Kc)
+[ 1881.848000] firmadyne: sys_socket[PID: 269 (busybox)]: family:1, type:1, protocol:0
+[ 1881.848000] firmadyne: sys_socket[PID: 269 (busybox)]: family:1, type:2, protocol:0
+[ 1935.468000] firmadyne: sys_socket[PID: 272 (boa)]: family:2, type:1, protocol:0
+[ 1935.468000] do_page_fault() #2: sending SIGSEGV to boa for invalid read access from
+[ 1935.468000] 00000000 (epc == 2abd44a0, ra == 2ab9d0c0)
+[ 1935.472000] Cpu 0
+[ 1935.472000] $ 0   : 00000000 1000a400 00b49022 00000000
+[ 1935.472000] $ 4   : 00b49022 00000000 00000004 00000004
+[ 1935.472000] $ 8   : 00000001 2abbc3fc f0000000 00000001
+[ 1935.472000] $12   : 80672812 a2e1f300 000001c2 2ab9e318
+[ 1935.476000] $16   : 7fe61690 2abb5128 00b4901e 00000000
+[ 1935.476000] $20   : 00469120 7fe61612 00000000 00447cdc
+[ 1935.476000] $24   : 00000062 2abd43d0                  
+[ 1935.476000] $28   : 2abc26b0 7fe615a8 00460000 2ab9d0c0
+[ 1935.476000] Hi    : 00000174
+[ 1935.476000] Lo    : 00038e1d
+[ 1935.476000] epc   : 2abd44a0 0x2abd44a0
+[ 1935.476000]     Not tainted
+[ 1935.480000] ra    : 2ab9d0c0 0x2ab9d0c0
+[ 1935.480000] Status: 0000a413    USER EXL IE 
+[ 1935.480000] Cause : 10800008
+[ 1935.480000] BadVA : 00000000
+[ 1935.480000] PrId  : 00019300 (MIPS 24Kc)
+[ 1935.480000] Modules linked in:
+[ 1935.480000] Process boa (pid: 272, threadinfo=8f08e000, task=8f02ed80, tls=0041cbdc)
+[ 1935.480000] Stack : 00000000 00000001 00000006 00000100 2abc26b0 7fe615c0 00aa0004 00000008
+[ 1935.484000]         00000008 7fe615d0 7fe61690 2abb5128 00b4901e 00000000 00469120 7fe61612
+[ 1935.484000]         00000000 00447cdc 00460000 2ab9cf74 00000062 00000009 0000001d 2ab9bf30
+[ 1935.484000]         2abc26b0 00447cdc 00000000 2ab738e8 2abbec0c 2abbc3fc 00b49018 00000003
+[ 1935.484000]         00b4901e 00000001 00469120 00447c6c 00447de0 00447cdc 00460000 2ab9d164
+[ 1935.488000]         ...
+[ 1935.488000] Call Trace:
+[ 1935.488000] 
+[ 1935.488000] 
+[ 1935.488000] Code: ac88fffc  18c00006  00c53821 <80a80000> 24840001  24a50001  14a7fffc  a088ffff  03e00008 
+[ 1935.488000] boa/272: potentially unexpected fatal signal 11.
+[ 1935.488000] 
+[ 1935.488000] Cpu 0
+[ 1935.488000] $ 0   : 00000000 1000a400 00b49022 00000000
+[ 1935.492000] $ 4   : 00b49022 00000000 00000004 00000004
+[ 1935.492000] $ 8   : 00000001 2abbc3fc f0000000 00000001
+[ 1935.492000] $12   : 80672812 a2e1f300 000001c2 2ab9e318
+[ 1935.492000] $16   : 7fe61690 2abb5128 00b4901e 00000000
+[ 1935.492000] $20   : 00469120 7fe61612 00000000 00447cdc
+[ 1935.492000] $24   : 00000062 2abd43d0                  
+[ 1935.496000] $28   : 2abc26b0 7fe615a8 00460000 2ab9d0c0
+[ 1935.496000] Hi    : 00000174
+[ 1935.496000] Lo    : 00038e1d
+[ 1935.496000] epc   : 2abd44a0 0x2abd44a0
+[ 1935.496000]     Not tainted
+[ 1935.496000] ra    : 2ab9d0c0 0x2ab9d0c0
+[ 1935.496000] Status: 0000a413    USER EXL IE 
+[ 1935.496000] Cause : 10800008
+[ 1935.496000] BadVA : 00000000
+[ 1935.496000] PrId  : 00019300 (MIPS 24Kc)
