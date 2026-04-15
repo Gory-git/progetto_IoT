@@ -1,0 +1,755 @@
+[    0.000000] Linux version 2.6.39.4+ (ddcc@ddcc-virtual) (gcc version 5.3.0 (GCC) ) #2 Tue Sep 1 18:08:53 EDT 2020
+[    0.000000] bootconsole [early0] enabled
+[    0.000000] CPU revision is: 00019300 (MIPS 24Kc)
+[    0.000000] FPU revision is: 00739300
+[    0.000000] Determined physical RAM map:
+[    0.000000]  memory: 00001000 @ 00000000 (reserved)
+[    0.000000]  memory: 000ef000 @ 00001000 (ROM data)
+[    0.000000]  memory: 00678000 @ 000f0000 (reserved)
+[    0.000000]  memory: 0f897000 @ 00768000 (usable)
+[    0.000000] debug: ignoring loglevel setting.
+[    0.000000] Wasting 60672 bytes for tracking 1896 unused pages
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Zone PFN ranges:
+[    0.000000]   DMA      0x00000000 -> 0x00001000
+[    0.000000]   Normal   0x00001000 -> 0x0000ffff
+[    0.000000] Movable zone start PFN for each node
+[    0.000000] early_node_map[1] active PFN ranges
+[    0.000000]     0: 0x00000000 -> 0x0000ffff
+[    0.000000] On node 0 totalpages: 65535
+[    0.000000] free_area_init_node: node 0, pgdat 80702800, node_mem_map 81000000
+[    0.000000]   DMA zone: 32 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 4064 pages, LIFO batch:0
+[    0.000000]   Normal zone: 480 pages used for memmap
+[    0.000000]   Normal zone: 60959 pages, LIFO batch:15
+[    0.000000] pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+[    0.000000] pcpu-alloc: [0] 0 
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65023
+[    0.000000] Kernel command line: firmadyne.syscall=1 root=/dev/sda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.sh rw debug ignore_loglevel print-fatal-signals=1
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Primary instruction cache 2kB, VIPT, 2-way, linesize 16 bytes.
+[    0.000000] Primary data cache 2kB, 2-way, VIPT, no aliases, linesize 16 bytes
+[    0.000000] Writing ErrCtl register=00000000
+[    0.000000] Readback ErrCtl register=00000000
+[    0.000000] Memory: 252264k/254556k available (4554k kernel code, 2292k reserved, 1609k data, 240k init, 0k highmem)
+[    0.000000] NR_IRQS:256
+[    0.000000] CPU frequency 320.00 MHz
+[    0.000000] Console: colour dummy device 80x25
+[    0.004000] Calibrating delay loop... 847.87 BogoMIPS (lpj=1695744)
+[    0.056000] pid_max: default: 32768 minimum: 301
+[    0.056000] Mount-cache hash table entries: 512
+[    0.064000] Performance counters: No available PMU.
+[    0.072000] NET: Registered protocol family 16
+[    0.084000] bio: create slab <bio-0> at 0
+[    0.084000] vgaarb: loaded
+[    0.088000] SCSI subsystem initialized
+[    0.088000] libata version 3.00 loaded.
+[    0.088000] usbcore: registered new interface driver usbfs
+[    0.088000] usbcore: registered new interface driver hub
+[    0.088000] usbcore: registered new device driver usb
+[    0.092000] pci 0000:00:00.0: [11ab:4620] type 0 class 0x000600
+[    0.092000] pci 0000:00:00.0: reg 10: [mem 0x00000000-0x00000fff pref]
+[    0.092000] pci 0000:00:00.0: reg 14: [mem 0x01000000-0x01000fff pref]
+[    0.092000] pci 0000:00:00.0: reg 18: [mem 0x1c000000-0x1c000fff]
+[    0.092000] pci 0000:00:00.0: reg 1c: [mem 0x1f000000-0x1f000fff]
+[    0.092000] pci 0000:00:00.0: reg 20: [mem 0x1be00000-0x1be00fff]
+[    0.092000] pci 0000:00:00.0: reg 24: [io  0x14000000-0x14000fff]
+[    0.096000] pci 0000:00:0a.0: [8086:7110] type 0 class 0x000601
+[    0.096000] pci 0000:00:0a.1: [8086:7111] type 0 class 0x000101
+[    0.096000] pci 0000:00:0a.1: reg 20: [io  0x0000-0x000f]
+[    0.096000] pci 0000:00:0a.2: [8086:7112] type 0 class 0x000c03
+[    0.096000] pci 0000:00:0a.2: reg 20: [io  0x0000-0x001f]
+[    0.096000] pci 0000:00:0a.3: [8086:7113] type 0 class 0x000680
+[    0.096000] pci 0000:00:0a.3: address space collision: [io  0x1100-0x110f] conflicts with GT-64120 PCI I/O [io  0x1000-0x1fffff]
+[    0.100000] pci 0000:00:12.0: [1013:00b8] type 0 class 0x000300
+[    0.100000] pci 0000:00:12.0: reg 10: [mem 0x00000000-0x01ffffff pref]
+[    0.100000] pci 0000:00:12.0: reg 14: [mem 0x00000000-0x00000fff]
+[    0.100000] pci 0000:00:12.0: reg 30: [mem 0x00000000-0x0000ffff pref]
+[    0.100000] pci 0000:00:13.0: [8086:100e] type 0 class 0x000200
+[    0.100000] pci 0000:00:13.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.100000] pci 0000:00:13.0: reg 14: [io  0x0000-0x003f]
+[    0.100000] pci 0000:00:13.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.100000] pci 0000:00:14.0: [8086:100e] type 0 class 0x000200
+[    0.100000] pci 0000:00:14.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.100000] pci 0000:00:14.0: reg 14: [io  0x0000-0x003f]
+[    0.100000] pci 0000:00:14.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.104000] pci 0000:00:15.0: [8086:100e] type 0 class 0x000200
+[    0.104000] pci 0000:00:15.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.104000] pci 0000:00:15.0: reg 14: [io  0x0000-0x003f]
+[    0.104000] pci 0000:00:15.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.104000] pci 0000:00:16.0: [8086:100e] type 0 class 0x000200
+[    0.104000] pci 0000:00:16.0: reg 10: [mem 0x00000000-0x0001ffff]
+[    0.104000] pci 0000:00:16.0: reg 14: [io  0x0000-0x003f]
+[    0.104000] pci 0000:00:16.0: reg 30: [mem 0x00000000-0x0003ffff pref]
+[    0.104000] vgaarb: device added: PCI:0000:00:12.0,decodes=io+mem,owns=none,locks=none
+[    0.108000] pci 0000:00:0a.3: BAR 8: [io  0x1100-0x110f] has bogus alignment
+[    0.108000] pci 0000:00:12.0: BAR 0: assigned [mem 0x10000000-0x11ffffff pref]
+[    0.108000] pci 0000:00:12.0: BAR 0: set to [mem 0x10000000-0x11ffffff pref] (PCI address [0x10000000-0x11ffffff])
+[    0.108000] pci 0000:00:13.0: BAR 6: assigned [mem 0x12000000-0x1203ffff pref]
+[    0.108000] pci 0000:00:14.0: BAR 6: assigned [mem 0x12040000-0x1207ffff pref]
+[    0.108000] pci 0000:00:15.0: BAR 6: assigned [mem 0x12080000-0x120bffff pref]
+[    0.108000] pci 0000:00:16.0: BAR 6: assigned [mem 0x120c0000-0x120fffff pref]
+[    0.112000] pci 0000:00:13.0: BAR 0: assigned [mem 0x12100000-0x1211ffff]
+[    0.112000] pci 0000:00:13.0: BAR 0: set to [mem 0x12100000-0x1211ffff] (PCI address [0x12100000-0x1211ffff])
+[    0.112000] pci 0000:00:14.0: BAR 0: assigned [mem 0x12120000-0x1213ffff]
+[    0.112000] pci 0000:00:14.0: BAR 0: set to [mem 0x12120000-0x1213ffff] (PCI address [0x12120000-0x1213ffff])
+[    0.112000] pci 0000:00:15.0: BAR 0: assigned [mem 0x12140000-0x1215ffff]
+[    0.112000] pci 0000:00:15.0: BAR 0: set to [mem 0x12140000-0x1215ffff] (PCI address [0x12140000-0x1215ffff])
+[    0.112000] pci 0000:00:16.0: BAR 0: assigned [mem 0x12160000-0x1217ffff]
+[    0.112000] pci 0000:00:16.0: BAR 0: set to [mem 0x12160000-0x1217ffff] (PCI address [0x12160000-0x1217ffff])
+[    0.112000] pci 0000:00:12.0: BAR 6: assigned [mem 0x12180000-0x1218ffff pref]
+[    0.112000] pci 0000:00:12.0: BAR 1: assigned [mem 0x12190000-0x12190fff]
+[    0.116000] pci 0000:00:12.0: BAR 1: set to [mem 0x12190000-0x12190fff] (PCI address [0x12190000-0x12190fff])
+[    0.116000] pci 0000:00:13.0: BAR 1: assigned [io  0x1000-0x103f]
+[    0.116000] pci 0000:00:13.0: BAR 1: set to [io  0x1000-0x103f] (PCI address [0x1000-0x103f])
+[    0.116000] pci 0000:00:14.0: BAR 1: assigned [io  0x1040-0x107f]
+[    0.116000] pci 0000:00:14.0: BAR 1: set to [io  0x1040-0x107f] (PCI address [0x1040-0x107f])
+[    0.116000] pci 0000:00:15.0: BAR 1: assigned [io  0x1080-0x10bf]
+[    0.116000] pci 0000:00:15.0: BAR 1: set to [io  0x1080-0x10bf] (PCI address [0x1080-0x10bf])
+[    0.116000] pci 0000:00:16.0: BAR 1: assigned [io  0x10c0-0x10ff]
+[    0.116000] pci 0000:00:16.0: BAR 1: set to [io  0x10c0-0x10ff] (PCI address [0x10c0-0x10ff])
+[    0.116000] pci 0000:00:0a.2: BAR 4: assigned [io  0x1400-0x141f]
+[    0.116000] pci 0000:00:0a.2: BAR 4: set to [io  0x1400-0x141f] (PCI address [0x1400-0x141f])
+[    0.116000] pci 0000:00:0a.1: BAR 4: assigned [io  0x1420-0x142f]
+[    0.120000] pci 0000:00:0a.1: BAR 4: set to [io  0x1420-0x142f] (PCI address [0x1420-0x142f])
+[    0.124000] cfg80211: Calling CRDA to update world regulatory domain
+[    0.128000] Switching to clocksource MIPS
+[    0.132000] Switched to NOHz mode on CPU #0
+[    0.132000] NET: Registered protocol family 2
+[    0.132000] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.136000] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.136000] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.136000] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.136000] TCP reno registered
+[    0.136000] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.140000] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.140000] NET: Registered protocol family 1
+[    0.140000] PCI: CLS 0 bytes, default 64
+[    0.204000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.204000] Registering unionfs 2.6 (for 2.6.39.4)
+[    0.204000] JFFS2 version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+[    0.208000] ROMFS MTD (C) 2007 Red Hat, Inc.
+[    0.208000] msgmni has been set to 492
+[    0.212000] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+[    0.212000] io scheduler noop registered
+[    0.212000] io scheduler cfq registered (default)
+[    0.212000] firmadyne: devfs: 1, execute: 1, procfs: 1, syscall: 1
+[    0.216000] firmadyne: Cannot register character device: watchdog, 0xa, 0x82!
+[    0.216000] firmadyne: Cannot register character device: wdt, 0xfd, 0x0!
+[    0.248000] PCI: Enabling device 0000:00:12.0 (0000 -> 0002)
+[    0.248000] cirrusfb 0000:00:12.0: Cirrus Logic chipset on PCI bus, RAM (4096 kB) at 0x10000000
+[    0.480000] Console: switching to colour frame buffer device 80x30
+[    0.496000] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+[    0.520000] serial8250.0: ttyS0 at I/O 0x3f8 (irq = 4) is a 16550A
+[    0.524000] console [ttyS0] enabled, bootconsole disabled
+[    0.524000] console [ttyS0] enabled, bootconsole disabled
+[    0.544000] serial8250.0: ttyS1 at I/O 0x2f8 (irq = 3) is a 16550A
+[    0.548000] brd: module loaded
+[    0.552000] loop: module loaded
+[    0.552000] ata_piix 0000:00:0a.1: version 2.13
+[    0.552000] PCI: Enabling device 0000:00:0a.1 (0000 -> 0001)
+[    0.556000] PCI: Setting latency timer of device 0000:00:0a.1 to 64
+[    0.560000] scsi0 : ata_piix
+[    0.560000] scsi1 : ata_piix
+[    0.560000] ata1: PATA max UDMA/33 cmd 0x1f0 ctl 0x3f6 bmdma 0x1420 irq 14
+[    0.560000] ata2: PATA max UDMA/33 cmd 0x170 ctl 0x376 bmdma 0x1428 irq 15
+[    0.564000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.564000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.564000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.568000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.568000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.568000] [nandsim] warning: read_byte: unexpected data output cycle, state is STATE_READY return 0x0
+[    0.568000] NAND device: Manufacturer ID: 0x98, Chip ID: 0x39 (Toshiba NAND 128MiB 1,8V 8-bit)
+[    0.568000] flash size: 128 MiB
+[    0.568000] page size: 512 bytes
+[    0.568000] OOB area size: 16 bytes
+[    0.568000] sector size: 16 KiB
+[    0.568000] pages number: 262144
+[    0.572000] pages per sector: 32
+[    0.572000] bus width: 8
+[    0.572000] bits in sector size: 14
+[    0.572000] bits in page size: 9
+[    0.572000] bits in OOB size: 4
+[    0.572000] flash size with OOB: 135168 KiB
+[    0.572000] page address bytes: 4
+[    0.572000] sector address bytes: 3
+[    0.572000] options: 0x62
+[    0.572000] Scanning device for bad blocks
+[    0.616000] Creating 11 MTD partitions on "NAND 128MiB 1,8V 8-bit":
+[    0.616000] 0x000000000000-0x000000100000 : "NAND simulator partition 0"
+[    0.624000] 0x000000100000-0x000000200000 : "NAND simulator partition 1"
+[    0.624000] 0x000000200000-0x000000300000 : "NAND simulator partition 2"
+[    0.624000] 0x000000300000-0x000000400000 : "NAND simulator partition 3"
+[    0.624000] 0x000000400000-0x000000500000 : "NAND simulator partition 4"
+[    0.624000] 0x000000500000-0x000000600000 : "NAND simulator partition 5"
+[    0.628000] 0x000000600000-0x000000700000 : "NAND simulator partition 6"
+[    0.628000] 0x000000700000-0x000000800000 : "NAND simulator partition 7"
+[    0.628000] 0x000000800000-0x000000900000 : "NAND simulator partition 8"
+[    0.628000] 0x000000900000-0x000000a00000 : "NAND simulator partition 9"
+[    0.628000] 0x000000a00000-0x000008000000 : "NAND simulator partition 10"
+[    0.632000] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    0.632000] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    0.632000] PCI: Enabling device 0000:00:13.0 (0000 -> 0003)
+[    0.632000] PCI: Setting latency timer of device 0000:00:13.0 to 64
+[    0.892000] ata2.01: NODEV after polling detection
+[    0.896000] ata2.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100
+[    0.896000] ata2.00: configured for UDMA/33
+[    0.900000] ata1.01: NODEV after polling detection
+[    0.900000] ata1.00: ATA-7: QEMU HARDDISK, 2.5+, max UDMA/100
+[    0.900000] ata1.00: 32768 sectors, multi 16: LBA48 
+[    0.900000] ata1.00: configured for UDMA/33
+[    0.908000] scsi 0:0:0:0: Direct-Access     ATA      QEMU HARDDISK    2.5+ PQ: 0 ANSI: 5
+[    0.912000] scsi 1:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5
+[    0.916000] sd 0:0:0:0: [sda] 32768 512-byte logical blocks: (16.7 MB/16.0 MiB)
+[    0.916000] sd 0:0:0:0: [sda] Write Protect is off
+[    0.916000] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    0.916000] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    0.940000] e1000 0000:00:13.0: eth0: (PCI:33MHz:32-bit) 52:54:00:12:34:56
+[    0.940000] e1000 0000:00:13.0: eth0: Intel(R) PRO/1000 Network Connection
+[    0.940000] PCI: Enabling device 0000:00:14.0 (0000 -> 0003)
+[    0.940000] PCI: Setting latency timer of device 0000:00:14.0 to 64
+[    0.948000]  sda: sda1
+[    0.956000] sd 0:0:0:0: [sda] Attached SCSI disk
+[    1.232000] e1000 0000:00:14.0: eth1: (PCI:33MHz:32-bit) 52:54:00:12:34:57
+[    1.232000] e1000 0000:00:14.0: eth1: Intel(R) PRO/1000 Network Connection
+[    1.232000] PCI: Enabling device 0000:00:15.0 (0000 -> 0003)
+[    1.232000] PCI: Setting latency timer of device 0000:00:15.0 to 64
+[    1.528000] e1000 0000:00:15.0: eth2: (PCI:33MHz:32-bit) 52:54:00:12:34:58
+[    1.528000] e1000 0000:00:15.0: eth2: Intel(R) PRO/1000 Network Connection
+[    1.528000] PCI: Enabling device 0000:00:16.0 (0000 -> 0003)
+[    1.528000] PCI: Setting latency timer of device 0000:00:16.0 to 64
+[    1.820000] e1000 0000:00:16.0: eth3: (PCI:33MHz:32-bit) 52:54:00:12:34:59
+[    1.820000] e1000 0000:00:16.0: eth3: Intel(R) PRO/1000 Network Connection
+[    1.820000] e1000e: Intel(R) PRO/1000 Network Driver - 1.3.10-k2
+[    1.820000] e1000e: Copyright(c) 1999 - 2011 Intel Corporation.
+[    1.820000] pcnet32: pcnet32.c:v1.35 21.Apr.2008 tsbogend@alpha.franken.de
+[    1.820000] PPP generic driver version 2.4.2
+[    1.820000] PPP Deflate Compression module registered
+[    1.828000] PPP MPPE Compression module registered
+[    1.828000] NET: Registered protocol family 24
+[    1.828000] tun: Universal TUN/TAP device driver, 1.6
+[    1.828000] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    1.828000] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.828000] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.828000] uhci_hcd: USB Universal Host Controller Interface driver
+[    1.828000] PCI: Enabling device 0000:00:0a.2 (0000 -> 0001)
+[    1.832000] PCI: Setting latency timer of device 0000:00:0a.2 to 64
+[    1.832000] uhci_hcd 0000:00:0a.2: UHCI Host Controller
+[    1.832000] uhci_hcd 0000:00:0a.2: new USB bus registered, assigned bus number 1
+[    1.832000] uhci_hcd 0000:00:0a.2: irq 11, io base 0x00001400
+[    1.840000] hub 1-0:1.0: USB hub found
+[    1.840000] hub 1-0:1.0: 2 ports detected
+[    1.840000] Initializing USB Mass Storage driver...
+[    1.840000] usbcore: registered new interface driver usb-storage
+[    1.840000] USB Mass Storage support registered.
+[    1.844000] serio: i8042 KBD port at 0x60,0x64 irq 1
+[    1.848000] serio: i8042 AUX port at 0x60,0x64 irq 12
+[    1.848000] mousedev: PS/2 mouse device common for all mice
+[    1.852000] rtc_cmos rtc_cmos: rtc core: registered rtc_cmos as rtc0
+[    1.852000] rtc0: alarms up to one day, 242 bytes nvram
+[    1.852000] i2c /dev entries driver
+[    1.852000] piix4_smbus 0000:00:0a.3: SMBus Host Controller at 0x1100, revision 0
+[    1.852000] sdhci: Secure Digital Host Controller Interface driver
+[    1.856000] sdhci: Copyright(c) Pierre Ossman
+[    1.856000] usbcore: registered new interface driver usbhid
+[    1.856000] usbhid: USB HID core driver
+[    1.856000] Netfilter messages via NETLINK v0.30.
+[    1.856000] nf_conntrack version 0.5.0 (3941 buckets, 15764 max)
+[    1.860000] ctnetlink v0.93: registering with nfnetlink.
+[    1.860000] IPv4 over IPv4 tunneling driver
+[    1.860000] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    1.864000] arp_tables: (C) 2002 David S. Miller
+[    1.864000] TCP cubic registered
+[    1.864000] Initializing XFRM netlink socket
+[    1.868000] NET: Registered protocol family 10
+[    1.872000] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    1.872000] IPv6 over IPv4 tunneling driver
+[    1.876000] NET: Registered protocol family 17
+[    1.876000] Bridge firewalling registered
+[    1.876000] Ebtables v2.0 registered
+[    1.876000] 802.1Q VLAN Support v1.8 Ben Greear <greearb@candelatech.com>
+[    1.876000] All bugs added by David S. Miller <davem@redhat.com>
+[    1.876000] lib80211: common routines for IEEE802.11 drivers
+[    1.876000] lib80211_crypt: registered algorithm 'NULL'
+[    1.880000] rtc_cmos rtc_cmos: setting system clock to 2026-04-15 09:14:08 UTC (1776244448)
+[    1.948000] input: AT Raw Set 2 keyboard as /devices/platform/i8042/serio0/input/input0
+[    2.152000] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input1
+[    2.172000] EXT2-fs (sda1): warning: mounting unchecked fs, running e2fsck is recommended
+[    2.176000] VFS: Mounted root (ext2 filesystem) on device 8:1.
+[    2.180000] Freeing prom memory: 956k freed
+[    2.224000] Freeing unused kernel memory: 240k freed
+[    2.264000] firmadyne: sys_reboot[PID: 53 (init)]: magic1:fee1dead, magic2:28121969, cmd:0
+[    2.272000] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:1, protocol:0
+[    2.272000] firmadyne: sys_socket[PID: 1 (init)]: family:1, type:2, protocol:0
+init started: BusyBox v1.13.4 (2013-12-29 13:17:23 CST)
+[    2.284000] firmadyne: sys_socket[PID: 54 (init)]: family:1, type:1, protocol:0
+[    2.284000] firmadyne: sys_socket[PID: 54 (init)]: family:1, type:2, protocol:0
+[    2.284000] firmadyne: do_execve: /firmadyne/console
+[    2.284000] OFFSETS: offset of pid: 0xc4 offset of comm: 0x1a4
+[    2.356000] firmadyne: sys_socket[PID: 56 (ifconfig)]: family:2, type:1, protocol:0
+[    2.360000] firmadyne: __inet_insert_ifa[PID: 56 (ifconfig)]: device:lo ifa:0x7f000001
+[    2.364000] firmadyne: __inet_insert_ifa[PID: 56 (ifconfig)]: device:lo ifa:0x7f000001
+mount: mounting proc on /proc failed: No such file or directory
+Invalid web image! Expect w6cg
+Invalid hw setting signature [sig=  ]!
+HW configuration invalid, reset default!
+Read /proc/version failed!
+set Time Error for tm!nvram_get_int: 321
+sem_lock: Triggering NVRAM initialization!
+nvram_init: Initializing NVRAM...
+sem_get: Key: 4101006c
+sem_get: Key: 410d003f
+nvram_set_default_builtin: Setting built-in default values!
+nvram_set: console_loglevel = "7"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: restore_defaults = "1"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: sku_name = ""
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: wla_wlanstate = ""
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: lan_if = "br0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: lan_ipaddr = "192.168.0.50"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: lan_bipaddr = "192.168.0.255"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: lan_netmask = "255.255.255.0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: time_zone = "EST5EDT"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: wan_hwaddr_def = "01:23:45:67:89:ab"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: wan_ifname = "eth0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: lan_ifnames = "eth1 eth2 eth3 eth4"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: ethConver = "1"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: lan_proto = "dhcp"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: wan_ipaddr = "0.0.0.0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: wan_netmask = "255.255.255.0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: wanif = "eth0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: time_zone_x = "0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: rip_multicast = "0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set: bs_trustedip_enable = "0"
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_set_default: Loading built-in default values = 1!
+nvram_set_default: Checking for symbol "router_defaults"...
+nvram_set_default: Checking for symbol "Nvrams"...
+nvram_set_default_image: Copying overrides from defaults folder!
+sem_get: Key: 410d003f
+cp: cannot stat '/firmadyne/libnvram.override/*': No such file or directory
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+sem_get: Key: 410d003f
+nvram_get_int: Unable to open key: /firmadyne/libnvram/321!
+nvram_get_int: 273
+sem_lock: Triggering NVRAM initialization!
+nvram_init: Initializing NVRAM...
+sem_get: Key: 410d003f
+sem_get: Key: 410e0056
+nvram_set_default_builtin: Setting built-in default values!
+nvram_set: console_loglevel = "7"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: restore_defaults = "1"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: sku_name = ""
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: wla_wlanstate = ""
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: lan_if = "br0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: lan_ipaddr = "192.168.0.50"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: lan_bipaddr = "192.168.0.255"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: lan_netmask = "255.255.255.0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: time_zone = "EST5EDT"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: wan_hwaddr_def = "01:23:45:67:89:ab"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: wan_ifname = "eth0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: lan_ifnames = "eth1 eth2 eth3 eth4"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: ethConver = "1"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: lan_proto = "dhcp"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: wan_ipaddr = "0.0.0.0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: wan_netmask = "255.255.255.0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: wanif = "eth0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: time_zone_x = "0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: rip_multicast = "0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set: bs_trustedip_enable = "0"
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_set_default: Loading built-in default values = 1!
+nvram_set_default: Checking for symbol "router_defaults"...
+nvram_set_default: Checking for symbol "Nvrams"...
+nvram_set_default_image: Copying overrides from defaults folder!
+sem_get: Key: 410e0056
+cp: cannot stat '/firmadyne/libnvram.override/*': No such file or directory
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/273!
+nvram_get_int: 280
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/280!
+nvram_get_int: 279
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/279!
+nvram_get_int: 271
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/271!
+nvram_get_int: 60
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/60!
+nvram_get_int: 276
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/276!
+nvram_get_int: 2
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/2!
+nvram_get_int: 186
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/186!
+nvram_get_int: 186
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/186!
+nvram_get_int: 1303
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/1303!
+nvram_get_int: 279
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/279!
+nvram_get_int: 274
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/274!
+nvram_get_int: 275
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/275!
+nvram_get_int: 272
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/272!
+nvram_get_int: 281
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/281!
+nvram_get_int: 1
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/1!
+nvram_get_int: 59
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/59!
+nvram_get_int: 25
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/25!
+nvram_get_int: 3
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/3!
+nvram_get_int: 12
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/12!
+nvram_get_int: 13
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/13!
+nvram_get_int: 4
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/4!
+nvram_get_int: 5
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/5!
+nvram_get_int: 6
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/6!
+nvram_get_int: 7
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/7!
+nvram_get_int: 8
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/8!
+nvram_get_int: 9
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/9!
+nvram_get_int: 10
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/10!
+nvram_get_int: 11
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/11!
+nvram_get_int: 30
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/30!
+nvram_get_int: 270
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/270!
+nvram_get_int: 22
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/22!
+nvram_get_int: 25
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/25!
+nvram_get_int: 29
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/29!
+nvram_get_int: 38
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/38!
+nvram_get_int: 201
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+nvram_get_int: Unable to open key: /firmadyne/libnvram/201!
+nvram_set_int: 273 = 808464432
+sem_get: Key: 410e0056
+sem_get: Key: 410e0056
+Generated PIN = 00000000
+nvram_get_int: 201
+sem_lock: Triggering NVRAM initialization!
+nvram_init: Initializing NVRAM...
+sem_get: Key: 410e0056
+sem_get: Key: 410f0076
+nvram_set_default_builtin: Setting built-in default values!
+nvram_set: console_loglevel = "7"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: restore_defaults = "1"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: sku_name = ""
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: wla_wlanstate = ""
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: lan_if = "br0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: lan_ipaddr = "192.168.0.50"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: lan_bipaddr = "192.168.0.255"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: lan_netmask = "255.255.255.0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: time_zone = "EST5EDT"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: wan_hwaddr_def = "01:23:45:67:89:ab"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: wan_ifname = "eth0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: lan_ifnames = "eth1 eth2 eth3 eth4"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: ethConver = "1"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: lan_proto = "dhcp"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: wan_ipaddr = "0.0.0.0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: wan_netmask = "255.255.255.0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: wanif = "eth0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: time_zone_x = "0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: rip_multicast = "0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set: bs_trustedip_enable = "0"
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_set_default: Loading built-in default values = 1!
+nvram_set_default: Checking for symbol "router_defaults"...
+nvram_set_default: Checking for symbol "Nvrams"...
+nvram_set_default_image: Copying overrides from defaults folder!
+sem_get: Key: 410f0076
+cp: cannot stat '/firmadyne/libnvram.override/*': No such file or directory
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_get_int: Unable to open key: /firmadyne/libnvram/201!
+nvram_get_int: 203
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_get_int: Unable to open key: /firmadyne/libnvram/203!
+nvram_get_int: 202
+sem_get: Key: 410f0076
+sem_get: Key: 410f0076
+nvram_get_int: Unable to open key: /firmadyne/libnvram/202!
+Read mac address error!
+sysconf init error!
+/etc/init.d/rcS: line 79: can't create /proc/sys/net/ipv4/route/max_size: nonexistent directory
+/etc/init.d/rcS: line 80: can't create /proc/sys/net/ipv4/route/gc_thresh: nonexistent directory
+/etc/init.d/rcS: line 81: can't create /proc/sys/net/ipv4/route/gc_elasticity: nonexistent directory
+/etc/init.d/rcS: line 82: can't create /proc/sys/net/ipv4/route/gc_interval: nonexistent directory
+/etc/init.d/rcS: line 83: can't create /proc/sys/net/ipv4/route/secret_interval: nonexistent directory
+/etc/init.d/rcS: line 84: can't create /proc/sys/net/ipv4/route/gc_timeout: nonexistent directory
+/etc/init.d/rcS: line 87: can't create /proc/sys/net/netfilter/nf_conntrack_max: nonexistent directory
+/etc/init.d/rcS: line 88: can't create /proc/sys/net/ipv4/netfilter/ip_conntrack_tcp_timeout_established: nonexistent directory
+/etc/init.d/rcS: line 89: can't create /proc/sys/net/ipv4/netfilter/ip_conntrack_tcp_timeout_time_wait: nonexistent directory
+/etc/init.d/rcS: line 90: can't create /proc/sys/net/ipv4/netfilter/ip_conntrack_tcp_timeout_close: nonexistent directory
+/etc/init.d/rcS: line 91: can't create /proc/sys/net/ipv4/netfilter/ip_conntrack_udp_timeout: nonexistent directory
+/etc/init.d/rcS: line 92: can't create /proc/sys/net/ipv4/netfilter/ip_conntrack_udp_timeout_stream: nonexistent directory
+/etc/init.d/rcS: line 93: can't create /proc/sys/net/ipv4/netfilter/ip_conntrack_generic_timeout: nonexistent directory
+/etc/init.d/rcS: line 94: can't create /proc/sys/net/ipv4/rt_cache_rebuild_count: nonexistent directory
+/etc/init.d/rcS: line 95: can't create /proc/sys/net/netfilter/nf_conntrack_expect_max: nonexistent directory
+[    3.364000] firmadyne: sys_socket[PID: 109 (boa)]: family:2, type:1, protocol:0
+[    3.364000] do_page_fault() #2: sending SIGSEGV to boa for invalid read access from
+[    3.364000] 00000000 (epc == 2b65f4a0, ra == 2b6280c0)
+[    3.364000] Cpu 0
+[    3.364000] $ 0   : 00000000 1000a400 00a45022 00000000
+[    3.364000] $ 4   : 00a45022 00000000 00000004 00000004
+[    3.364000] $ 8   : 00000001 2b6473fc f0000000 00000001
+[    3.368000] $12   : 80672812 c8829100 00000000 2b629318
+[    3.368000] $16   : 7fbcd920 2b640128 00a4501e 00000000
+[    3.368000] $20   : 00469120 7fbcd8a2 00000000 00447cdc
+[    3.368000] $24   : 00000062 2b65f3d0                  
+[    3.368000] $28   : 2b64d6b0 7fbcd838 00460000 2b6280c0
+[    3.368000] Hi    : 00000174
+[    3.368000] Lo    : 00038e1d
+[    3.368000] epc   : 2b65f4a0 0x2b65f4a0
+[    3.368000]     Not tainted
+[    3.368000] ra    : 2b6280c0 0x2b6280c0
+[    3.368000] Status: 0000a413    USER EXL IE 
+[    3.368000] Cause : 10800008
+[    3.368000] BadVA : 00000000
+[    3.368000] PrId  : 00019300 (MIPS 24Kc)
+[    3.368000] Modules linked in:
+[    3.368000] Process boa (pid: 109, threadinfo=8f042000, task=8f02f630, tls=00000000)
+[    3.372000] Stack : 00000000 00000001 00000006 00000100 2b64d6b0 7fbcd850 00aa0004 00000008
+[    3.372000]         00000008 7fbcd860 7fbcd920 2b640128 00a4501e 00000000 00469120 7fbcd8a2
+[    3.372000]         00000000 00447cdc 00460000 2b627f74 00000062 00000009 0000001d 2b626f30
+[    3.372000]         2b64d6b0 00447cdc 00000000 2b5fe8e8 2b649c0c 2b6473fc 00a45018 00000003
+[    3.372000]         00a4501e 00000001 00469120 00447c6c 00447de0 00447cdc 00460000 2b628164
+[    3.372000]         ...
+[    3.372000] Call Trace:
+[    3.372000] 
+[    3.372000] 
+[    3.372000] Code: ac88fffc  18c00006  00c53821 <80a80000> 24840001  24a50001  14a7fffc  a088ffff  03e00008 
+[    3.376000] boa/109: potentially unexpected fatal signal 11.
+[    3.376000] 
+[    3.376000] Cpu 0
+[    3.376000] $ 0   : 00000000 1000a400 00a45022 00000000
+[    3.376000] $ 4   : 00a45022 00000000 00000004 00000004
+[    3.376000] $ 8   : 00000001 2b6473fc f0000000 00000001
+[    3.376000] $12   : 80672812 c8829100 00000000 2b629318
+[    3.376000] $16   : 7fbcd920 2b640128 00a4501e 00000000
+[    3.376000] $20   : 00469120 7fbcd8a2 00000000 00447cdc
+[    3.376000] $24   : 00000062 2b65f3d0                  
+[    3.376000] $28   : 2b64d6b0 7fbcd838 00460000 2b6280c0
+[    3.376000] Hi    : 00000174
+[    3.380000] Lo    : 00038e1d
+[    3.380000] epc   : 2b65f4a0 0x2b65f4a0
+[    3.380000]     Not tainted
+[    3.380000] ra    : 2b6280c0 0x2b6280c0
+[    3.380000] Status: 0000a413    USER EXL IE 
+[    3.380000] Cause : 10800008
+[    3.380000] BadVA : 00000000
+[    3.380000] PrId  : 00019300 (MIPS 24Kc)
+Segmentation fault
+[    3.384000] firmadyne: sys_socket[PID: 114 (init)]: family:1, type:1, protocol:0
+[    3.384000] firmadyne: sys_socket[PID: 114 (init)]: family:1, type:2, protocol:0
+
+rlx-linux login: [  340.492000] firmadyne: sys_socket[PID: 117 (busybox)]: family:1, type:1, protocol:0
+[  340.496000] firmadyne: sys_socket[PID: 117 (busybox)]: family:1, type:2, protocol:0
