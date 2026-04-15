@@ -5,3 +5,10 @@
 5: rendere portabile l'emulazione del firmware ottenuta con firmadyne
 6: studiare come sistemare il firmware
 7: studiare come ricompilare il firmware
+
+
+sudo ./scripts/run.mipseb.interactive.sh 1
+cat /home/gregorio/Documents/progetto_IoT/firmadyne/scratch/1/qemu.initial.serial.log
+sudo socat - UNIX-CONNECT:/tmp/qemu.1.S1
+
+sudo killall qemu-system-mips
