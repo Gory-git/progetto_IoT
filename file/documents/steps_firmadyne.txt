@@ -1,0 +1,74 @@
+0: creazione e inizializzazione db postgresql:
+
+    sudo -u postgres createdb firmadyne
+    sudo -u postgres createuser firmadyne
+    sudo -u postgres psql -c "ALTER USER firmadyne WITH PASSWORD 'firmadyne';"
+    sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE firmadyne TO firmadyne;"
+    sudo -u postgres psql firmadyne < ./database/schema.sql
+
+1: verifica eeprom_backup.bin:
+    ls -lh scratch/1/
+    file eeprom_backup.bin
+
+2: configurazione firmadyne:
+    cat ./firmadyne.config | head -40
+    grep "KERNEL_DIR" ./firmadyne.config
+    grep -r "vmlinuz\|kernel" ./firmadyne.config
+    grep -A 10 "get_kernel" ./firmadyne.config
+
+3: estrazione del firmware:
+    ./scripts/extract.sh eeprom_backup.bin 1 # Risultato: scratch/1/image.raw creato (16M)
+
+4: verifica dei binari:
+    ls -lh ./binaries/
+    file ./binaries/vmlinux.mipseb
+
+5: Risoluzione problema kernel:
+    # Scoperta: manca zImage.mipseb, ma esiste vmlinux.mipseb
+    cd ./binaries/
+    which objcopy
+    objcopy -O binary vmlinux.mipseb zImage.mipseb  # Fallito
+    # Soluzione: symlink
+    ln -s vmlinux.mipseb zImage.mipseb
+    ls -lh zImage.mipseb
+    cd ..
+
+6: lancio emulazione:
+    sudo ./scripts/run.mipseb.sh 1
+
+    6.1: visualizzazione log boot:
+        cat /home/gregorio/Documents/progetto_IoT/firmadyne/scratch/1/qemu.initial.serial.log
+    6.2: connessione al firmware tramite socat:
+        sudo socat - UNIX-CONNECT:/tmp/qemu.1.S1
+
+7: mnodifica script run.mipseb.sh in run.mipseb.interactive.sh:
+    #!/bin/bash
+    set -e
+    set -u
+
+    if [ -e ./firmadyne.config ]; then
+    source ./firmadyne.config
+    elif [ -e ../firmadyne.config ]; then
+    source ../firmadyne.config
+    else
+    echo "Error: Could not find 'firmadyne.config'!"
+    exit 1
+    fi
+
+    if check_number $1; then
+    echo "Usage: run.mipseb.interactive.sh <image ID>"
+    exit 1
+    fi
+    IID=${1}
+
+    WORK_DIR=`get_scratch ${IID}`
+    IMAGE=`get_fs ${IID}`
+    KERNEL=`get_kernel "mipseb"`
+
+    qemu-system-mips -m 256 -M malta -kernel ${KERNEL} -drive if=ide,format=raw,file=${IMAGE} -append "firmadyne.syscall=1 root=/dev/sda1 console=ttyS0 nandsim.parts=64,64,64,64,64,64,64,64,64,64 rdinit=/firmadyne/preInit.shrw debug ignore_loglevel print-fatal-signals=1" -serial stdio -monitor none -display none -nographic -net none
+
+8: lancio emulazione interattiva:
+    sudo ./scripts/run.mipseb.interactive.sh 1
+
+9: rimozione passoword di root per accedere alla cli del router:
+    
