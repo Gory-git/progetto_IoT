@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  12 APR 2026 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  28 APR 2026 16:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1054,7 +1054,18 @@ File: ../imgs/eeprom.jpeg Graphic file (type jpg)
 <use ../imgs/eeprom.jpeg>
 Package pdftex.def Info: ../imgs/eeprom.jpeg  used on input line 172.
 (pdftex.def)             Requested size: 207.56285pt x 219.16147pt.
- [6 <../imgs/boot_log.png>] [7 <../imgs/eeprom.jpeg>] [8] [9] [10] [11] (main.aux)
+ [6 <../imgs/boot_log.png>]
+<../imgs/BY25D16AS/1.png, id=221, 1505.625pt x 1806.75pt>
+File: ../imgs/BY25D16AS/1.png Graphic file (type png)
+<use ../imgs/BY25D16AS/1.png>
+Package pdftex.def Info: ../imgs/BY25D16AS/1.png  used on input line 178.
+(pdftex.def)             Requested size: 207.56285pt x 249.05608pt.
+<../imgs/BY25D16AS/2.png, id=224, 2055.68pt x 1095.09125pt>
+File: ../imgs/BY25D16AS/2.png Graphic file (type png)
+<use ../imgs/BY25D16AS/2.png>
+Package pdftex.def Info: ../imgs/BY25D16AS/2.png  used on input line 183.
+(pdftex.def)             Requested size: 207.56285pt x 110.56825pt.
+ [7 <../imgs/eeprom.jpeg> <../imgs/BY25D16AS/1.png>] [8 <../imgs/BY25D16AS/2.png>] [9] [10] [11] [12] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1066,17 +1077,17 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41719 strings out of 467867
- 956531 string characters out of 5418334
- 1891275 words of memory out of 5000000
- 69951 multiletter control sequences out of 15000+600000
+ 41740 strings out of 467867
+ 957142 string characters out of 5418334
+ 1891332 words of memory out of 5000000
+ 69968 multiletter control sequences out of 15000+600000
  656903 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,12n,133p,793b,1292s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,12n,133p,793b,1571s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/grego/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (12 pages, 803701 bytes).
+Output written on main.pdf (13 pages, 936955 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
- 296 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 306 words of extra memory for PDF output out of 10000 (max. 10000000)
 

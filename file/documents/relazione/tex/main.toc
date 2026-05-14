@@ -7,25 +7,25 @@
 \contentsline {subsection}{\numberline {2.1}Hardware}{4}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}UART}{5}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Eeprom}{7}{subsubsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.2}Information Gathering}{7}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Software}{7}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Eeprom Dumping}{7}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Binary Analysis}{7}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Firmware Emulation}{7}{subsubsection.2.3.3}%
-\contentsline {subsubsection}{\numberline {2.3.4}Firmware Analysis}{7}{subsubsection.2.3.4}%
-\contentsline {section}{\numberline {3}Exploiting}{8}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Login By-pass}{8}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Exploitation}{8}{subsubsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.2}RCE}{8}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Executing Commands}{8}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Gaining Shell}{8}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Arp Poisoning}{8}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}XSS}{8}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Exploitation}{8}{subsubsection.3.3.1}%
-\contentsline {section}{\numberline {4}Fixing}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Binary Patching}{9}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Patching Login By-pass}{9}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Patching RCE}{9}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Patching XSS}{9}{subsubsection.4.1.3}%
-\contentsline {subsection}{\numberline {4.2}Compiling Firmware}{9}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Conclusion}{10}{section.5}%
+\contentsline {subsection}{\numberline {2.2}Information Gathering}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Software}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Eeprom Dumping}{8}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Binary Analysis}{8}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Firmware Emulation}{8}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Firmware Analysis}{8}{subsubsection.2.3.4}%
+\contentsline {section}{\numberline {3}Exploiting}{9}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Login By-pass}{9}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Exploitation}{9}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}RCE}{9}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Executing Commands}{9}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Gaining Shell}{9}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Arp Poisoning}{9}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}XSS}{9}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Exploitation}{9}{subsubsection.3.3.1}%
+\contentsline {section}{\numberline {4}Fixing}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Binary Patching}{10}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Patching Login By-pass}{10}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Patching RCE}{10}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Patching XSS}{10}{subsubsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.2}Compiling Firmware}{10}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusion}{11}{section.5}%
