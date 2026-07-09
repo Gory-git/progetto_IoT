@@ -41,7 +41,7 @@
     6.2: connessione al firmware tramite socat:
         sudo socat - UNIX-CONNECT:/tmp/qemu.1.S1
 
-7: mnodifica script run.mipseb.sh in run.mipseb.interactive.sh:
+7: modifica script run.mipseb.sh in run.mipseb.interactive.sh:
     #!/bin/bash
     set -e
     set -u
@@ -70,5 +70,29 @@
 8: lancio emulazione interattiva:
     sudo ./scripts/run.mipseb.interactive.sh 1
 
-9: rimozione passoword di root per accedere alla cli del router:
-    
+9: rimozione password di root per accedere alla cli del router:
+    # Modifica persistente del rootfs sorgente:
+    #   firmadyne/images/_eeprom_backup.bin.extracted/squashfs-root/etc/passwd
+    #       root::0:0:root:/:/bin/sh
+    #   firmadyne/images/_eeprom_backup.bin.extracted/squashfs-root/etc/inittab
+    #       ::respawn:-/bin/sh
+    #       #::respawn:/bin/getty -L /dev/ttyS0 38400 vt100
+
+    tar --numeric-owner -czf firmadyne/images/1.tar.gz \
+        -C firmadyne/images/_eeprom_backup.bin.extracted/squashfs-root .
+
+    cd firmadyne
+    sudo ./scripts/makeImage.sh 1 mipseb
+
+
+    dd if=firmadyne/scratch/1/image.raw of=/tmp/firmadyne_p1.img \
+        bs=512 skip=2048 count=30720 status=none
+    debugfs -w -R 'rm /etc/passwd' /tmp/firmadyne_p1.img
+    debugfs -w -R 'write /tmp/firmadyne_passwd /etc/passwd' /tmp/firmadyne_p1.img
+    debugfs -w -R 'rm /etc/inittab' /tmp/firmadyne_p1.img
+    debugfs -w -R 'write /tmp/firmadyne_inittab /etc/inittab' /tmp/firmadyne_p1.img
+    dd if=/tmp/firmadyne_p1.img of=firmadyne/scratch/1/image.raw \
+        bs=512 seek=2048 conv=notrunc status=none
+
+    #   /etc/passwd  -> root::0:0:root:/:/bin/sh
+    #   /etc/inittab -> ::respawn:-/bin/sh

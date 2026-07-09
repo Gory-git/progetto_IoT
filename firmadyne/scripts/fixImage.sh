@@ -73,6 +73,15 @@ else
     fi
 fi
 
+INITTAB=$(resolve_link /etc/inittab)
+if [ -s "$INITTAB" ]; then
+    backup_file $INITTAB
+    if $BUSYBOX grep -sq '^::respawn:/bin/getty .*/dev/ttyS0' "$INITTAB"; then
+        echo "Starting an unauthenticated shell on ttyS0 instead of getty"
+        $BUSYBOX sed -ir 's|^::respawn:/bin/getty .*/dev/ttyS0.*|::respawn:-/bin/sh|' "$INITTAB"
+    fi
+fi
+
 # make /dev and add default device nodes if current /dev does not have greater
 # than 5 device nodes
 $BUSYBOX mkdir -p "$(resolve_link /dev)"

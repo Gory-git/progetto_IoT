@@ -42,10 +42,8 @@ echo "#!/bin/sh" > /var/ppp/true
 #for console login
 cp /etc/shadow.sample /var/shadow
 
-#extact web pages
-cd /web
-flash extr /web
-cd /
+# extract web pages
+cp -rf /etc/webimg/* /var/web/
  
 mkdir -p /var/udhcpc
 mkdir -p /var/udhcpd
@@ -99,4 +97,3 @@ echo "32" > /proc/sys/net/netfilter/nf_conntrack_expect_max
 
 # start web server
 boa
-
