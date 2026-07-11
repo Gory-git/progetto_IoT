@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script language="javascript" type="text/javascript" src="util_gw.js"> </script>
+<% getIndex("no-cache"); %>
+<% getJquery(); %>
+<% getMetro(); %>
+<title>Password configuration</title>
+<% language=javascript %>
+<SCRIPT>
+var ping=<% getIndex("pingWanAccess"); %>
+var web=<% getIndex("webWanAccess"); %>
+
+function includeSpace(str)
+{
+  for (var i=0; i<str.length; i++) {
+  	if ( str.charAt(i) == ' ' ) {
+	  return true;
+	}
+  }
+  return false;
+}
+
+
+
+function saveChanges()
+{
+
+		   if ( document.password.username.value.length == 0 ) {
+			if ( confirm('User account is empty.\nDo you want to disable the password protection?') ) {
+				document.password.username.focus();
+				return false;
+			}
+			else
+				return true;
+		  }
+		
+		   if ( document.password.newpass.value != document.password.confpass.value) {
+			alert('Password is not matched. Please type the same password between \'new\' and \'confirmed\' box.');
+			document.password.newpass.focus();
+			return false;
+		  }
+		
+		  if ( document.password.username.value.length > 0 &&
+				document.password.newpass.value.length == 0 ) {
+			alert('Password cannot be empty. Please try it again.');
+			document.password.newpass.focus();
+			return false;
+		  }
+		
+		  if ( includeSpace(document.password.username.value)) {
+			alert('Cannot accept space character in user name. Please try it again.');
+			document.password.username.focus();
+			return false;
+		  }
+		
+		  if ( includeSpace(document.password.newpass.value)) {
+			alert('Cannot accept space character in password. Please try it again.');
+			document.password.newpass.focus();
+			return false;
+		  }
+
+	
+  return true;
+}
+
+</SCRIPT>
+</head>
+<BODY>
+<div class="tiles">
+  <div id="man_bg" class="accent">
+    <h2 align="center" style="color:#FFFFFF">
+      <%trans("admin.h2")%>
+    </h2>
+    <br />
+    <br />
+    <form action=/boafrm/formManagementSetup method=POST name="password">
+      <table border="0" cellspacing="4" width="*" align="center">
+        <tr>
+          <td width="50%"><font size=2>
+            <%trans("admin.psswd_user");%>
+            :</td>
+          <td width="50%"><font size=2>
+            <input type="text" name="username" size="20" maxlength="30"></td>
+        </tr>
+		<tr height="20"><td></td></tr>
+        <tr>
+          <td width="50%"><font size=2>
+            <%trans("admin.psswd_pass");%>
+            :</td>
+          <td width="50%"><font size=2>
+            <input type="password" name="newpass" size="20" maxlength="30"></td>
+        </tr>
+  		<tr height="20"><td></td></tr>
+      <tr>
+          <td width="50%"><font size=2>
+            <%trans("admin.pass_conf");%>
+            :</td>
+          <td width="50%"><font size=2>
+            <input type="password" name="confpass" size="20" maxlength="30"></td>
+        </tr>
+      </table>
+      <input type="hidden" value="/home.htm" name="submit-url">
+	  <br />	  <br />	  <br />
+      <table width="100%">
+        <tr>
+          <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit1 accentColor" value="'+share.apply+'" name="save"  onClick="return saveChanges()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="reset" class="submit1 accentColor" value="'+share.reset+'" name="reset">');
+  
+	</script></td>
+        </tr>
+      </table>
+    </form>
+	<table height="20px">
+	</table>	
+  </div>
+</div>
+
+<script>
+dwAppbar();
+$(document).ready(function () {
+	$(".appbar").applicationBar();
+});
+</script>
+</body>
+</html>

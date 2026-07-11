@@ -1,0 +1,64 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<link type="text/css" rel="stylesheet" href="style.css" />
+
+<meta http-equiv="Content-Type" content="text/html">
+<% getIndex("no-cache"); %>
+<script type="text/javascript" src="util_gw.js"> </script>
+
+<title>Active Wireless Client Table</title>
+</head>
+
+<body>
+
+
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+          <%trans("wlan.bs_mactable");%></td>
+
+        </tr>
+      </table></td></tr>
+</table>
+
+<form action=/boafrm/formWirelessTbl method=POST name="formWirelessTbl">
+<fieldset align="center"><legend>
+
+<script type="text/javascript">
+var wlan_num =  <% getIndex("wlan_num"); %>;
+if (wlan_num > 1) {
+	var wlan_idx_ = <% getIndex("wlan_idx"); %> + 1;
+	document.write("Active Wireless Client Table -wlan" + wlan_idx_ + "</p>");
+}
+else
+	document.write(wlan.bs_mactable);
+</script>
+</legend>
+<table border='1' width="580" align="center">
+<tr bgcolor=#7f7f7f><td width="80"><font size=2><%trans("share.macaddr");%></td>
+<!--
+<td width="250"><font size=2>SSID</td>
+-->
+<td width="60"><font size=2><%trans("share.md")%></td>
+<td width="60"><font size=2>Tx Packet</td>
+<td width="60"><font size=2>Rx Packet</td>
+<td width="60"><font size=2>Tx <%trans("share.rate")%> (Mbps)</td>
+<td width="60"><font size=2><%trans("share.pwsv");%></td>
+<td width="60"><font size=2><%trans("inet.dhcp_l");%> (s)</td></tr>
+<% wirelessClientList(); %>
+</table>
+</fieldset>
+<input type="hidden" value="/wlstatbl.htm" name="submit-url">
+
+ <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.refresh+'" name="refresh">')
+//   document.write('<input type="button" value="'+share.close+'" name="close" onClick="javascript: window.close();">') 
+	</script></td></tr></table>
+</form>
+</body>
+
+</html>

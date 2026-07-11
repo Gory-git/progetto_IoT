@@ -1,0 +1,515 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<% getIndex("no-cache"); %>
+<link type="text/css" rel="stylesheet" href="style.css" />
+
+<title>WDS Settings</title>
+<script type="text/javascript" src="util_gw.js"> </script>
+<script>
+//wds security
+var defPskLen=new Array()
+var defPskFormat=new Array();
+var wlan_idx= <% getIndex("wlan_idx"); %> ;
+
+function updateFormatWds(form, wlan_idx)
+{
+  format=form.elements["format"+wlan_idx];
+  if (form.elements["encrypt"+wlan_idx].selectedIndex == 1) {
+	format.options[0].text = 'ASCII (5 characters)';
+	format.options[1].text = 'Hex (10 characters)';
+  }
+  else {
+	format.options[0].text = 'ASCII (13 characters)';
+	format.options[1].text = 'Hex (26 characters)';
+  }
+}
+
+function setWepKeyLen(form)
+{
+  updateFormatWds(form, wlan_idx);
+  if (form.elements["encrypt"+wlan_idx].selectedIndex == 1) {
+	if ( form.elements["format"+wlan_idx].selectedIndex == 0) {
+		form.elements["wepKey"+wlan_idx].maxLength = 5;
+		form.elements["wepKey"+wlan_idx].value = "*****";
+	}
+	else {
+		form.elements["wepKey"+wlan_idx].maxLength = 10;
+		form.elements["wepKey"+wlan_idx].value = "**********";
+	}
+  }
+  else {
+	if ( form.elements["format"+wlan_idx].selectedIndex == 0) {
+		form.elements["wepKey"+wlan_idx].maxLength = 13;
+		form.elements["wepKey"+wlan_idx].value = "*************";
+	}
+	else {
+		form.elements["wepKey"+wlan_idx].maxLength = 26;
+		form.elements["wepKey"+wlan_idx].value = "**************************";
+	}
+  } 
+}
+
+function disableWEP(form)
+{
+	show_div(false,"SP_WEP");
+  disableTextField(form.elements["format"+wlan_idx]);
+  disableTextField(form.elements["wepKey"+wlan_idx]);
+}
+
+function disableWPA(form)
+{
+	show_div(false,"SP_WPA");
+  disableTextField(form.elements["pskFormat"+wlan_idx]);
+  disableTextField(form.elements["pskValue"+wlan_idx]);
+}
+
+
+function enableWEP(form)
+{
+	show_div(true,"SP_WEP");
+  enableTextField(form.elements["format"+wlan_idx]);
+  enableTextField(form.elements["wepKey"+wlan_idx]);
+}
+
+function enableWPA(form)
+{
+	show_div(true,"SP_WPA");
+  enableTextField(form.elements["pskFormat"+wlan_idx]);
+  enableTextField(form.elements["pskValue"+wlan_idx]);
+}
+
+function updateEncryptState(form)
+{
+  if (form.elements["encrypt"+wlan_idx].selectedIndex == 0) {
+  	disableWEP(form);
+	disableWPA(form);
+  }
+  if (form.elements["encrypt"+wlan_idx].selectedIndex == 1 || form.elements["encrypt"+wlan_idx].selectedIndex == 2) {
+	setWepKeyLen(document.formWlWdsAdd);
+ 	enableWEP(form);
+	disableWPA(form);
+  }
+  if (form.elements["encrypt"+wlan_idx].selectedIndex == 3 || form.elements["encrypt"+wlan_idx].selectedIndex == 4) {
+ 	disableWEP(form);
+	enableWPA(form);
+  }
+}
+
+function saveChangesWep(form)
+{
+  var keyLen;
+  if (form.elements["encrypt"+wlan_idx].selectedIndex == 1) {
+  	if ( form.elements["format"+wlan_idx].selectedIndex == 0)
+		keyLen = 5;
+	else
+		keyLen = 10;
+  }
+  else {
+  	if ( form.elements["format"+wlan_idx].selectedIndex == 0)
+		keyLen = 13;
+	else
+		keyLen = 26;
+  }
+  if (validateKey_wep(form, -1,form.elements["wepKey"+wlan_idx].value, keyLen, wlan_idx)==0) {
+	form.elements["wepKey"+wlan_idx].focus();
+	return false;
+  }
+  return true;
+}
+
+function saveChanges(form)
+{
+  if (form.elements["encrypt"+wlan_idx].selectedIndex == 0)
+  	return true;
+  else if (form.elements["encrypt"+wlan_idx].selectedIndex == 1 || form.elements["encrypt"+wlan_idx].selectedIndex == 2)
+ 	return saveChangesWep(form, wlan_idx);
+  else
+  	return check_wpa_psk(form,wlan_idx );
+}
+
+function resetForm()
+{
+	location=location; 
+}
+//security end;
+
+
+
+function addClick()
+{
+  var str = document.formWlWdsAdd.mac.value;
+
+  if (!document.formWlWdsAdd.wlanWdsEnabled.checked)
+	return true;
+
+  if ( str.length == 0)
+  	return true;
+
+  if ( str.length < 12) {
+	alert(wlan.ac_msg4);
+	document.formWlWdsAdd.mac.focus();
+	return false;
+  }
+
+  for (var i=0; i<str.length; i++) {
+    if ( (str.charAt(i) >= '0' && str.charAt(i) <= '9') ||
+			(str.charAt(i) >= 'a' && str.charAt(i) <= 'f') ||
+			(str.charAt(i) >= 'A' && str.charAt(i) <= 'F') )
+			continue;
+
+	alert(wlan.ac_msg5);
+	document.formWlWdsAdd.mac.focus();
+	return false;
+  }
+  return true;
+}
+
+
+function deleteClick()
+{
+  if ( !confirm(wlan.ac_msg2) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+function deleteAllClick()
+{
+   if ( !confirm(wlan.ac_msg6) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+function disableDelButton()
+{
+	disableButton(document.formWlWdsDel.deleteSelWdsMac);
+	disableButton(document.formWlWdsDel.deleteAllWdsMac);
+}
+
+function enableWds()
+{
+  enableTextField(document.formWlWdsAdd.mac);
+  enableTextField(document.formWlWdsAdd.comment);
+  //enableButton(document.formWlWdsAdd.showWep);
+  enableButton(document.formWlWdsAdd.showAp);
+}
+
+function disableWds()
+{
+  disableTextField(document.formWlWdsAdd.mac);
+  disableTextField(document.formWlWdsAdd.comment);
+  
+ // 	disableButton(document.formWlWdsAdd.showWep);
+  	disableButton(document.formWlWdsAdd.showAp);
+}
+
+function updateState()
+{
+  wlanDisabled = <% getIndex("wlanDisabled"); %> ;
+  wlanMode = <% getIndex("wlanMode"); %>;
+  var wdstxrate = document.getElementById("wds_txrate");
+  var wds_txrate = document.formWlWdsAdd.txRate;
+//  if(wlanDisabled || wlanMode == 0 || wlanMode ==1){
+  if(wlanDisabled || (wlanMode != 2 && wlanMode !=3) ){
+	disableButton(document.formWlWdsAdd.wlanWdsEnabled);
+	disableWds();
+	//disableTextField(document.formWlWdsAdd.wlanWdsEnabled);
+	//disableTextField(document.formWlWdsAdd.encrypt <% getIndex("wlan_idx"); %>);
+	disableButton(document.formWlWdsAdd.reset);
+	disableButton(document.formWlWdsAdd.addWdsMac);
+	disableTextField(get_by_id("encrypt"));
+	//disableButton(document.formWlWdsDel.reset);
+	disableDelButton();
+	wds_txrate.disabled = true;
+	//wdstxrate.disabled = true;
+
+  }else{
+	  if (document.formWlWdsAdd.wlanWdsEnabled.checked){
+	 	enableWds();
+		enableTextField(get_by_id("encrypt"));
+	 	wds_txrate.disabled = false;
+	updateEncryptState(document.formWlWdsAdd);
+		//wdstxrate.disabled = false;
+	  }else{
+	  	disableWds();
+		disableTextField(get_by_id("encrypt"));
+		disableWPA(document.formWlWdsAdd);
+		disableWEP(document.formWlWdsAdd);
+	  	wds_txrate.disabled = true;
+		//wdstxrate.disabled = true;
+	  }
+}
+}
+
+function showApClick(url)
+{
+  if (document.formWlWdsAdd.wlanWdsEnabled.checked)
+	openWindow(url, 'showWdsStatistics',620,440 );
+}
+
+function showWepClick(url)
+{
+  if (document.formWlWdsAdd.wlanWdsEnabled.checked)
+ 	{
+		//openWindow(url, 'showWdsWep',620,340 );
+		document.location.href = url;
+	}
+}
+
+function Load_Setting()
+{
+		var cf = document.formWlWdsAdd;
+	var wdsEncrypt = <% getIndex("wdsEncrypt"); %>;
+	
+	if (cf.elements["encrypt"+wlan_idx].options[3].text == "WPA (TKIP)") {
+		cf.elements["encrypt"+wlan_idx].selectedIndex = wdsEncrypt;
+	}
+	else {
+		if (wdsEncrypt == 4) 
+			cf.elements["encrypt"+wlan_idx].selectedIndex = 3;
+		else
+			cf.elements["encrypt"+wlan_idx].selectedIndex = wdsEncrypt;
+	}
+		
+	if ( <% getIndex("wdsWepFormat"); %> == 0 )
+		cf.elements["format"+wlan_idx].selectedIndex = 0;
+	else
+		cf.elements["format"+wlan_idx].selectedIndex = 1;
+
+	if ( <% getIndex("wdsPskFormat"); %> == 0 )
+		cf.elements["pskFormat"+wlan_idx].selectedIndex = 0;
+	else
+		cf.elements["pskFormat"+wlan_idx].selectedIndex = 1;
+	updateEncryptState(cf);
+	if ( <% getIndex("wlanWdsEnabled"); %> ) {
+		document.formWlWdsAdd.wlanWdsEnabled.checked = true;
+		updateState();
+	}
+}
+</script>
+</head>
+
+
+<body onLoad="Load_Setting();">
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+          
+<script type="text/javascript">
+	var wlan_num =  <% getIndex("wlan_num"); %>;
+	if (wlan_num > 1) {
+		var wlan_idx_ = <% getIndex("wlan_idx"); %> + 1;
+		document.write(wlan.wds_h2_1);
+		document.write( wlan_idx);
+	}
+	else
+		document.write(wlan.wds_h2);
+	</script>
+		  </td>
+
+        </tr>
+      </table></td></tr>
+</table>
+
+<script type="text/javascript">
+  wlanMode = <% getIndex("wlanMode"); %>;
+	if(wlanMode != 2 && wlanMode !=3)
+		{
+		document.write('<table> <tr> <td> <font size=2 color="#ff0000">');
+		document.write(wlan.wds_error);
+		document.write('</font> </td> </tr> </table>');
+		}
+</script>
+<form action=/boafrm/formWlWds method=POST name="formWlWdsAdd">
+<fieldset><legend><%trans("wlan.wds_legend")%></legend>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+
+<tr><font size=2>
+   <input type="checkbox" name="wlanWdsEnabled"  value="ON" onClick="updateState()">&nbsp;&nbsp;<%trans("share.enable")%> WDS
+</tr></table>
+   <!--
+<tr><font size=2>Add WDS AP:&nbsp;&nbsp;&nbsp;&nbsp</tr>  
+-->
+<table width="100%" align="center">
+ <tr>
+   <td align="left" width="25%" class="">&nbsp;</td>
+ <td align="left" width="25%" class=""><font size=2>
+   <%trans("share.macaddr");%>:</td>
+ <td width="25%">   <input type="text" id="mac" name="mac" size="15" maxlength="12" value=""> </td>
+ </tr>
+ <tr id="wds_txrate">
+   <td width="25%">&nbsp;</td>
+ <td width="25%"><font size=2>
+   <%trans("wlan.bs_data");%>:</td>
+ <td width="25%"> <font size=2>
+    <select size="1" name="txRate" onChange="">
+     <div align="center">
+       <SCRIPT>
+	band = <% getIndex("band"); %>;
+	auto = <% getIndex("rateAdaptiveEnabled") %>;
+	txrate = <% getIndex("fixTxRate"); %>;
+	rf_num = <% getIndex("rf_used"); %>;
+
+	rate_mask = [15,1,1,1,1,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,4,8,8,8,8,8,8,8,8];
+	rate_name =["Auto","1M","2M","5.5M","11M","6M","9M","12M","18M","24M","36M","48M","54M", "MCS0", "MCS1"
+				, "MCS2", "MCS3", "MCS4", "MCS5", "MCS6", "MCS7", "MCS8", "MCS9", "MCS10", "MCS11", "MCS12", "MCS13", "MCS14", "MCS15"];
+	mask=0;
+	if (auto)
+		txrate=0;
+	if (band & 1)
+		mask |= 1;
+	if ((band&2) || (band&4))
+		mask |= 2;
+	if (band & 8) {
+		if (rf_num == 2)
+			mask |= 12;	
+		else
+			mask |= 4;
+	}	
+	defidx=0;
+	for (idx=0, i=0; i<=28; i++) {
+		if (rate_mask[i] & mask) {
+			if (i == 0)
+				rate = 0;
+			else
+				rate = (1 << (i-1));
+			if (txrate == rate)
+				defidx = idx;
+			document.write('<option value="' + i + '">' + rate_name[i] + '\n');
+			idx++;
+		}
+	}
+	document.formWlWdsAdd.elements["txRate"].selectedIndex=defidx;
+     </SCRIPT>
+         </div>
+   </select> </td>
+ </tr>  
+ <tr>
+
+
+
+<td width="13%" align="left" class=""><script type="text/javascript">document.write('<input type="button" class="button" value="'+wlan.wds_show+'" name="showAp"  onClick="showApClick(\'wlwdstbl.htm\')">');</script></td>
+ <td width="13%" height="24" class=""><font size=2> <%trans("share.comment");%>:</font></td>
+ <td width="87%">   <input type="text" id="comment" name="comment" size="16" maxlength="20" value=""> </td>
+ </tr>
+
+ </table>
+</fieldset>
+
+ <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.apply+'" name="addWdsMac" onClick="return addClick()">');
+    document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">');
+	 
+	</script></td></tr></table>
+	<br />
+	<fieldset><legend><%trans("wlan.wds_setsec")%></legend>
+	<table border=0 width="500" cellspacing=4>
+  <tr>
+      <td width="30%"><font size=2><%trans("wlan.wds_sec");%>:</font></td>
+      <td width="70%"><font size=2>
+      	<select size="1" name="encrypt<% getIndex("wlan_idx"); %>" id="encrypt" onChange="updateEncryptState(document.formWlWdsAdd)">
+			<option value="0">None</option>
+			<option value="1">WEP 64bits</option>
+			<option value="2">WEP 128bits</option>
+	<% getInfo("onoff_tkip_comment_start");%>
+			<option value="3">WPA (TKIP)</option>
+	<% getInfo("onoff_tkip_comment_end");%>          
+			<option value="4">WPA2 (AES)</option>
+
+      </font></td>
+  </tr>
+  <span id="SP_WEP" class="off">
+  <tr>
+      <td width="30%"><font size=2><%trans("wlan.wds_keyfor");%>:</font></td>
+      <td width="70%"><font size=2><select size="1" name="format<% getIndex("wlan_idx"); %>" ONCHANGE=setWepKeyLen(document.formWlWdsAdd)>
+	  	<option value=0>ASCII (5 characters)</option>
+		<option value=1>Hex (10 characters)</option>
+       </select></font></td>
+  </tr>
+  <tr>
+      <td width="30%"><font size=2><%trans("wlan.wds_wepkey");%>:</font></td>
+      <td width="70%"><font size=2>
+     	<input type="text" name="wepKey<% getIndex("wlan_idx"); %>" size="25" maxlength="26">
+      </font></td>
+  </tr>
+  </span>
+  <span id="SP_WPA" class="off">
+  <tr>
+      <td width="30%"><font size="2"><%trans("wlan.wds_pkeyfor");%>:</font></td>
+      <td width="70%"><font size="2"><select size="1" name="pskFormat<% getIndex("wlan_idx"); %>">
+          <option value="0">Passphrase</option>
+          <option value="1">Hex (64 characters)</option>
+      </select></font></td>
+  </tr>
+  <tr>
+      <td width="30%"><font size="2"><%trans("wlan.se_shkey");%>:</font></td>
+      <td width="70%"><font size="2"><input type="text" name="pskValue<% getIndex("wlan_idx"); %>" size="40" maxlength="64" value=<% getInfo("wdsPskValue");%>>
+      </font></td>
+  </tr>
+  </span>
+  <script>
+     	form = document.formWlWdsAdd ;
+     updateEncryptState(document.formWlWdsAdd);
+	defPskLen[wlan_idx] = form.elements["pskValue"+wlan_idx].value.length;
+	defPskFormat[wlan_idx] = form.elements["pskFormat"+wlan_idx].selectedIndex;
+
+  </script>
+  <tr>
+     <td colspan=2 width="100%">
+     <input type="hidden" value="/wlwds.htm" name="submit-url">
+     <!-- <input type="submit" class="submit" value="Apply Changes" name="save" onClick="return saveChanges(document.formWlWdsAdd)">&nbsp;&nbsp;
+      <input type="button" value="Close" name="close" OnClick=window.close()>&nbsp;&nbsp; 
+     <input type="reset" class="submit" value="Reset" name="reset" onClick="resetForm();">-->
+     </td>
+  </tr>
+</table>
+</fieldset>
+	
+ <p><input type="hidden" value="/wlwds.htm" name="submit-url"></p>
+	 
+
+</form>
+
+
+<form action=/boafrm/formWlWds method=POST name="formWlWdsDel">
+
+<fieldset>
+<legend><% trans("wlan.wds_list"); %></legend>
+
+  <table border=0 width="100%">
+  <% wlWdsList(); %>
+  </table>
+  </fieldset>
+  <br>
+  
+  
+  <input type="hidden" value="/wlwds.htm" name="submit-url">
+     
+	    <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.delsel+'" name="deleteSelWdsMac" onClick="return deleteClick()">');
+    document.write('<input type="submit" class="submit" value="'+share.delall+'" name="deleteAllWdsMac" onClick="return deleteAllClick()">');
+	 
+	</script></td></tr></table>
+
+  
+  
+ <script>
+	var entryNum = <% getIndex("wlanWdsNum"); %>;
+	if ( entryNum == 0 )
+		disableDelButton();
+
+	updateState();
+ </script>
+</form>
+
+
+</body>
+</html>

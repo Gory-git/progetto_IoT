@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="style.css">
+<% getweb("Title"); %>
+<% getIndex("no-cache"); %>
+<script src="lang_conf.js"></script>
+<script>
+var wsopmode=<%getInfo("wsopmode");%>;
+var wlan_mode=<%getIndex("wlanMode");%>;
+</script>
+</head>
+<body >
+<table width="100%"><tr>
+<td width="30%"></td>
+<td width="40%">
+<table width="100%" cellpadding="10">
+  <caption>
+    信息
+  </caption>
+
+    <tr bgcolor="#CCCCCC" >
+      <td width="150" widtd=40%>
+        <div align="right">版本信息:</div></td>
+      <td width="26" widtd=40%>&nbsp;</td>
+      <td width="146" widtd=60%>&nbsp;
+        <% getInfo("fwVersion"); %></td>
+    </tr>
+    <tr >
+      <td widtd=40%>
+        <div align="right">创建时间:</div></td>
+      <td widtd=40%>&nbsp;</td>
+      <td nowrap="nowrap" widtd=60%>&nbsp;
+        <% getInfo("buildTime"); %></td>
+    </tr>
+    <tr bgcolor="#CCCCCC">
+      <td><div align="right">工作模式: </div></td>
+      <td>&nbsp;</td>
+      <td>&nbsp;
+          <script>
+	switch(wsopmode)
+	{
+		case 0:document.write("AP");break;
+		case 1:document.write("路由");break;
+		case 2:document.write("Repeater");break;
+		case 3:document.write(home.bridge);break;
+		case 6:document.write("无线ISP");break;
+		
+	}
+	  </script></td>
+    </tr>
+  <tr>
+    <td><div align="right">默认IP: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;
+        <% getInfo("ip"); %></td>
+  </tr>
+  <tr bgcolor="#CCCCCC">
+    <td><div align="right">DHCP: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;<script>
+      		choice=<%getIndex("dhcp-current");%>;
+      		if ( choice == 0 ) document.write( "禁用");
+    		if ( choice == 2 ) document.write( "开启");
+    		if ( choice == 15 ) document.write( "自动");
+    		if ( choice == 19 ) document.write( "自动");    		
+	</script></td>
+  </tr>
+  <tr>
+    <td><div align="right">Mac地址: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;
+        <% getInfo("hwaddr"); %></td>
+  </tr>
+  <tr bgcolor="#CCCCCC">
+    <td><div align="right">PIN码: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;
+        <% getInfo("wscLoocalPin");%></td>
+  </tr>
+  <tr>
+    <td><div align="right">默认语言:</div></td>
+      
+    <td>&nbsp;</td>
+    <td>&nbsp;<script>
+		var lang=<%getInfo("user_lang");%>;
+		document.write(user_lang_array[lang].name);
+	</script></td>
+  </tr>
+  <tr bgcolor="#CCCCCC">
+    <td><div align="right">用户名、密码:</div></td>
+      
+    <td>&nbsp;</td>
+    <td>&nbsp;<%getInfo("userName");'%>、<%getInfo("userPass");%></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><div align="right">默认SSID: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;
+        <%getInfo("ssid");%></td>
+  </tr>
+  <tr bgcolor="#CCCCCC">
+    <td><div align="right">加密方式: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;
+        <% getInfo("wep"); %></td>
+  </tr>
+  <tr>
+    <td><div align="right">无线密码: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;
+        <script>
+	var def_pskValue;
+	if(wlan_mode==0)
+		def_pskValue="<%getVirtualInfo("pskValue", 0);%>";
+	else if(wlan_mode==1)
+		def_pskValue="<%getVirtualInfo("pskValue", 5);%>";
+		document.write(def_pskValue);
+	</script>    </td>
+  </tr>
+  <tr bgcolor="#CCCCCC">
+    <td><div align="right">频道: </div></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;
+        <%getIndex("channel");%>
+      (
+      <script>
+		var reg_domain=<%getIndex("regDomain");%>;
+		switch(reg_domain)
+		{
+			case 1:document.write("1~11");break;
+			case 3:document.write("1~13");break;
+		}
+	</script>
+      )</td>
+  </tr>
+  <tr>
+    <td><div align="right"></div></td>
+      
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</td>
+<td width="30%"></td>
+</tr></table>
+
+</body>
+</html>

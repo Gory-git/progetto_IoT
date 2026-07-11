@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="util_gw.js"> </script>
+<% getIndex("no-cache"); %>
+<title>LAN Interface Setup </title>
+<% getJquery(); %>
+<% getMetro(); %>
+<SCRIPT>
+var initialDhcp;
+function checkMode()
+{
+	var opmode=<% getIndex("wlanMode"); %> ;
+
+	if( opmode > 3 )
+		disableTextField(document.tcpip.stp);
+
+	var choice = <% getIndex("stp"); %>
+	if ( choice == 0 )
+		document.tcpip.elements["stp"][0].checked = true;
+	else
+		document.tcpip.elements["stp"][1].checked = true;
+}
+
+function dhcpChange(index)
+{
+	//var check_staticdhcp = document.tcpip.static_dhcp;
+	var dF = document.tcpip;
+  if ( index == 0 || index == 1) {
+	  disableTextField(document.tcpip.dhcpRangeStart);
+   	  disableTextField(document.tcpip.dhcpRangeEnd);
+   	  enableTextField(document.tcpip.lan_gateway);
+	  disableButton( document.tcpip.dhcpClientTbl );
+   	  disableTextField(document.tcpip.domainName);
+	  disableTextField(document.tcpip.dhcpLeaseTime);
+   	   //check_staticdhcp.disabled = true;
+   	   disableButton(dF.elements["staticdhcpTbl"]);		  	  
+  }
+  else {
+   	  enableTextField(document.tcpip.dhcpRangeStart);
+   	  enableTextField(document.tcpip.dhcpRangeEnd);
+   	  disableTextField(document.tcpip.lan_gateway);
+	  enableButton( document.tcpip.dhcpClientTbl );
+   	  enableTextField(document.tcpip.domainName);
+	  enableTextField(document.tcpip.dhcpLeaseTime);
+   	  //check_staticdhcp.disabled = false;	  
+   	  enableButton(dF.elements["staticdhcpTbl"]); 	  
+  }
+  if ( index == 1 ) {
+ 	  disableTextField(document.tcpip.lan_ip);
+	  disableTextField(document.tcpip.lan_mask);
+	  disableTextField(document.tcpip.lan_gateway);
+  }
+  else {
+ 	  enableTextField(document.tcpip.lan_ip);
+	  enableTextField(document.tcpip.lan_mask);
+   	  enableTextField(document.tcpip.lan_gateway);
+  }
+}
+
+function resetClick()
+{
+   dhcpChange( initialDhcp );
+   document.tcpip.reset;
+}
+
+
+function checkClientRange(start,end)
+{
+  start_d = getDigit(start,4);
+  start_d += getDigit(start,3)*256;
+  start_d += getDigit(start,2)*256;
+  start_d += getDigit(start,1)*256;
+
+  end_d = getDigit(end,4);
+  end_d += getDigit(end,3)*256;
+  end_d += getDigit(end,2)*256;
+  end_d += getDigit(end,1)*256;
+
+  if ( start_d < end_d )
+	return true;
+
+  return false;
+}
+
+
+function saveChanges()
+{
+
+  if ( checkIpAddr(document.tcpip.lan_ip, 'Invalid IP address value! ') == false )
+	    return false;
+
+  if (checkIPMask(document.tcpip.lan_mask) == false)
+  	return false ;
+
+  if ( document.tcpip.dhcp.selectedIndex == 1) {
+  	if ( checkIpAddr(document.tcpip.dhcpRangeStart, 'Invalid DHCP client start address! ') == false )
+	    return false;
+
+	if ( !checkSubnet(document.tcpip.lan_ip.value,document.tcpip.lan_mask.value,document.tcpip.dhcpRangeStart.value)) {
+		alert('Invalid DHCP client start address!\nIt should be located in the same subnet of current IP address.');
+		document.tcpip.dhcpRangeStart.value = document.tcpip.dhcpRangeStart.defaultValue;
+		document.tcpip.dhcpRangeStart.focus();
+		return false;
+	}
+  	if ( checkIpAddr(document.tcpip.dhcpRangeEnd, 'Invalid DHCP client End address! ') == false )
+	    return false;	
+
+	if ( !checkSubnet(document.tcpip.lan_ip.value,document.tcpip.lan_mask.value,document.tcpip.dhcpRangeEnd.value)) {
+		alert('Invalid DHCP client end address!\nIt should be located in the same subnet of current IP address.');
+		document.tcpip.dhcpRangeEnd.value = document.tcpip.dhcpRangeEnd.defaultValue;
+		document.tcpip.dhcpRangeEnd.focus();
+		return false;
+	}
+        if ( !checkClientRange(document.tcpip.dhcpRangeStart.value,document.tcpip.dhcpRangeEnd.value) ) {
+		alert('Invalid DHCP client address range!\nEnding address should be greater than starting address.');
+		document.tcpip.dhcpRangeStart.focus();
+		return false;
+        }
+   }
+   if ( document.tcpip.dhcp.selectedIndex != 1) {
+   	if ( document.tcpip.lan_gateway.value=="")
+		document.tcpip.lan_gateway.value = '0.0.0.0';
+	
+	if (document.tcpip.lan_gateway.value!="0.0.0.0") {
+		if ( checkIpAddr(document.tcpip.lan_gateway, 'Invalid DHCP client End address! ') == false )
+	    		return false;
+	    	if ( !checkSubnet(document.tcpip.lan_ip.value,document.tcpip.lan_mask.value,document.tcpip.lan_gateway.value)) {
+			alert('Invalid gateway address!\nIt should be located in the same subnet of current IP address.');
+			document.tcpip.lan_gateway.value = document.tcpip.lan_gateway.defaultValue;
+			document.tcpip.lan_gateway.focus();
+			return false;
+      		}
+	}
+  }
+
+  var str = document.tcpip.lan_macAddr.value;
+   if(str.length ==0){
+  	document.tcpip.lan_macAddr.value = "000000000000";
+  	return true;
+  }
+  if ( str.length > 0 && str.length < 12) {
+	alert("Input MAC address is not complete. It should be 12 digits in hex.");
+	document.tcpip.lan_macAddr.focus();
+	return false;
+  }
+
+  for (var i=0; i<str.length; i++) {
+    if ( (str.charAt(i) >= '0' && str.charAt(i) <= '9') ||
+			(str.charAt(i) >= 'a' && str.charAt(i) <= 'f') ||
+			(str.charAt(i) >= 'A' && str.charAt(i) <= 'F') )
+			continue;
+	alert("Invalid MAC address. It should be in hex number (0-9 or a-f).");
+	document.tcpip.lan_macAddr.focus();
+	return false;
+  }
+  if(document.tcpip.dhcpLeaseTime.value*1 <= 0 || document.tcpip.dhcpLeaseTime.value*1 > 10080)
+  {
+        alert("Invalid value. It should be in range (1 ~ 10080).");
+        document.tcpip.dhcpLeaseTime.focus();
+        return false;
+  }
+  return true;
+}
+
+
+function dhcpTblClick(url) {
+	if ( document.tcpip.dhcp.selectedIndex == 2) {
+		openWindow(url, 'DHCPTbl',600, 400 );
+	}
+}
+function staticdhcpChange(index)
+{
+	var dF = document.tcpip;
+	 if ( index == 1 && dF.dhcp.selectedIndex==2 )
+		enableButton(dF.elements["staticdhcpTbl"]);
+	else
+		disableButton(dF.elements["staticdhcpTbl"]);	
+}
+function staticdhcpTblClick(url) {
+	if ( document.tcpip.dhcp.selectedIndex == 2) {
+		//openWindow(url, 'StaticDHCPTbl',820, 500 );
+		document.location.href = url;
+	}
+}
+function sameip(id)
+{
+	var tmp=get_by_id(id).value;
+	//alert(tmp);
+	var arr=tmp.split(".");
+	tmp=get_by_id("dhcpRangeStart").value;
+	var arr1=tmp.split(".");
+	tmp=get_by_id("dhcpRangeEnd").value;
+	var arr2=tmp.split(".");
+	for(var i=0;i<3;i++)
+	{
+		arr1[i]=arr2[i]=arr[i];
+	}
+	get_by_id("dhcpRangeStart").value=arr1.join(".");
+	get_by_id("dhcpRangeEnd").value=arr2.join(".");
+}
+</SCRIPT>
+</head>
+
+<body onLoad="checkMode();">
+  <div class="tiles">
+  <div id="man_bg" class="accent">
+      <h2 align="center" style="color:#FFFFFF">      <% trans("inet.lan_h2");%></h2>
+
+<form action=/boafrm/formTcpipSetup method=POST name="tcpip">
+<table align="center" border=0 width="500" cellspacing="10px">
+  <tr>
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.wan_ip")%>
+          :</div></td>
+      <td width="60%"><input type="text" name="lan_ip" id="lan_ip" size="15" maxlength="15" value="<% getInfo("ip-rom"); %>" onKeyUp="sameip(this.id)"></td>
+  </tr>
+
+  <tr>
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.wan_subnet")%>
+          :</div></td>
+      <td width="60%"><input type="text" name="lan_mask" size="15" maxlength="15" value="<% getInfo("mask-rom"); %>"></td>
+  </tr>
+
+  <tr>
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.wan_gateway")%>
+          :</div></td>
+      <td width="60%"><input type="text" name="lan_gateway" size="15" maxlength="15" value="<% getInfo("gateway-rom"); %>"></td>
+  </tr>
+
+  <tr>
+      <td width="40%"><font size=2>
+        <div align="justify">DHCP:</div></td>
+      <td width="60%"><select size="1" name="dhcp"
+      onChange="dhcpChange(document.tcpip.dhcp.selectedIndex)">
+       <%  getDHCPModeCombobox(); %>  
+	   </select>     </td>
+  </tr>
+
+  <tr>
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.lan_dhcp_ran")%>
+          :</div></td>
+      <td width="60%" nowrap="nowrap"><input type="text" name="dhcpRangeStart" id="dhcpRangeStart" size="14" maxlength="15" value="<% getInfo("dhcpRangeStart"); %>">
+      <font face="Arial" size="5">-</font> <input type="text" name="dhcpRangeEnd" id="dhcpRangeEnd"; size="14" maxlength="15" value="<% getInfo("dhcpRangeEnd"); %>"></td> 
+  </tr>
+  <tr class="off"><td colspan="2" align="center">
+    
+          <div align="center">
+            <script type="text/javascript">document.write('<input type="button" class="button1 accentColor" value="'+inet.showclient+'" name="dhcpClientTbl" onClick="dhcpTblClick(\'/dhcptbl.htm\')" >')</script>
+        </div></td></tr>
+ <tr>
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.lan_lease")%>
+          :</div></td>
+      <td width="60%"><input type="text" name="dhcpLeaseTime" size="6" maxlength="5" value="<% getInfo("dhcpLeaseTime"); %>"> <font size=2>(1 ~ 10080 minutes)</td>
+  </tr>
+<tr class="off">
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.static_h2")%>
+          :</div></td>
+      <td width="60%">
+				<script type="text/javascript">document.write('<input type="button" class="button1 accentColor" value="'+inet.lan_set_static+'" name="staticdhcpTbl" onClick="staticdhcpTblClick(\'/tcpip_staticdhcp.htm\')" >')</SCRIPT >      </td>
+  </tr>
+
+  <tr class="off">
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("share.domainname");%>
+          :</div></td>
+      <td width="60%"><input type="text" name="domainName" size="15" maxlength="30" value="<% getInfo("domainName"); %>"></td>
+  </tr>
+
+  <tr>
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.lan_802")%>
+          :</div></td>
+      <td width="60%"><select size="1" name="stp">
+     	  	<option value="0"><%trans("share.disable");%></option>
+   	  		<option value="1"><%trans("share.enable");%></option>
+	    </select>      </td>
+  </tr>
+
+  <tr class="off">
+      <td width="40%"><font size=2>
+        
+            <div align="justify">
+              <%trans("inet.wan_mac_clone");%>
+          :</div></td>
+      <td width="60%"><input type="text" name="lan_macAddr" size="15" maxlength="12" value="<% getInfo("bridgeMac"); %>"></td>
+  </tr>
+
+  <SCRIPT>
+  	initialDhcp = document.tcpip.dhcp.selectedIndex;
+	dhcpChange(initialDhcp);
+	//staticdhcpChange(document.tcpip.static_dhcp.selectedIndex)
+  </SCRIPT>
+  </table>
+ 	<br />
+      <input type="hidden" value="tcpiplan.htm" name="submit-url">
+  <table width="100%" align="center" style="position:relative;bottom:20px;"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit1 accentColor " value="'+share.apply+'" name="save" onClick="return saveChanges()">')
+	document.write("&nbsp;&nbsp;&nbsp;")
+    document.write('<input type="reset" class="submit1 accentColor" value="'+share.reset+'" name="reset" onClick="resetClick()">')  
+	</script></td></tr></table>
+ </form>
+</div>
+</div>
+
+<script>
+dwAppbar();
+$(document).ready(function () {
+	$(".appbar").applicationBar();
+});
+</script>
+</body>
+
+</html>

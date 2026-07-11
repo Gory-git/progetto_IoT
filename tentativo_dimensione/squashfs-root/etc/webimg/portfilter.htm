@@ -1,0 +1,196 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+
+<% getIndex("no-cache"); %>
+<title>Port Filtering</title>
+<script type="text/javascript" src="util_gw.js"> </script>
+<script>
+function addClick()
+{
+  if (!document.formFilterAdd.enabled.checked)
+  	return true;
+
+  if (document.formFilterAdd.fromPort.value=="" && document.formFilterAdd.toPort.value==""
+  		&& document.formFilterAdd.comment.value=="" )
+	return true;
+
+  if (document.formFilterAdd.fromPort.value=="") {
+  	alert(f_port.alert1);
+	document.formFilterAdd.fromPort.focus();
+	return false;
+  }
+  if ( validateKey( document.formFilterAdd.fromPort.value ) == 0 ) {
+	alert(f_port.msg1);
+	document.formFilterAdd.fromPort.focus();
+	return false;
+  }
+  d1 = getDigit(document.formFilterAdd.fromPort.value, 1);
+  if (d1 > 65535 || d1 < 1) {
+	alert(f_port.msg1);
+	document.formFilterAdd.fromPort.focus();
+	return false;
+  }
+  if (document.formFilterAdd.toPort.value!="") {
+  	if ( validateKey( document.formFilterAdd.toPort.value ) == 0 ) {
+		alert(f_port.msg1);
+		document.formFilterAdd.toPort.focus();
+		return false;
+  	}
+	d2 = getDigit(document.formFilterAdd.toPort.value, 1);
+ 	if (d2 > 65535 || d2 < 1) {
+		alert(f_port.msg1);
+		document.formFilterAdd.toPort.focus();
+		return false;
+  	}
+	if (d1 > d2 ) {
+		alert(f_port.msg2);
+		document.formFilterAdd.fromPort.focus();
+		return false;
+
+	}
+   }
+   return true;
+}
+
+
+function deleteClick()
+{
+  if ( !confirm(f_port.msg3) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+function deleteAllClick()
+{
+   if ( !confirm(f_port.msg4) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+function disableDelButton()
+{
+	disableButton(document.formFilterDel.deleteSelFilterPort);
+	disableButton(document.formFilterDel.deleteAllFilterPort);
+}
+
+function updateState()
+{
+  if (document.formFilterAdd.enabled.checked) {
+ 	enableTextField(document.formFilterAdd.fromPort);
+ 	enableTextField(document.formFilterAdd.toPort);
+	enableTextField(document.formFilterAdd.protocol);
+ 	enableTextField(document.formFilterAdd.comment);
+  }
+  else {
+ 	disableTextField(document.formFilterAdd.fromPort);
+ 	disableTextField(document.formFilterAdd.toPort);
+ 	disableTextField(document.formFilterAdd.protocol);
+	disableTextField(document.formFilterAdd.comment);
+  }
+}
+
+function Load_Setting()
+{
+	if ( <% getIndex("portFilterEnabled"); %> )
+		document.formFilterAdd.enabled.checked = true;
+	updateState();
+}
+</script>
+<style type="text/css">
+<!--
+.STYLE1 {
+	font-family: "ÐÂËÎÌå";
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body onLoad="Load_Setting();">
+
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+          <%trans("f_port.h2")%>
+		  </td>
+
+        </tr>
+      </table></td></tr>
+</table>
+
+
+<form action=/boafrm/formFilter method=POST name="formFilterAdd">
+<fieldset><legend><%trans("f_port.legend");%></legend>
+<table border=0 width="100%" cellspacing=4 cellpadding=0>
+<tr><td><font size=2>
+	<input type="checkbox" name="enabled" value="ON" ONCLICK=updateState()>&nbsp;&nbsp;<font size=2><%trans("f_port.enable");%></font><br>
+    </td>
+</tr>
+<tr height="20"><td></td></tr>
+<tr><td>
+     <font size=2><%trans("f_port.range");%>: </font>
+  		<input type="text" name="fromPort" size="4">-&nbsp;&nbsp;
+  		<input type="text" name="toPort" size="4">
+  	<font size=2><%trans("f_port.protol");%>: <select name="protocol">
+    		<option select value="0"><%trans("f_port.both");%></option>
+    		<option value="1">TCP</option>
+    		<option value="2">UDP</option>
+    		</select></font>&nbsp;&nbsp;
+  	<font size=2><%trans("share.comment");%>:  <input type="text" name="comment" size="16" maxlength="20"></font>
+     
+     <p>
+        <input type="hidden" value="/portfilter.htm" name="submit-url">
+     </p>
+<script> updateState(); </script>
+</td><tr>
+</table>
+</fieldset>
+<br />
+	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.apply+'" name="addFilterPort"  onClick="addClick()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">');
+  
+	</script></td></tr></table>
+
+</form>
+
+<br>
+<form action=/boafrm/formFilter method=POST name="formFilterDel">
+	<fieldset><legend><%trans("f_port.table")%></legend>
+  <table border="0" width=100%>
+  <% portFilterList(); %>
+  </table>
+  </fieldset>
+  
+  <br>
+  	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.delsel+'" name="deleteSelFilterPort"  onClick="return deleteClick()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="submit" class="submit" value="'+share.delall+'" name="deleteAllFilterPort" onClick="return deleteAllClick()">');
+   	document.write('&nbsp;&nbsp;')
+
+  document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">')
+	</script></td></tr></table>
+
+  <input type="hidden" value="/portfilter.htm" name="submit-url">
+ <script>
+	if ( <% getIndex("portFilterNum"); %> == 0 )
+		disableDelButton();
+ </script>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+
+<% getIndex("no-cache"); %>
+<title>Port Forwarding</title>
+<script type="text/javascript" src="util_gw.js"> </script>
+<script>
+
+function addClick()
+{
+  if (!document.formPortFwAdd.enabled.checked)
+  	return true;
+	
+  if (document.formPortFwAdd.ip.value=="" && document.formPortFwAdd.fromPort.value=="" &&
+	document.formPortFwAdd.toPort.value=="" && document.formPortFwAdd.comment.value=="" )
+	return true;
+  if ( checkIpAddr(document.formPortFwAdd.ip, 'Invalid IP address') == false )
+	    return false;
+
+
+  if (document.formPortFwAdd.fromPort.value=="") {
+	alert(f_port.msg1);
+	document.formPortFwAdd.fromPort.focus();
+	return false;
+  }
+  if ( validateKey( document.formPortFwAdd.fromPort.value ) == 0 ) {
+	alert(f_port.msg1);
+	document.formPortFwAdd.fromPort.focus();
+	return false;
+  }
+  d1 = getDigit(document.formPortFwAdd.fromPort.value, 1);
+  if (d1 > 65535 || d1 < 1) {
+	alert(f_port.msg1);
+	document.formPortFwAdd.fromPort.focus();
+	return false;
+  }
+  if (document.formPortFwAdd.toPort.value!="") {
+  	if ( validateKey( document.formPortFwAdd.toPort.value ) == 0 ) {
+		alert(f_port.msg1);
+		document.formPortFwAdd.toPort.focus();
+		return false;
+  	}
+	d2 = getDigit(document.formPortFwAdd.toPort.value, 1);
+ 	if (d2 > 65535 || d2 < 1) {
+		alert(f_port.msg1);
+		document.formPortFwAdd.toPort.focus();
+		return false;
+  	}
+	if (d1 > d2 ) {
+		alert(f_port.msg2);
+		document.formPortFwAdd.fromPort.focus();
+		return false;
+
+	}
+   }
+   return true;
+}
+
+
+function deleteClick()
+{
+  if ( !confirm(f_port.msg3) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+function deleteAllClick()
+{
+   if ( !confirm(f_port.msg4) ) {
+	return false;
+  }
+  else
+	return true;
+}
+function disableDelButton()
+{
+	disableButton(document.formPortFwDel.deleteSelPortFw);
+	disableButton(document.formPortFwDel.deleteAllPortFw);
+}
+
+function updateState()
+{
+  if (document.formPortFwAdd.enabled.checked) {
+ 	enableTextField(document.formPortFwAdd.ip);
+	enableTextField(document.formPortFwAdd.protocol);
+	enableTextField(document.formPortFwAdd.fromPort);
+	enableTextField(document.formPortFwAdd.toPort);
+	enableTextField(document.formPortFwAdd.comment);
+  }
+  else {
+ 	disableTextField(document.formPortFwAdd.ip);
+	disableTextField(document.formPortFwAdd.protocol);
+	disableTextField(document.formPortFwAdd.fromPort);
+	disableTextField(document.formPortFwAdd.toPort);
+	disableTextField(document.formPortFwAdd.comment);
+  }
+}
+
+function Load_Setting()
+{
+	if ( <% getIndex("portFwEnabled"); %> )
+		document.formPortFwAdd.enabled.checked = true;
+	updateState();
+}
+</script>
+</head>
+
+<body onLoad="Load_Setting();">
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+          <%trans("f_pw.h2")%>
+		  </td>
+
+        </tr>
+      </table></td></tr>
+</table>
+
+<form action=/boafrm/formPortFw method=POST name="formPortFwAdd">
+<fieldset><legend><%trans("f_pw.legend")%></legend>
+<table border=0 width="550" cellspacing=4 cellpadding=0>
+
+<tr><td><font size=2>
+	<input type="checkbox" name="enabled" value="ON" ONCLICK=updateState()>&nbsp;&nbsp;<%trans("f_pw.enable");%><br>
+    </td>
+</tr>
+<tr height="20"><td></td></tr>
+<tr><td align="center">
+  <font size=2><%trans("f_pw.ipaddr");%>: <input type="text" name="ip" size="12" maxlength="15">&nbsp;
+  </font></td><td><font size=2><%trans("f_port.protol");%>: <select name="protocol">
+    <option select value="0"><%trans("f_port.both");%></option>
+    <option value="1">TCP</option>
+    <option value="2">UDP</option>
+  </select>&nbsp;</font>
+
+  <input type="hidden" value="/portfw.htm" name="submit-url">
+</td></tr>
+<tr><td align="center"><font size=2>
+<%trans("f_port.range");%>: <input type="text" name="fromPort" size="4">-
+      <input type="text" name="toPort" size="4">&nbsp;&nbsp;</font></td><td><font size=2>
+    <%trans("share.comment");%>: <input type="text" name="comment" size="10" maxlength="20">
+</font></td>
+</tr>
+  <script> updateState(); </script>
+</table>
+</fieldset>
+	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.apply+'" name="addPortFw"  onClick="return addClick()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">');
+  
+	</script></td></tr></table>
+
+</form>
+
+
+<br>
+<form action=/boafrm/formPortFw method=POST name="formPortFwDel">
+<fieldset><legend><%trans("f_port.table")%></legend>
+<table border=0 width="100%">
+  <% portFwList(); %>
+</table></fieldset>
+
+
+ <br>
+         	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.delsel+'" name="deleteSelPortFw"  onClick="return deleteClick()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="submit" class="submit" value="'+share.delall+'" name="deleteAllPortFw" onClick="return deleteAllClick()">');
+   	document.write('&nbsp;&nbsp;')
+  document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">')
+	</script></td></tr></table>
+
+<script>
+	if ( <% getIndex("portFwNum"); %> == 0 )
+		disableDelButton();
+ </script>
+     <input type="hidden" value="/portfw.htm" name="submit-url">
+</form>
+
+</blockquote>
+</body>
+</html>
+

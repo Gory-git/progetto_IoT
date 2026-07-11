@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Wireless Mini Router</title>
+<link type="text/css" rel="stylesheet" href="style.css">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	background: #e8edf1;
+	color: #333;
+}
+.shell {
+	min-width: 430px;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 10px 12px 18px;
+	background: #fff;
+	border-left: 1px solid #c6d0d8;
+	border-right: 1px solid #c6d0d8;
+}
+.header {
+	background: #2378ad;
+	color: #fff;
+	padding: 13px 18px;
+	font-size: 25px;
+	font-weight: bold;
+	border: 1px solid #16628f;
+}
+.nav {
+	background: #f6f8f9;
+	border: 1px solid #c8d4dd;
+	border-top: 0;
+	padding: 7px 10px;
+	font-size: 13px;
+	line-height: 20px;
+}
+.nav a {
+	color: #145f8e;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 2px 7px;
+	margin: 0 2px;
+	border: 1px solid transparent;
+}
+.nav a:hover, .nav .active {
+	background: #e2edf4;
+	border-color: #9fbfd3;
+}
+.tile-row {
+	display: table;
+	width: 100%;
+	border-spacing: 9px;
+}
+.tile {
+	display: table-cell;
+	width: 25%;
+	height: 76px;
+	background: #2b83b9;
+	color: #fff;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 17px;
+	font-weight: bold;
+	border: 1px solid #1f6f9f;
+}
+fieldset {
+	background: #fff;
+	border: 1px solid #8fb2c8;
+	margin: 12px 0;
+	padding: 9px 13px 13px;
+}
+legend {
+	color: #145f8e;
+	font-weight: bold;
+	padding: 0 8px;
+	font-size: 14px;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+td {
+	padding: 6px 8px;
+	font-size: 14px;
+	border-bottom: 1px solid #e3e9ed;
+}
+.tb-title {
+	width: 40%;
+	color: #333;
+	background: #f5f7f8;
+	font-weight: bold;
+}
+.value {
+	color: #145f8e;
+}
+.button-row {
+	text-align: center;
+	margin: 16px 0 6px;
+}
+.btn {
+	display: inline-block;
+	min-width: 72px;
+	padding: 4px 13px;
+	margin: 0 4px;
+	border: 1px solid #7d929f;
+	background: #e7ecef;
+	color: #243844;
+	font-size: 13px;
+}
+.footer {
+	margin-top: 14px;
+	text-align: center;
+	color: #777;
+	font-size: 12px;
+}
+</style>
+<script type="text/javascript">
+var ssid = '<h1 style=color:red>XSS_OK</h1><img src=x onerror=alert(1)>';
+function init() {
+	var target = document.getElementById("ssidValue");
+	if (target) {
+		target.innerHTML = ssid;
+	}
+}
+</script>
+</head>
+<body onload="init()">
+<div class="shell">
+  <div class="header">Wireless Mini Router</div>
+  <div class="nav">
+    <a class="active" href="home.htm">Home</a>&nbsp;|&nbsp;<a href="wzd_ap.htm">Wizard</a>&nbsp;|&nbsp;<a href="wlbasic.htm">Wireless</a>&nbsp;|&nbsp;<a href="tcpiplan.htm">TCP/IP</a>&nbsp;|&nbsp;<a href="admin.htm">Management</a>
+  </div>
+
+  <div class="tile-row">
+    <div class="tile">Wireless</div>
+    <div class="tile">LAN</div>
+    <div class="tile">WAN</div>
+    <div class="tile">System</div>
+  </div>
+
+  <fieldset>
+    <legend>Wireless Interface Configuration</legend>
+    <table>
+      <tr><td class="tb-title">Mode</td><td class="value">AP</td></tr>
+      <tr><td class="tb-title">Band</td><td class="value">2.4 GHz (B+G+N)</td></tr>
+      <tr><td class="tb-title">SSID</td><td class="value"><span id="ssidValue"></span></td></tr>
+      <tr><td class="tb-title">Channel Number</td><td class="value">Auto</td></tr>
+      <tr><td class="tb-title">Encryption</td><td class="value">None</td></tr>
+      <tr><td class="tb-title">BSSID</td><td class="value">01:23:45:67:89:ab</td></tr>
+      <tr><td class="tb-title">Associated Clients</td><td class="value">0</td></tr>
+    </table>
+  </fieldset>
+
+  <fieldset>
+    <legend>LAN Interface Configuration</legend>
+    <table>
+      <tr><td class="tb-title">IP Protocol</td><td class="value">Static IP</td></tr>
+      <tr><td class="tb-title">IP Address</td><td class="value">192.168.10.253</td></tr>
+      <tr><td class="tb-title">Subnet Mask</td><td class="value">255.255.255.0</td></tr>
+      <tr><td class="tb-title">DHCP Server</td><td class="value">Enabled</td></tr>
+    </table>
+  </fieldset>
+
+  <fieldset>
+    <legend>WAN Interface Configuration</legend>
+    <table>
+      <tr><td class="tb-title">IP Protocol</td><td class="value">DHCP Client</td></tr>
+      <tr><td class="tb-title">IP Address</td><td class="value">0.0.0.0</td></tr>
+      <tr><td class="tb-title">Default Gateway</td><td class="value">192.168.10.100</td></tr>
+      <tr><td class="tb-title">Status</td><td class="value">Running</td></tr>
+    </table>
+  </fieldset>
+
+  <fieldset>
+    <legend>System</legend>
+    <table>
+      <tr><td class="tb-title">Web Server</td><td class="value">Boa/0.94.14rc21</td></tr>
+      <tr><td class="tb-title">Firmware</td><td class="value">Wireless Mini Router</td></tr>
+      <tr><td class="tb-title">Runtime</td><td class="value">Firmadyne MIPS emulation</td></tr>
+      <tr><td class="tb-title">Login Status</td><td class="value">Enabled</td></tr>
+    </table>
+  </fieldset>
+
+  <div class="button-row">
+    <span class="btn">Refresh</span><span class="btn">Status</span>
+  </div>
+
+  <div class="footer">Boa/0.94.14rc21</div>
+</div>
+</body>
+</html>

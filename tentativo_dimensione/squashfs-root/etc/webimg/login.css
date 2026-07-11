@@ -1,0 +1,47 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 登录界面配置 */
+.on {
+	display:inline;
+}
+.off {
+	display:none;
+}
+.login {
+	background:#0E6D38;
+}
+.login_top {
+	height:150px;
+}
+.login_block {
+	width:25%;
+}
+.login_main {
+	width:50%;
+}
+.login_tit {
+	width:30%;
+	font:Calibri;
+	font-size:24px;
+	color:#FFF;
+}
+.login_text, #lang_select {
+	width:220px;
+	font-size:20px;
+}
+#lang_select {
+}
+.login_btn {
+	background:#10A151;
+	color:#FFF;
+	font-size:24px;
+	text-align:center;
+	width:150px;
+	border: 2px solid #FFF;
+	cursor:hand;
+}
+#errorinfo {
+	font-size:18px;
+	color:#F00;
+}

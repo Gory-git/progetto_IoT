@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<% getIndex("no-cache"); %>
+<title>Save/Reload Setting</title>
+<% getJquery(); %>
+<% getMetro(); %>
+<style>
+.file-box{ position:relative;width:340px} 
+.txt{ height:20px; border-color::#1BA1E2; border:1px  solid #cdcdcd; width:185px;} 
+.btn{ background-color:#FFF; border:1px; color:#FFFFFF;height:27px; width:57px;} 
+.file{ position:absolute; top:78px; right:11px; height:24px; filter:alpha(opacity:0);opacity: 0;width:260px } 
+.file1 {position:absolute; top:1px; right:88px; height:27px; filter:alpha(opacity:0);opacity: 0;width:252px}
+
+</style>
+<script type="text/javascript" src="util_gw.js"> </script>
+<script>
+function fileCheck()
+{
+	var oFile = document.getElementById('binary'); 
+    	if(oFile.value == ""){ 
+		alert(backup.mess2);
+		return false;
+	} 
+	return true;
+}
+
+function resetClick()
+{
+   if ( !confirm(backup.alert1) ) {
+	return false;
+  }
+  else
+  	{
+	get_by_id("submit-value").value="Reset";
+	return true;
+  	}
+}
+
+function saveClick(url)
+{
+  if (verifyBrowser() == "ie4" ) {
+	window.location.href = url;
+	return false;
+  }
+  else
+	return true;
+}
+
+</script>
+</head>
+<body>
+<div class="tiles">
+  <div id="man_bg" class="accent">
+    <form action=/boafrm/formSaveConfig method=POST name="saveConfig">
+      <h2 align="center" style="color:#FFFFFF">
+        <%trans("backup.h2")%>
+      </h2>
+	  <br>	  <br>	 
+      <table border="0" cellspacing="4" width="600" align="center">
+      <tr>
+        <td width="32%"><font size=4>
+          <%trans("backup.save");%>
+          :</td>
+        <td width="60%">
+  			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <script>document.write('<input type="submit" class="submit1 accentColor" value="'+upgrade.save+'" name="save" onClick="return saveClick(\'/config.dat\')">');</script>
+    	</td>
+      </tr>
+    </form>
+    <form method="post" action="boafrm/formUploadConfig" enctype="multipart/form-data" name="uploadConfig">
+      <input type="hidden" value="/saveconf.htm" name="submit-url">
+      <tr height="20">
+        <td></td>
+      </tr>
+      <tr>
+        <td width="32%"><font size=4>
+          <%trans("backup.load");%>
+          :</td>
+        <td width="68%"><font size=4>
+          <!--<input type="file" name="binary" id="binary" size=18>-->
+          <div class="file-box">
+            <input type="file" name="binary" class="file1" id="fileField" size="28" onChange="document.getElementById('textfield').value=this.value" />
+            <input type='text' name='textfield' id='textfield' class='txt' />
+            <script>
+         document.write('<input type="button" class="btn accentColor" value="'+upgrade.br+'" />&nbsp;&nbsp;');
+
+ document.write('<input type="submit" class="btn accentColor" value="'+upgrade.upload+'" name="load" onClick="return fileCheck()">');
+		 </script>
+          </div></td>
+      </tr>
+    </form>
+    <tr height="30">
+      <td>
+      </td>
+    </tr>
+    <form action=/boafrm/formSaveConfig method=POST name="saveConfig">
+      <input type="hidden" name="submit-value" id="submit-value" value="">
+      <tr height="20">
+        <td></td>
+      </tr>
+      <tr>
+        <td width="60%" colspan="3" align="center"><font size=4>
+          <script>document.write('<input type="submit" class="submit1 accentColor" value="'+backup.reset+'" name="reset" onClick="return resetClick()">')</script></td>
+      </tr>
+      </table>
+    </form>
+	<table height="20px">
+	</table>
+  </div>
+</div>
+
+<script>
+dwAppbar();
+$(document).ready(function () {
+	$(".appbar").applicationBar();
+});
+</script>
+</body>
+</html>

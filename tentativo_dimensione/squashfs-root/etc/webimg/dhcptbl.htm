@@ -1,0 +1,46 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="util_gw.js"> </script>
+<% getIndex("no-cache"); %>
+<title>Active DHCP Client Table</title>
+</head>
+
+<body>
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+            <% trans("inet.client_h2");%></td>
+
+        </tr>
+      </table></td></tr>
+</table>
+<form action=/boafrm/formReflashClientTbl method=POST name="formClientTbl">
+<fieldset width="80%"><legend><%trans("inet.client_legend");%></legend>
+<table border='1' width="80%" align="center">
+<tr bgcolor=#7f7f7f> <td width="30%"><font size=2><% trans("inet.wan_ip");%></td>
+<td width="40%"><font size=2><% trans("share.macaddr");%></td>
+<td width="30%"><font size=2><%trans("inet.clien_time");%></td></tr>
+<% dhcpClientList(); %>
+</table>
+</fieldset>
+
+ <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.refresh+'" name="refresh">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="button" class="submit" value="'+share.close+'" name="close" onClick="javascript: window.close();">');
+  
+	</script></td></tr></table>	
+
+<input type="hidden" value="/dhcptbl.htm" name="submit-url">
+
+</form>
+
+</body>
+
+</html>

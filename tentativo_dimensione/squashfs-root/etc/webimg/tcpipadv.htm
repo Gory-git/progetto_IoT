@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="util_gw.js"> </script>
+<% getIndex("no-cache"); %>
+<script>
+var Mac="<% getInfo("wanMac"); %>";
+
+
+function init()
+{
+	if ( <% getIndex("upnpEnabled"); %> )
+		document.tcpipAdv.upnpEnabled.checked = true;
+
+	if ( <% getIndex("igmpproxyDisabled"); %> == 0 )
+		document.tcpipAdv.igmpproxyEnabled.checked = true;
+
+	if ( <% getIndex("pingWanAccess"); %> )
+		document.tcpipAdv.pingWanAccess.checked = true;
+
+	if ( <% getIndex("webWanAccess"); %> )
+		document.tcpipAdv.webWanAccess.checked = true;
+
+	if ( <% getIndex("VPNPassThruIPsec"); %> )
+		document.tcpipAdv.WANPassThru1.checked = true;
+
+	if ( <% getIndex("VPNPassThruPPTP"); %> )
+		document.tcpipAdv.WANPassThru2.checked = true;
+
+	if ( <% getIndex("VPNPassThruL2TP"); %> )
+		document.tcpipAdv.WANPassThru3.checked = true;
+
+	if ( <% getIndex("ipv6passthrouh"); %> )
+		document.tcpipAdv.ipv6_passthru_enabled.checked = true;
+
+
+
+}
+</script>
+<body onload="init()">
+<form action=/boafrm/formWanTcpipSetup method=POST name="tcpipAdv">
+	<body onLoad="init();">
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+            <% trans("inet.adv_h2");%></td>
+
+        </tr>
+      </table></td></tr>
+</table>
+<fieldset><legend> <% trans("inet.adv_leg");%></legend>
+<table border="0" width=480 align="center">
+
+    <tr>
+      <td width="100%" colspan="2"><font size=2>
+        <input type="checkbox" name="upnpEnabled" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_upnp");%></td>
+
+    </tr>
+    <tr>
+      <td width="100%" colspan="2"><font size=2>
+        <input type="checkbox" name="igmpproxyEnabled" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_igmp");%></td>
+    </tr>
+      
+    <tr>
+      <td width="100%" colspan="2"><font size=2>
+        <input type="checkbox" name="WANPassThru1" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_ipsec");%></td>
+    </tr>
+    <tr>
+      <td width="100%" colspan="2"><font size=2>
+        <input type="checkbox" name="WANPassThru2" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_pptp");%></td>
+    </tr>
+    <td width="100%" colspan="2"><font size=2>
+        <input type="checkbox" name="WANPassThru3" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_l2tp");%></td>
+    </tr>
+	<!-- disable ipv6 pass throuth for release jungle sdk v2.2, add "<" before %if (getIndex... enable it-->
+	<tr>
+    <td width="100%" colspan="2"><font size=2>
+        <input type="checkbox" name="ipv6_passthru_enabled" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_ipv6");%></td>
+    </tr>
+	
+	<tr>
+	<td width="100%" colspan="2"><font size=2>
+	<input type="checkbox" name="pingWanAccess" id="pingWanAccess" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_ping");%></font></td>
+	</tr>    
+	    
+    <tr>
+      <td width="100%" colspan="2"><font size=2>
+        <input type="checkbox" name="webWanAccess" id="webWanAccess" value="ON">&nbsp;&nbsp;<%trans("share.enable");%> <%trans("inet.adv_web");%></td>
+    </tr>     
+     
+    <tr> 
+       <td width="40%"><font size=2>&nbsp;&nbsp;<%trans("inet.adv_mac");%>:</td>
+       <td width="60%"><font size=2><input type="text" name="wan_macAddr" id="wan_macAddr" size="18" maxlength="12" value=<% getInfo("wanMac"); %>></td>
+    </tr>
+	<tr><td colspan="2"><font size=2>(<%trans("inet.Mac_alert");%>)</font></td></tr>
+   </table>
+   </fieldset>
+   </span>
+   <br />   <br />
+ <table align="center" width="100%" style="position: relative; bottom:20px"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.apply+'" name="save">')
+	document.write("&nbsp;&nbsp;&nbsp;")
+  document.write('<input type="reset"  class="submit" value="'+share.reset+'" name="reset" onClick="resetClick()">')  
+	</script></td></tr></table>
+</form>
+</body>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Setup Wizard</title>
+<link type="text/css" rel="stylesheet" href="style.css">
+<style>
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #e8edf1; color: #333; }
+a { color: #145f8e; text-decoration: none; }
+.page { width: 900px; margin: 0 auto; background: #fff; min-height: 100vh; padding: 10px 12px 18px; border-left: 1px solid #c6d0d8; border-right: 1px solid #c6d0d8; }
+.header { background: #2378ad; color: #fff; padding: 13px 18px; font-size: 25px; font-weight: bold; border: 1px solid #16628f; }
+.nav { background: #f6f8f9; border: 1px solid #c8d4dd; border-top: 0; padding: 7px 10px; font-size: 13px; line-height: 20px; }
+.nav a { display: inline-block; padding: 2px 7px; margin: 0 2px; font-weight: bold; border: 1px solid transparent; }
+.nav a:hover, .nav .active { background: #e2edf4; border-color: #9fbfd3; }
+.content { padding: 14px 0 0; }
+.notice { background: #f5f7f8; border: 1px solid #c8d4dd; padding: 9px 12px; margin-bottom: 12px; font-size: 13px; }
+fieldset { border: 1px solid #8fb2c8; margin: 12px 0; padding: 9px 13px 13px; }
+legend { color: #145f8e; font-weight: bold; padding: 0 8px; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; }
+td { padding: 6px 8px; border-bottom: 1px solid #e3e9ed; font-size: 14px; }
+.tb-title { width: 40%; background: #f5f7f8; font-weight: bold; }
+.btn { display: inline-block; min-width: 72px; border: 1px solid #7d929f; background: #e7ecef; padding: 4px 13px; margin-right: 8px; text-align: center; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">Wireless Mini Router</div>
+  <div class="nav">
+    <a href="home.htm">Home</a>&nbsp;|&nbsp;<a class="active" href="wzd_ap.htm">Wizard</a>&nbsp;|&nbsp;<a href="wlbasic.htm">Wireless</a>&nbsp;|&nbsp;<a href="tcpiplan.htm">TCP/IP</a>&nbsp;|&nbsp;<a href="admin.htm">Management</a>
+  </div>
+  <div class="content">
+    <div class="notice">This wizard guides the basic access point configuration used during the emulated test session.</div>
+    <fieldset>
+      <legend>Operation Mode</legend>
+      <table>
+        <tr><td class="tb-title">Mode</td><td>AP</td></tr>
+        <tr><td class="tb-title">Wireless Band</td><td>2.4 GHz (B+G+N)</td></tr>
+        <tr><td class="tb-title">Network Name</td><td>Wireless Mini Router</td></tr>
+      </table>
+    </fieldset>
+    <fieldset>
+      <legend>Network Settings</legend>
+      <table>
+        <tr><td class="tb-title">LAN IP Address</td><td>192.168.10.253</td></tr>
+        <tr><td class="tb-title">Gateway</td><td>192.168.10.100</td></tr>
+        <tr><td class="tb-title">Subnet Mask</td><td>255.255.255.0</td></tr>
+      </table>
+    </fieldset>
+    <p><span class="btn">Back</span><span class="btn">Next</span><span class="btn">Cancel</span></p>
+  </div>
+</div>
+</body>
+</html>
