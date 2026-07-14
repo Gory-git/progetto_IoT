@@ -1,0 +1,73 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Cache-Control" content="no-cache"><meta http-equiv="Expires" content="0">
+<link type="text/css" rel="stylesheet" href="style.css">
+
+<script language=JavaScript>
+
+var Request=new QueryString();
+var count =Request["Count"];
+var ip=Request["ip"];
+function QueryString(){
+	var name,value,i;
+	var str=location.href;
+	var num=str.indexOf("?");
+	if (num==-1)
+	{
+		return ;
+	}
+	str=str.substr(num+1);
+	var arrtmp=str.split("&");
+	for(i=0;i < arrtmp.length;i++){
+		num=arrtmp[i].indexOf("=");
+		if(num>0){
+			name=arrtmp[i].substring(0,num);
+			value=arrtmp[i].substr(num+1);
+			this[name]=value;
+		}
+	}
+}
+
+function Capture(obj)
+{
+	if (obj!=""&& obj!=undefined)
+		document.write(obj);
+}
+
+function get_by_id(id)
+	{
+		with(document)
+			{return getElementById(id);}
+	}
+function do_count_down()
+{
+	get_by_id("show_sec").innerHTML = count;
+		if(count == 0)
+	{
+		//alert(window.top.parent.location.href);
+		window.top.parent.location.href ="http://"+ip+"/home.htm"; return false;
+	}
+
+	if (count > 0) 
+	{
+		count--;setTimeout('do_count_down()',1000);
+	}
+}
+</script>
+</head>
+<body onload="do_count_down()">
+<h3 align="center">
+Change setting successfully!
+</h3>
+<h4 align="center">
+ please don
+</h4>
+<p align="center">
+Please wait <B><SPAN id=show_sec></SPAN></B>&nbsp;seconds ...
+</p>
+
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<% getIndex("no-cache"); %>
+<style>
+td{
+	font-size:12px;
+}
+legend{
+	font-size:14;
+}
+</style>
+<script type="text/javascript" src="util_gw.js"> </script>
+<SCRIPT>
+//var lang = <% getInfo("user_lang");%>;
+var div_main=["phome.opmode"];
+var Request=new QueryString();
+var step=Request["step"];
+
+function QueryString(){
+	var name,value,i;
+	var str=location.href;
+	var num=str.indexOf("?");
+	
+	str=str.substr(num+1);
+	var arrtmp=str.split("&");
+	for(i=0;i < arrtmp.length;i++){
+		num=arrtmp[i].indexOf("=");
+		if(num>0){
+			name=arrtmp[i].substring(0,num);
+			value=arrtmp[i].substr(num+1);
+			this[name]=value;
+		}
+	}
+}
+
+function initValue()
+{
+	//initLanguage();
+	//if(step==1)
+	//	DoDiv(1, div_main);
+	//else
+		DoDiv(0, div_main);
+	var op_mode=<% getInfo("wsopmode"); %>;
+	var wlanmode=<% getInfo("wlanMode"); %>;
+	//alert(wlanmode);
+	var id;
+	switch(op_mode)
+	{
+		case 0: id="apc";break;
+		case 1: id="routerc";break;
+		case 2: id="repeaterc";break;
+		case 3: id="bridgec";break;
+		case 4: id="clientc";break;
+	}
+	//alert(op_mode);
+	document.formWizard.OpmodeT[op_mode].checked=true;
+	AllDiv(false, div_opmodet);
+	show_div(true, id);
+	get_by_id("opmode_next").disabled=false;
+}
+
+function opmodenext()
+{
+	var toasp;
+	if (document.forms[0].OpmodeT[0].checked)//ap
+		toasp="wzd_ap.htm";
+	else if (document.forms[0].OpmodeT[1].checked)//router
+		toasp="wzd_router.htm";
+	else if (document.forms[0].OpmodeT[2].checked)//repeater
+		toasp="wzd_rep.htm";
+	else if (document.forms[0].OpmodeT[3].checked)//bridge
+		toasp="wzd_br.htm";
+	else if (document.forms[0].OpmodeT[4].checked)//client
+		toasp="wzd_cli.htm";
+	else if (document.forms[0].OpmodeT[5].checked)//usb3g
+		toasp="wzd_3g.htm";
+	else
+		toasp=Def_Main_Page;
+	GotoWeb(toasp);
+}
+
+var div_opmodet=["apc", "routerc", "repeaterc","bridgec","clientc"];
+function opmodesel(id)
+{
+	AllDiv(false, div_opmodet);
+	show_div(true, id);
+	get_by_id("opmode_next").disabled=false;
+}
+
+</SCRIPT>
+</head>
+
+<body onload="initValue()">
+<form action=/goform/formWizard method=POST name="formWizard">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" class="info">
+    <tr>
+      <td class="headspace"></td>
+    </tr>
+    <tr>
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="tablespace"></td>
+            <td class="headfullline" >&nbsp;
+              <%trans("menu.wiz");%>
+              </td>
+            <td class="tablespace"></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td class="tablespace"></td>
+            <td valign="top"><span id="phome.wel" class="off">
+              <table width="100%" border="0">
+                <tr height="30"> </tr>
+                <tr align="left" class="info">
+                  <td width="8%"></td>
+                  <td width="*" valign="top"><fieldset>
+                      <legend>
+                      <% trans("home.wel"); %>
+                      </legend>
+                      <% trans("home.info"); %>
+                      <br />
+                      <br />
+                      <table width="100%" border="0">
+                        <tr>
+                          <td class="submitFooter"><script type="text/javascript">
+	document.write("<input class=\"button\" type=\"button\" value=\"" + share.next + "\" onclick=\"DoDiv(1, div_main)\" />");
+				</script></td>
+                        </tr>
+                      </table>
+                    </fieldset></td>
+                  <td width="8%"></td>
+                </tr>
+              </table>
+              </span><span id="phome.opmode" class="off">
+              <table width="100%" border="0">
+                <tr height="30"> </tr>
+                <tr align="left" class="info">
+                  <td width="5%"></td>
+                  <td width="*" valign="top" font-size=2><fieldset>
+                      <legend>
+                      <% trans("home.opmode"); %>
+                      </legend>
+                      <br />
+                      <table width="100%" border="0">
+                        <tr>
+                          <td width="5%"><input name="OpmodeT" type=radio value="0" onclick="opmodesel('apc');"></td>
+                          <td width="45%"><% trans("home.ap"); %>
+                            :</td>
+                          <td><% trans("home.apt"); %></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" id="apc" class="off">
+                        <tr>
+                          <td><img src="res/ap.gif" /></td>
+                        </tr>
+                        <tr>
+                          <td><%trans("home.apc");%></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0">
+                        <tr>
+                          <td width="5%"><input name="OpmodeT" type=radio value="1" onclick="opmodesel('routerc');"></td>
+                          <td width="45%"><% trans("home.router"); %>
+                            :</td>
+                          <td><% trans("home.routert"); %></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" id="routerc" class="off">
+                        <tr>
+                          <td><img src="res/gateway.gif" /></td>
+                        </tr>
+                        <tr>
+                          <td><%trans("home.routerc");%></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0">
+                        <tr>
+                          <td width="5%"><input name="OpmodeT" type=radio value="2" onclick="opmodesel('repeaterc');"></td>
+                          <td width="45%"><% trans("home.repeater"); %>
+                            :</td>
+                          <td><% trans("home.repeatert"); %></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" id="repeaterc" class="off">
+                        <tr>
+                          <td><img src="res/repeater.gif" /></td>
+                        </tr>
+                        <tr>
+                          <td><%trans("home.repeaterc");%></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0">
+                        <tr>
+                          <td width="5%"><input name="OpmodeT" type=radio value="3" onclick="opmodesel('bridgec');"></td>
+                          <td width="45%"><% trans("home.bridge"); %>
+                            :</td>
+                          <td><% trans("home.bridget"); %></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" id="bridgec" class="off">
+                        <tr>
+                          <td><img src="res/bridge.gif" /></td>
+                        </tr>
+                        <tr>
+                          <td><%trans("home.bridgec");%></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0">
+                        <tr>
+                          <td width="5%"><input name="OpmodeT" type=radio value="4" onclick="opmodesel('clientc');"></td>
+                          <td width="45%"><% trans("home.client"); %>
+                            :</td>
+                          <td><% trans("home.clientt"); %></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" id="clientc" class="off">
+                        <tr>
+                          <td><img src="res/client.gif" /></td>
+                        </tr>
+                        <tr>
+                          <td><%trans("home.clientc");%></td>
+                        </tr>
+                      </table>
+                      <!--
+                      <table width="100%" border="0">
+                        <tr>
+                          <td width="5%"><input name="OpmodeT" type=radio value="5" onclick="opmodesel('usb3gc');"></td>
+                          <td width="45%"><% trans("home.usb3g"); %>
+                            :</td>
+                          <td><% trans("home.usb3gt"); %></td>
+                        </tr>
+                      </table>
+                      <table width="100%" border="0" id="usb3gc" class="off">
+                        <tr>
+                          <td><img src="res/3g.gif" /></td>
+                        </tr>
+                        <tr>
+                          <td><%trans("home.usb3gc");%></td>
+                        </tr>
+                      </table>
+                      -->
+                      <br />
+                      <table width="100%" border="0">
+                        <tr>
+                          <td class="submitFooter"><script type="text/javascript">
+                          //alert(step);
+                          if(0)
+	document.write("<input class=\"button\" type=\"button\" name=\"opmode_back\" id=\"opmode_back\" value=\"" + share.back + "\" onclick=\"DoDiv(0, div_main);\" />");
+	document.write("<input class=\"submit\" type=\"button\" name=\"opmode_next\" id=\"opmode_next\" value=\"" + share.next + "\" disabled onclick=\"opmodenext()\" />");
+				</script></td>
+                        </tr>
+                      </table>
+                    </fieldset></td>
+                  <td width="5%"></td>
+                </tr>
+              </table>
+              </span> </span> <br /></td>
+            <td class="tablespace"></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

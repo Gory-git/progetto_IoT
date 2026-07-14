@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Management</title>
+<link type="text/css" rel="stylesheet" href="style.css">
+<style>
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; background: #e8edf1; color: #333; }
+a { color: #145f8e; text-decoration: none; }
+.page { width: 900px; margin: 0 auto; background: #fff; min-height: 100vh; padding: 10px 12px 18px; border-left: 1px solid #c6d0d8; border-right: 1px solid #c6d0d8; }
+.header { background: #2378ad; color: #fff; padding: 13px 18px; font-size: 25px; font-weight: bold; border: 1px solid #16628f; }
+.nav { background: #f6f8f9; border: 1px solid #c8d4dd; border-top: 0; padding: 7px 10px; font-size: 13px; line-height: 20px; }
+.nav a { display: inline-block; padding: 2px 7px; margin: 0 2px; font-weight: bold; border: 1px solid transparent; }
+.nav a:hover, .nav .active { background: #e2edf4; border-color: #9fbfd3; }
+.content { padding: 14px 0 0; }
+fieldset { border: 1px solid #8fb2c8; margin: 12px 0; padding: 9px 13px 13px; }
+legend { color: #145f8e; font-weight: bold; padding: 0 8px; font-size: 14px; }
+table { width: 100%; border-collapse: collapse; }
+td { padding: 6px 8px; border-bottom: 1px solid #e3e9ed; font-size: 14px; }
+.tb-title { width: 40%; background: #f5f7f8; font-weight: bold; }
+input { border: 1px solid #8da0ad; padding: 3px 5px; min-width: 220px; font-size: 13px; }
+.btn { display: inline-block; min-width: 72px; border: 1px solid #7d929f; background: #e7ecef; padding: 4px 13px; margin-right: 8px; text-align: center; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">Wireless Mini Router</div>
+  <div class="nav">
+    <a href="home.htm">Home</a>&nbsp;|&nbsp;<a href="wzd_ap.htm">Wizard</a>&nbsp;|&nbsp;<a href="wlbasic.htm">Wireless</a>&nbsp;|&nbsp;<a href="tcpiplan.htm">TCP/IP</a>&nbsp;|&nbsp;<a class="active" href="admin.htm">Management</a>
+  </div>
+  <div class="content">
+    <fieldset>
+      <legend>Administrator Settings</legend>
+      <table>
+        <tr><td class="tb-title">User Name</td><td><input value="admin"></td></tr>
+        <tr><td class="tb-title">New Password</td><td><input type="password" value=""></td></tr>
+        <tr><td class="tb-title">Confirmed Password</td><td><input type="password" value=""></td></tr>
+      </table>
+    </fieldset>
+    <fieldset>
+      <legend>System Management</legend>
+      <table>
+        <tr><td class="tb-title">Web Server</td><td>Boa/0.94.14rc21</td></tr>
+        <tr><td class="tb-title">Remote Management</td><td>Disabled</td></tr>
+        <tr><td class="tb-title">Configuration File</td><td>Available in emulated firmware image</td></tr>
+      </table>
+    </fieldset>
+    <p><span class="btn">Apply Changes</span><span class="btn">Save</span><span class="btn">Reboot</span></p>
+  </div>
+</div>
+</body>
+</html>

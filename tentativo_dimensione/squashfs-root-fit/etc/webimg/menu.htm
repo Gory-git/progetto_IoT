@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<% getTitle(); %>
+<% getweb("Title"); %>
+<% getIndex("no-cache"); %>
+<script type="text/javascript" src="util_gw.js"> </script>
+<style type="text/css">
+body {
+	margin: 0;
+	padding: 0;
+	width:160px;
+}
+a:hover{color:#333;text-decoration:underline}
+.wlmenu {
+	margin: 10px 0px 0px 15px;
+	vertical-align:middle;
+	/*background-color:#E0E0E0;*/
+}
+.wlsubmenu {
+	vertical-align:middle;
+}
+.wlinfo {
+	margin-left:20px;
+	line-height:30px;
+	vertical-align:middle;
+}
+.wlinfo_1 {
+	margin:0px 30px;
+	line-height:30px;
+	vertical-align:middle;
+}
+.wlsubinfo {
+	margin-left:10px;
+	margin-top:1px;
+	line-height:25px;
+	vertical-align:middle;
+	
+}
+.on {
+	display:inline;
+}
+.off {
+	display:none;
+}
+.light div input {
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 35px;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #D6D6D6;
+	margin: 5px;
+}
+.m_nosel {
+	/*background-color:rgb(7,94,127);*/
+	/*background-color:rgb(21,112,166);*/
+	background-repeat:repeat-x;
+	background-image: url(res/menu_0.gif);
+	color:#333;
+	border: 1px solid #CCCCCC;
+}
+.m_sel {
+	/*background-color:rgb(1,140,193);*/
+	color:#666666;
+}
+.test {
+	z-index:0;
+	border-top-style: none;
+	margin-left: 5px;
+}
+</style>
+<script type="text/javascript">
+
+var opmode = 1;
+var wsopmode='<% getInfo("wsopmode"); %>'*1;
+
+function WriteSubMenu(id)
+{
+	var submenu = new Array(); 
+	id++;
+	if (wsopmode == 1||wsopmode==6)
+	{
+		if (id==0){submenu = sub_home;}
+		else if (id==1){submenu = sub_inet;}
+		else if (id==2){submenu = sub_wlan;}
+		else if (id==3){submenu = sub_fire;}
+		else if (id==4){submenu = sub_advset;}
+		else if (id==5){submenu = sub_admin;}
+		else if (id==6){submenu = sub_status;}
+	}
+	else
+	{
+		if (id==0){submenu = sub_home;}
+		else if (id==1){submenu = sub_inet;}
+		else if (id==2){submenu = sub_wlan;}
+		else if (id==3){submenu = sub_admin;}
+		else if (id==4){submenu = sub_status;}
+	}
+	
+	if (submenu.length)
+		dw('<fieldset class="test">');
+	for(var i=0; i<submenu.length; i++)
+	{
+		dw('<a href="'+submenu[i].url+'" target="view">');
+		dw('<div class="wlsubmenu m_sel accent">');
+		dw('<div class="menu2 wlsubinfo">&bull; '+submenu[i].string+'</div>');
+		dw('</div>');
+		dw('</a>');
+	}
+	if (submenu.length)
+		dw('</fieldset>');
+}
+
+function WriteMainMenu()
+{
+	for(var i=0; i<menunum; i++)
+	{
+		dw('<div class="wlmenu"><a href="'+main_menu[i].url+'" target="view" onclick="mainmenuclick('+i+')">');
+		dw('<div id="main_'+i+'" class="m_nosel accent"><div class="menu1 wlinfo">'+main_menu[i].string+'</div></div>');
+		dw('</a>');
+		dw('<span id="sub_'+i+'" class="off"> ');
+		WriteSubMenu(i);
+		dw('</span>');
+		dw('</div>');
+	}
+}
+
+function HideAllSubMenu()
+{
+	for (var i=0;i<menunum;i++)
+	{
+		document.getElementById("main_"+i).className = "m_nosel accent"
+		document.getElementById("sub_"+i+"").className  = "off";
+	}
+}
+
+function mainmenuclick(id)
+{
+	HideAllSubMenu();
+	//document.getElementById("main_"+id).className = "m_sel accent"
+	document.getElementById("sub_"+id+"").className  = "on";
+}
+
+function refreshview()
+{
+	window.top.document.getElementById("main").src=window.top.document.getElementByName("main").location.href;
+}
+
+</script>
+<script type="text/javascript" src="menu.js"></script>
+</head>
+
+<body>
+<a href="home.htm" target="_top"><div class="wlinfo_1 m_nosel" align="center"><font color="#666"><%trans("menu.bchome");%></font></div></a>
+<table height="50px"></table>
+<script>
+	WriteMainMenu();
+</script>
+<table height="50px"></table>
+
+
+</html>

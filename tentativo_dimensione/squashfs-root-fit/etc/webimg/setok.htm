@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="util_gw.js"> </script>
+<% getIndex("no-cache"); %>
+<script type="text/javascript">
+var Request=new QueryString();
+var url=Request["url"];
+function QueryString(){
+	var name,value,i;
+	var str=location.href;
+	var num=str.indexOf("?");
+	if (num==-1)
+	{
+		return ;
+	}
+	str=str.substr(num+1);
+	var arrtmp=str.split("&");
+	for(i=0;i < arrtmp.length;i++){
+		num=arrtmp[i].indexOf("=");
+		if(num>0){
+			name=arrtmp[i].substring(0,num);
+			value=arrtmp[i].substr(num+1);
+			this[name]=value;
+		}
+	}
+}
+function goback()
+{
+	window.location.replace(url);
+}
+function init()
+{
+	document.getElementById("submit-url").value=url;
+}
+</script>
+</head>
+<body onload="init()">
+<form action=/boafrm/formRebootCheck method=POST name='rebootForm'>
+<br>
+<fieldset align="center">
+<h4 align="center" color="FFFF00">
+<%trans("share.changeok");%>
+</h4>
+<p align="center">
+<%trans("share.changeokMsg");%>
+</p>
+</fieldset>
+<input type='hidden' value='%s' name='submit-url' id='submit-url'>
+ <table width="100%"><tr> 
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.rbnow+'"id="restartNow" onClick="return true">');
+    document.write('<input type="button" class="submit" value="'+share.rblater+'" id="restartLater" onClick="goback()">') ; 
+	</script></td></tr></table>
+
+<form>
+</body>

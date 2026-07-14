@@ -1,0 +1,58 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<% getIndex("no-cache"); %>
+<script type="text/javascript" src="util_gw.js"></script>
+
+<title>WDS AP Table</title>
+</head>
+
+<body>
+
+  <table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+          <script type="text/javascript">
+		var wlan_num =  <% getIndex("wlan_num"); %>;
+		if (wlan_num > 1) {
+			var wlan_idx_ = <% getIndex("wlan_idx"); %> + 1;
+			document.write("WDS AP Table -wlan" + wlan_idx_ + "</p>");
+		}
+		else
+			document.write(wlan.wdstb_h2);
+</script>
+		  </td>
+
+        </tr>
+      </table></td></tr>
+</table>
+
+<form action=/boafrm/formWirelessTbl method=POST name="formWirelessTbl">
+<fieldset align="center"><legend><%trans("wlan.wdstb_h2")%></legend>
+<table border='0' width="500" align="center">
+<tr bgcolor=#7f7f7f><td width="30%"><font size=2><%trans("share.macaddr");%></td>
+<td width="15%"><font size=2>Tx <%trans("share.packets");%></td>
+<td width="15%"><font size=2>Tx <%trans("share.errors");%></td>
+<td width="15%"><font size=2>Rx <%trans("share.packets");%></td>
+<td width="25%"><font size=2>Tx <%trans("share.rate");%> (Mbps)</td></tr>
+<% wdsList(); %>
+</table>
+</fieldset>
+<input type="hidden" value="/wlwdstbl.htm" name="submit-url">
+
+
+   	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.refresh+'" name="refresh">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="button" class="submit" value="'+share.close+'" name="close"  onClick="javascript: window.close();">');
+	</script></td></tr></table>
+  
+</form>
+</body>
+
+</html>

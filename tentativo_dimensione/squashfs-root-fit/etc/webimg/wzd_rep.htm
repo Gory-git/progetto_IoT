@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="style.css" />
+<% getIndex("no-cache"); %>
+<% getJquery(); %>
+<% getMetro(); %>
+<script type="text/javascript" src="util_gw.js"> </script>
+<script type="text/javascript" src="wzdwl.js"></script>
+<script type="text/javascript" src="wzdwlcli.js"></script>
+<SCRIPT>
+var isFromWL="<%getInfo("isWlanCon");%>";
+
+function TimeOut()
+{
+	var showhtml = "";
+	$("#id_div_all").slideUp("slow");
+	$("#id_div_info").slideDown("slow");
+	
+	showhtml += "<p>" + wlan.bs_ssid +": " + $("#rep_ssid").val() +"</p>";
+	showhtml += "<p>" + wlan.bs_chan +":&nbsp;" + ($("#wlan_channel").val()=='0'?glb.auto:$("#wlan_channel").val()) +"</p>";
+	//showhtml += "<p>" + wlan.wds_sec +":&nbsp;" + get_by_id("wlan_security_mode").value +"</p>";
+	if($("#wlan_security_mode").val()!='0')
+		showhtml += "<p>" + share.key +":&nbsp;" + $("#keyValue").val() +"</p>";
+	showhtml +="<br /><br />";
+	$("#id_p_info").html(showhtml);
+}
+
+
+function clinext(id, F)
+{	
+	if (sel_ap_id<0)
+	{
+		return;
+	}
+	{
+		if (get_by_id("ap_wSsid").value=="")
+		{
+			alert(wlan.ssid_msg);
+			get_by_id("ap_wSsid").focus();
+			return;
+		}
+		wl_ssid = get_by_id("ap_wSsid").value;
+	}
+	//method & key
+	if (wl_method==ws_w_no)
+	{}
+	else if (wl_method==ws_w_wep)
+	{
+		if(CheckWepKey("keyValue")==false)
+			return ;
+	}
+	else if (wl_method==ws_w_wpa||wl_method==ws_w_wpa2||wl_method==ws_w_mix)
+	{
+		if(CheckWpaKey("keyValue")==false)
+			return;
+	}
+	SetWlValue();
+	
+	hidethisbtn(id);
+  	show_div(true,"errorinfo");
+	if(0)//(isFromWL)
+	{
+		jq_submit("main.htm", "wizap", true);
+		return false;
+
+	}
+	if(isFromWL==1)
+	{
+		get_by_id("go_web").value="hold"
+	}
+	TimeOut();
+	submit(F, Def_Main_Page, "wzdrep");
+}
+
+</SCRIPT>
+</head>
+<body onLoad="Cli_Refresh()">
+  <div class="tiles">
+  <div id="man_bg" class="accent">
+<form id="idFSetup" action=/boafrm/formWzdRep method=POST name="formWzdRep">
+	<input type="hidden" id="go_web" name="go_web" value="">
+  <h2 align="center" style="color:#FFFFFF; top:20px;">
+    <%trans("menu.wiz");%>
+    --
+    <% trans("home.repeatert"); %>
+  </h2>
+  <div id="id_div_all">
+  <% getweb("wlap.htm"); %>
+  <input type='hidden' value='' name='submit-url' id='submit-url'>
+  <input type='hidden' value='' name='submit-value' id='submit-value'>
+  <table width="80%" border="0" align="center">
+    <tr align="center" class="info">
+   <td width="12%"></td>
+      <td width="74%" valign="top">
+        <br />
+        <table width="100%" border="0" cellspacing="20" cellpadding="0">
+          <tr>
+            <td align="center"><script type="text/javascript">
+						document.write("<input class=\"button1 accentColor\" type=\"button\" name=\"cli_refresh\" id=\"cli_refresh\" value=\"" + share.refresh + "\" onclick=\"Cli_Refresh();\" />");</script></td>
+          </tr>
+          <tr>
+            <td align="center"><span id="cli_scan" class="off">
+              <input type=text name="chart" id="chart" readonly="true" size=70 style="font-family:Arial;  font-weight:bolder; text-align:center; color:green; padding:0px; border-style:none;">
+              </span> </td>
+          </tr>
+        </table>
+        <table width="100%" align="center" border="0" id="cli_list" style="font-size:12;">
+          <tr>
+            <td align="center" bgcolor="#C0C0C0" width="25%"><% trans("share.ssid"); %></td>
+            <td align="center" bgcolor="#C0C0C0" width="25%"><% trans("share.bssid"); %></td>
+            <td align="center" bgcolor="#C0C0C0" width="10%"><% trans("share.channel"); %></td>
+            <td align="center" bgcolor="#C0C0C0" width="20%"><% trans("share.encrypt"); %></td>
+            <td align="center" bgcolor="#C0C0C0" width="10%"><% trans("share.signal"); %></td>
+            <td align="center" bgcolor="#C0C0C0" width="10%"><% trans("share.select"); %></td>
+          </tr>
+        </table>
+        <br />
+        <span id="div_cli" class="off">
+        <table width="100%" border="0" cellspacing="20px">
+          <tr width="100%">
+            <td width="30%" align="right">
+              <%trans("share.coto");%></td>
+            <td width="70%" align="left"><span><input  type="text" name="ssid" id="ap_wSsid" size="25" maxlength="32" value="" disabled="disabled" class="accentColor"></span></td>
+		  </tr>
+		  <tr>
+            <td width="30%" align="right">
+		  		<%tran("share.ssid");%>
+		  	</td>
+		 	<td width="70%" align="left">
+		 		<input type="text" name="rep_ssid" id="rep_ssid" size="25" maxlength="32" value="<%getInfo("def_ssid")%>">
+		 	</td>
+ 	   	</tr>
+        </table>
+        <span id="div_encry" class="off">
+        <table width="100%" border="0" cellspacing="20px">
+          <tr width="100%">
+            <td width="30%" align="right"><%trans("share.maiap");%>
+              <%trans("share.key");%></td>
+            <td width="70%" align="left" nowrap="nowrap"><span id="passsp">
+              <input type="password" id="keyValue" name="keyValue" onKeyUp="CountLeng(this, 'u_ms')" maxlength="64" size="25" value="">
+              </span> &nbsp;<font id="u_ms"></font>
+              <input type="checkbox" name="key_unmask" value="0" onClick="unmask(this.checked,'passsp','keyValue','keyValue' );" >
+              <% trans("share.unmask"); %>
+            </td>
+          </tr>
+
+		  </table>
+        </span> </span>
+
+	</td>
+      <td width="12%"></td>
+    </tr>
+          <tr>
+            <td><font id="errorinfo"></font><img class="off" id="loginimg" src="login_load.gif" /></td>
+          </tr>
+              <tr>      <td width="12%"></td>
+
+            <td class="submitFooter"><script type="text/javascript">
+	//document.write("<input class=\"submit1 accentColor\" type=\"button\" name=\"back\" id=\"back\" value=\"" + share.back + "\" onclick=\"GotoWeb('wizard.htm?step=1');\" /> &nbsp;&nbsp;&nbsp;");
+	document.write("<input class=\"submit1 accentColor\" type=\"button\" name=\"next\" id=\"next\" value=\"" + share.save + "\" onclick=\"clinext(this.id, this.form);\" />");
+				</script></td>
+		      <td width="12%"></td>
+
+          </tr>      
+		  <tr height="20px"></tr>
+  </table>
+<br />
+</div>
+		<div id="id_div_info" style="padding-left:100px">
+		<font id="id_p_info"></font></div>
+<br /><br />
+</div>
+</form>
+</div>
+</div>
+<script>
+dwAppbar();
+$(document).ready(function () {
+	$(".appbar").applicationBar();
+});
+</script>
+</body>
+</html>

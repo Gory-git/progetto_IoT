@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<%getTitle();%><% getweb("Title"); %>
+<% getJquery(); %>
+<% getMetro(); %>
+<script type="text/javascript">
+$(document).ready(function () {
+	$.fn.metrojs.theme.applyTheme("light", "blue");
+	//$(".live-tile,.flip-list").liveTile();
+});
+</script>
+</head>
+
+<body>
+<div class="tiles blockNav blue">
+  <div class="live-tile">
+    <div> <a href="#download"> </a> </div>
+    <a class="tile-title" href="#download">Router</a> </div>
+  <div class="live-tile">
+    <div> <a href="#download"> </a> </div>
+    <a class="tile-title" href="#download">AP</a> </div>
+  <div class="live-tile">
+    <div> <a href="#download"> </a> </div>
+    <a class="tile-title" href="#download">Repeater</a> </div>
+  <div class="live-tile">
+    <div> <a href="#download"> </a> </div>
+    <a class="tile-title" href="#download">WISP</a> </div>
+</div>
+</body>
+</html>

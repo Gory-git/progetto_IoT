@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<% getweb("Title"); %>
+<% getIndex("no-cache"); %>
+<% getJquery(); %>
+<% getMetro(); %>
+<title>Firmware Update</title>
+<style>
+.on {
+	display:on
+}
+.off {
+	display:none
+}
+.file-box {
+	position:relative;
+	width:340px
+}
+.txt {
+	height:20px;
+border-color::#1BA1E2;
+	border:1px solid #cdcdcd;
+	width:183px;
+}
+.btn {
+	background-color:#FFF;
+	border:1px;
+	height:25px;
+	width:57px;
+}
+.file {
+	position:absolute;
+	top:78px;
+	right:11px;
+	height:24px;
+filter:alpha(opacity:0);
+	opacity: 0;
+	width:260px
+}
+.file1 {
+	position:absolute;
+	top:1px;
+	right:88px;
+	height:27px;
+filter:alpha(opacity:0);
+	opacity: 0;
+	width:252px
+}
+</style>
+<script type="text/javascript" src="util_gw.js"></script>
+<script>
+var MWJ_progBar = 0;
+var time=0;
+var delay_time=1000;
+var loop_num=0;
+
+function progress()
+{
+  if (loop_num == 3) {
+	alert(upgrade.alert1);
+	return false;
+  }
+  if (time < 1) 
+	time = time + 0.033;
+  else {
+	time = 0;
+	loop_num++;
+  }
+  setTimeout('progress()',delay_time);  
+ // myProgBar.setBar(time); 
+}
+
+
+function sendClicked(F)
+{
+  if(document.upload.binary.value == ""){
+      	document.upload.binary.focus();
+  	alert(upgrade.alert2);
+  	return false;
+  }
+  F.submit();
+  //show_div(true, "progress_div");   
+  progress();
+}
+
+</script>
+</head>
+<BODY>
+<div class="tiles">
+  <div id="man_bg" class="accent">
+    <form method="post" action="boafrm/formUpload" enctype="multipart/form-data" name="upload">
+      <h2 align="center" style="color:#FFFFFF">
+        <%trans("upgrade.h2")%>
+      </h2>
+      <br />
+      <br />
+      <br />
+      <table border="0" cellspacing="4" width="500" align="center">
+        <tr>
+          <td width="40%">
+            <%trans("statu.fw");%>
+            :&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td width="60%">
+            <% getInfo("fwVersion"); %></td>
+        </tr>
+        <tr height="20">
+          <td></td>
+        </tr>
+        <tr height="30px">
+          <td></td>
+        </tr>
+        <tr>
+          <td width="20%">
+            <%trans("upgrade.selfile");%>
+            :&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td width="80%">
+            
+            <div class="file-box">
+              <input type="file" name="binary" class="file1" id="fileField" size="28" onChange="document.getElementById('textfield').value=this.value" />
+              <input type='text' name='textfield' id='textfield' class='txt' />
+              <script>
+         document.write('<input type="button" class="btn accentColor" value="'+upgrade.br+'" />')
+		 </script> 
+            </div></td>
+        </tr>
+      </table>
+      <br />
+      <br />
+      <br />
+      <table width="100%">
+        <tr>
+          <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="button" class="submit1 accentColor" value="'+upgrade.apply+'" name="send"  onClick="sendClicked(this.form)">');
+	document.write('&nbsp;&nbsp;')
+	</script></td>
+        </tr>
+      </table>
+      <p>
+        <input type="hidden" value="/upload.htm" name="submit-url" />
+      </p>
+    </form>
+		<table height="20px">
+	</table>
+
+  </div>
+</div>
+ 
+<script>
+dwAppbar();
+$(document).ready(function () {
+	$(".appbar").applicationBar();
+});
+</script>
+</body>
+</html>

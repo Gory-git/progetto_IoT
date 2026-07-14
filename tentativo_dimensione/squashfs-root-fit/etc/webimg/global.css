@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color:#FFF;
+	font-family:"宋体";
+	text-align:left;
+}
+a:link {
+	color:#FFF;
+	text-decoration: none;
+}
+a:visited {
+	color: #FFF;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus {
+	text-decoration: none;
+	cursor:hand;
+}
+.menu1{
+	font-size:16px;
+}
+.menu2{
+	font-size:12px;
+}

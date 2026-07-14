@@ -1,0 +1,152 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="style.css" />
+<script type="text/javascript" src="util_gw.js"> </script>
+<% getIndex("no-cache"); %>
+<title>Time Zone Setting</title>
+</head>
+<script>
+
+
+function updateState()
+{
+	if(document.ddns.ddnsEnabled.checked)
+	{
+		
+		enableTextField(document.ddns.ddnsType);
+		enableTextField(document.ddns.ddnsDomainName);
+		enableTextField(document.ddns.ddnsUser);
+		enableTextField(document.ddns.ddnsPassword);
+	}
+	else
+	{
+		disableTextField(document.ddns.ddnsType);
+		disableTextField(document.ddns.ddnsDomainName);
+		disableTextField(document.ddns.ddnsUser);
+		disableTextField(document.ddns.ddnsPassword);
+	}
+}
+
+function ddns_saveChanges()
+{
+	form = document.ddns ;
+	if(form.ddnsEnabled.checked){
+		if(form.ddnsDomainName.value == ""){
+			alert(ddns.alert1);
+			form.ddnsDomainName.value = form.ddnsDomainName.defaultValue;
+			form.ddnsDomainName.focus();
+			return false ;
+		}
+		if(form.ddnsUser.value == ""){
+			alert(ddns.alert2);
+			form.ddnsUser.value = form.ddnsUser.defaultValue;
+			form.ddnsUser.focus();
+			return false ;
+		}
+		if(form.ddnsPassword.value == ""){
+			alert(ddns.alert3);
+			form.ddnsPassword.value = form.ddnsPassword.defaultValue;
+			form.ddnsPassword.focus();
+			return false ;
+		}
+	}
+	return true;
+}
+
+function init()
+{
+	//var cf = document.forms[0];
+	var cf = document.ddns;
+	var EnableDDNS = <%getIndex("ddnsEnabled");%>;
+
+    	if(EnableDDNS == 1) 
+        	cf.ddnsEnabled.checked = true;
+        else
+        	cf.ddnsEnabled.checked = false;
+	cf.ddnsType.selectedIndex = <%getIndex("ddnsType");%>;
+	updateState();
+}
+</script>
+
+<body onLoad="init();">
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+
+   <tr><td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+   
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+          <%trans("ddns.h2")%>		  </td>
+        
+      </table>
+	  
+<form action=/boafrm/formDdns method=POST name="ddns">
+<fieldset><legend><%trans("ddns.legend")%></legend>
+
+        <table width="71%" height="154">
+          <tr>
+            <td colspan="2"><font size=2>
+              <div align="left">
+                <input type="checkbox" name="ddnsEnabled" 
+		value="ON" onClick=updateState()>
+                &nbsp;&nbsp;<%trans("ddns.enable");%> <br>
+              </div>
+            </font></td>
+          </tr>
+          <tr >
+<tr height="20"><td></td></tr>
+          </tr>
+          <tr>
+            <td width ="46%"><div align="right"><font size=2>  <%trans("ddns.srv");%> :  </font> </div></td>
+            <td width ="54%"><div align="center">
+              <select name="ddnsType">
+                <option value=0 >DynDNS </option>
+                <option value=1 >TZO </option>
+                <option value=2 >no-ip </option>
+              </select>
+            </div></td>
+          </tr>
+          <tr>
+            <td width="46%" height="23"><div align="right"><font size=2> <%trans("share.domainname");%> :  </font></div></td>
+            <td width="54%"><div align="center"><font size=2>
+              <input type="text" name="ddnsDomainName" size="20" maxlength="50" value=<% getInfo("ddnsDomainName"); %>>
+            </font> </div></td>
+          </tr>
+          <tr>
+            <td width ="46%"><div align="right"><font size=2>  <%trans("ddns.name");%>:  </font> </div></td>
+            <td width ="54%"><div align="center"><font size=2>
+              <input type="text" name="ddnsUser" size="20" maxlength="50" 
+		value="<% getInfo("ddnsUser"); %>">
+            </font> </div></td>
+          </tr>
+          <tr>
+            <td width ="46%"><div align="right"><font size=2>  <%trans("ddns.pass");%>:  </font> </div></td>
+            <td width ="54%"><div align="center"><font size=2>
+              <input type="password" name="ddnsPassword" size="20" maxlength="30"
+		value="<% getInfo("ddnsPassword"); %>">
+            </font> </div></td>
+          </tr>
+        </table>
+  </fieldset>
+		
+
+      
+ 
+  <p>
+  <input type="hidden" value="/ddns.htm" name="submit-url"></p>
+  	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.apply+'" name="apply"  onClick="return ddns_saveChanges()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">');
+  
+	</script></td></tr></table>
+
+</form>
+</div>
+</blockquote>
+
+</body>
+
+</html>

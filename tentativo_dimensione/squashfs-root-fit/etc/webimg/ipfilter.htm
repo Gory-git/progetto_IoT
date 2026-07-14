@@ -1,0 +1,146 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+
+<% getIndex("no-cache"); %>
+<title>IP Filtering</title>
+<script type="text/javascript" src="util_gw.js"> </script>
+<script>
+function addClick()
+{
+  if (!document.formFilterAdd.enabled.checked)
+  	return true;
+
+  if (document.formFilterAdd.ip.value=="" && document.formFilterAdd.comment.value=="" )
+	return true;
+
+  if ( checkIpAddr(document.formFilterAdd.ip, 'Invalid IP address') == false )
+	    return false;
+  return true;
+}
+
+
+function deleteClick()
+{
+  if ( !confirm(f_ip.msg3) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+function deleteAllClick()
+{
+   if ( !confirm(f_ip.msg4) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+
+function disableDelButton()
+{
+	disableButton(document.formFilterDel.deleteSelFilterIp);
+	disableButton(document.formFilterDel.deleteAllFilterIp);
+}
+
+function updateState()
+{
+  if (document.formFilterAdd.enabled.checked) {
+ 	enableTextField(document.formFilterAdd.ip);
+	enableTextField(document.formFilterAdd.protocol);
+	enableTextField(document.formFilterAdd.comment);
+  }
+  else {
+ 	disableTextField(document.formFilterAdd.ip);
+  	disableTextField(document.formFilterAdd.protocol);
+	disableTextField(document.formFilterAdd.comment);
+  }
+}
+
+function Load_Setting()
+{
+	if ( <% getIndex("ipFilterEnabled"); %> )
+		document.formFilterAdd.enabled.checked = true;
+	updateState();
+}
+</script>
+</head>
+
+<body onLoad="Load_Setting();">
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+          <%trans("f_ip.h2")%>
+		  </td>
+
+        </tr>
+      </table></td></tr>
+</table>
+
+
+<form action=/boafrm/formFilter method=POST name="formFilterAdd">
+<fieldset><legend><%trans("f_ip.legend")%></legend>
+<table border=0 width="100%" cellspacing=4 cellpadding=0>
+<tr><td><font size=2>
+   	<input type="checkbox" name="enabled" value="ON" ONCLICK=updateState()>&nbsp;&nbsp;<%trans("f_ip.enable");%><br>
+    </td>
+</tr>
+<tr height="20"><td></td></tr>
+<tr><td>
+     <p><font size=2><%trans("f_ip.range");%>:  <input type="text" name="ip" size="15" maxlength="15">&nbsp;&nbsp;
+  	<font size=2><%trans("f_port.protol");%>: <select name="protocol">
+    		<option select value="0"><%trans("f_port.both");%></option>
+    		<option value="1">TCP</option>
+    		<option value="2">UDP</option>
+    		</select></font>&nbsp;&nbsp;
+  	<font size=2><%trans("share.comment");%>:  <input type="text" name="comment" size="12" maxlength="20"></font>
+     </p>
+     <p>
+        <input type="hidden" value="/ipfilter.htm" name="submit-url">
+     </p>
+   </td></tr>
+  <script> updateState(); </script>
+</table>
+ </fieldset>
+
+	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.apply+'" name="addFilterIp"  onClick="return addClick()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">');
+  
+	</script></td></tr></table>
+</form>
+<br>
+<form action=/boafrm/formFilter method=POST name="formFilterDel">
+<fieldset><legend><%trans("f_port.table");%></legend>
+  <table border="0" width=100%>
+  <% ipFilterList(); %>
+  </table>
+ </fieldset>
+  <br>
+    	 <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.delsel+'" name="deleteSelFilterIp"  onClick="return deleteClick()">');
+	document.write('&nbsp;&nbsp;')
+   document.write('<input type="submit" class="submit" value="'+share.delall+'" name="deleteAllFilterIp" onClick="return deleteAllClick()">');
+   	document.write('&nbsp;&nbsp;')
+
+  document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset">')
+	</script></td></tr></table>
+
+  <input type="hidden" value="/ipfilter.htm" name="submit-url">
+ <script>
+	if ( <% getIndex("ipFilterNum"); %> == 0 )
+		disableDelButton();
+ </script>
+</form>
+
+</body>
+</html>

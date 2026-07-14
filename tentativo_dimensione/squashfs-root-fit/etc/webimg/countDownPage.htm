@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<% getIndex("no-cache"); %>
+<% getJquery(); %>
+<% getMetro(); %>
+<title>Change setting successfully</title>
+<script type="text/javascript" src="util_gw.js"> </script>
+<style>
+#id_process_bg {
+	position:relative;
+	height:25px;
+	width:400px;
+	border: 2px solid #FFF;
+	background-color:#FFF;
+}
+#id_process_ing {
+	position:relative;
+	top:0px;
+	left:0px;
+	height:25px;
+	width:0px;
+/*	background-color:#1F67B1;*/
+}
+</style>
+<script type="text/javascript">
+
+//<%getInfo("uploadfmtime")%>;
+
+var waittime=20000;
+var ip="<%getInfo("ip");%>";
+function GetArgsFromHref(sArgName) 
+{ 
+var sHref=this.location.href;
+var args = sHref.split("?");
+ var retval = "";
+ if(args[0] == sHref) /*参数为空*/
+ { 
+return retval; /*无需做任何处理*/ 
+}
+ var str = args[1];
+ args = str.split("&"); 
+for(var i = 0; i < args.length; i ++)
+ { 
+str = args[i]; 
+var arg = str.split("=");
+ if(arg.length <= 1) continue; 
+if(arg[0] == sArgName) 
+retval = arg[1];
+ }
+ return retval;
+ }
+function countdowntime()
+{
+	var flag=GetArgsFromHref("flag");
+	var IP_addr=GetArgsFromHref("ip")
+	if(flag)
+		waittime=flag;
+	if(IP_addr)
+		ip=IP_addr;
+}
+
+var sec = 0;
+var step_px = 4;
+var max_px = 400;
+var step_sec = 0;
+function process()
+{
+	sec++;
+	if (sec<100)
+	{
+		get_by_id("id_process_ing").style.width = step_px*sec+"px";
+		get_by_id("id_num").innerHTML = parseInt((step_px*sec/max_px)*100)+"%"
+		setTimeout("process()", step_sec);
+	}
+	else
+	{
+		get_by_id("id_process_ing").style.width = max_px + "px";
+		get_by_id("id_num").innerHTML = "100%"
+		window.top.location.href = "http://"+ip+"/home.htm";
+	}
+}
+
+function countDown()
+{
+	var numb;
+	countdowntime();
+	function brand(a) 
+	{
+	  return parseInt((a)*Math.random()+1);
+	}
+	function goUrl(){
+	numb=brand(5);
+		window.top.location.href = "http://"+ip+"/home.htm";
+	}
+
+	//setTimeout(goUrl,waittime)//毫秒
+
+	step_sec=waittime/100;
+	if (waittime>0)
+	{
+		show_div(true, "id_span");
+		setTimeout("process()", step_sec);
+	}
+}
+</script>
+</head>
+<body onLoad="countDown()">
+  <div class="tiles" height="100%">
+  <div id="man_bg" class="accent">
+
+     <h2 align="center" class="wzd_heard"> <%trans("share.changeok")%></h2>
+
+	
+	
+		<table width="100%">
+		<tr>
+			<td  align="center"><font size=3 color="#FFFFFF">
+				<%trans("share.changemsg1")%></font>		
+			</td>
+		</tr>
+<!--<tr height="30"></tr>
+		<tr>
+			<td  align="center">
+				<image src="res/ls.gif"><span id="cont"></span>
+			</td>
+		</tr>-->
+		<tr>
+		<td align="center" id="id_span">		     <br />
+    <div id="id_process_bg" align="left">
+      <div id="id_process_ing"  class="accent"></div>
+      <div id="id_process_num">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center"><font id="id_num"></font></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    </td>
+		</tr>
+		<br />
+		</table>
+		<table height="50px">
+		</table>
+
+ </div>
+</div>
+<script>
+function dw(str){document.write(str);}
+
+dw('<span class="off">');
+dwAppbar();
+dw('</span>');
+$(document).ready(function () {
+	$(".appbar").applicationBar();
+});
+</script>
+</body>
+</html>

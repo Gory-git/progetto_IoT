@@ -1,0 +1,214 @@
+<html>
+<! Copyright (c) Realtek Semiconductor Corp., 2003. All Rights Reserved. ->
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<link type="text/css" rel="stylesheet" href="style.css" />
+<% getIndex("no-cache"); %>
+<title>Static DHCP Setup</title>
+<script type="text/javascript" src="util_gw.js"> </script>
+<script>
+function addClick()
+{
+	if(get_by_id("ip_addr").value == "" && get_by_id("mac_addr").value == "")
+		return true;
+	
+  var str = document.formStaticDHCPAdd.mac_addr.value;
+   if ( checkIpAddr(document.formStaticDHCPAdd.ip_addr, inet.static_alert1) == false )
+      	    return false;
+   if ( str.length < 12) {
+	alert(wlan.ac_msg4);
+	document.formStaticDHCPAdd.mac_addr.focus();
+	return false;
+  }
+  for (var i=0; i<str.length; i++) {
+    if ( (str.charAt(i) >= '0' && str.charAt(i) <= '9') ||
+			(str.charAt(i) >= 'a' && str.charAt(i) <= 'f') ||
+			(str.charAt(i) >= 'A' && str.charAt(i) <= 'F') )
+			continue;
+
+	alert(wlan.ac_msg5);
+	document.formStaticDHCPAdd.mac_addr.focus();
+	return false;
+  }   	    
+  
+  
+  return true;
+}
+
+
+function deleteClick()
+{
+  acl_num = <% getIndex("wlanAcNum"); %> ;
+  delNum = 0 ;
+  for(i=1 ; i <= acl_num ; i++){
+  	if(document.formStaticDHCP.elements["select"+i].checked)
+  		delNum ++ ;
+  }
+  if ( !confirm(inet.static_msg2) ) {
+	return false;
+  }
+  else
+	return true;
+}
+
+function deleteAllClick()
+{
+   if ( !confirm(inet.static_msg3) ) {
+	return false;
+  }
+  else
+	return true;
+}
+function disableDelButton()
+{
+	disableButton(document.formStaticDHCP.deleteSelRsvIP);
+	disableButton(document.formStaticDHCP.deleteAllRsvIP);
+}
+
+function enableAc()
+{
+  enableTextField(document.formStaticDHCPAdd.mac_addr);
+  enableTextField(document.formStaticDHCPAdd.hostname);
+}
+
+function disableAc()
+{
+  disableTextField(document.formStaticDHCPAdd.mac_addr);
+  disableTextField(document.formStaticDHCPAdd.hostname);
+}
+
+function init()
+{
+  static_dhcp_onoff_select(get_by_id("static_dhcp").value);
+
+}
+
+function static_dhcp_onoff_select(value)
+{
+	if(value == true || value == 1)
+	{
+		get_by_id("static_dhcp").value = 1;
+		get_by_id("static_dhcp_onoff").checked = true;
+	}
+	else
+	{
+		get_by_id("static_dhcp").value = 0;
+		get_by_id("static_dhcp_onoff").checked = false;
+	}
+	
+	static_dhcp_tbl_onoff_disabled(get_by_id("static_dhcp").value);
+}
+
+function static_dhcp_tbl_onoff_disabled(value)
+{
+	var is_disable;
+	if(value == 1)
+	{
+		is_disable = false;
+	}
+	else
+	{
+		is_disable = true;
+	}
+	
+	get_by_id("ip_addr").disabled = is_disable;
+	get_by_id("mac_addr").disabled = is_disable;
+	get_by_id("hostname").disabled = is_disable;
+	//get_by_id("addRsvIP").disabled = is_disable;
+	//get_by_id("reset_tbl").disabled = is_disable;
+	get_by_id("deleteSelRsvIP").disabled = is_disable;
+	get_by_id("deleteAllRsvIP").disabled = is_disable;
+	get_by_id("reset").disabled = is_disable;
+	
+}
+</script>
+</head>
+<body onLoad="init();">
+<table border=0 width="100%" cellspacing=0 cellpadding=0>
+<tr><td class="headspace"></td></tr>
+   <tr> <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="headline"  width="100%">&nbsp;
+            <% trans("inet.static_h2");%></td>
+
+        </tr>
+      </table></td></tr>
+</table>
+
+
+
+<form action=/boafrm/formStaticDHCP method=POST name="formStaticDHCPAdd">
+<fieldset><legend><%trans("inet.static_legend")%></legend>
+
+<table width="100%" border="0" cellpadding="1" cellspacing="0">
+ <tr>
+ 	<td align="left" colspan="2" class=""><font size=2>
+    <input type='hidden' id='static_dhcp' name='static_dhcp' value='<% getInfo("static_dhcp_onoff"); %>'>
+		<input id="static_dhcp_onoff" type="checkbox" onclick='static_dhcp_onoff_select(this.checked);'>&nbsp;&nbsp;Enable Static DHCP<br>	</td>
+ </tr>
+ 
+<tr><td><br /><td></tr>
+ <tr>
+ 	<td align="left" width="20%" class=""><font size=2><%trans("inet.wan_ip");%>:</td>
+ 	<td width="87%">
+ 	<input type="text" id="ip_addr" name="ip_addr" size="16" maxlength="15" value=""> </td>
+ </tr>
+  <tr>
+ <td align="left" width="20%" class=""><font size=2><%trans("share.macaddr");%>:</td>
+ <td width="87%">
+ <input type="text" id="mac_addr" name="mac_addr" size="15" maxlength="12" value=""> </td>
+ </tr>
+ <tr>
+ <td align="left" width="20%" class=""><font size=2><%trans("share.comment");%>:</td>
+ <td width="87%">
+ <input type="text" id="hostname" name="hostname" size="20" maxlength="19" value="">
+ </font> </td>
+ </tr>
+ </table>
+<!--
+<tr><td>
+     <p><font size=2>IP Address: <input type="text" name="ip" size="15" maxlength="15">&nbsp;&nbsp;</font>
+     <font size=2>MAC Address: <input type="text" name="mac" size="15" maxlength="12">&nbsp;&nbsp;</font>
+   	<font size=2>Comment:  <input type="text" name="comment" size="16" maxlength="20"></font>
+     </p>
+     </td>
+     </tr>
+-->     
+     <p>
+        <input type="hidden" value="/tcpip_staticdhcp.htm" name="submit-url">
+     </p>
+	 
+</table></fieldset>
+ <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.apply+'" id="addRsvIP" name="addRsvIP" onClick="return addClick()">')
+	document.write("&nbsp;&nbsp;&nbsp;")
+  document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset_tbl" id="reset_tbl" onClick="resetClick()">')  
+	</script></td></tr></table>
+  </form>
+<br>
+<form action=/boafrm/formStaticDHCP method=POST name="formStaticDHCP">
+<fieldset><legend><%trans("inet.static_legend1")%></legend>
+  <table border="0" width="100%">
+  <% dhcpRsvdIp_List();%>
+  </table>
+  </fieldset>
+  <br>
+   <table width="100%"><tr>                  
+  <td class="submitFooter" width="100%"><script type="text/javascript">
+   document.write('<input type="submit" class="submit" value="'+share.delsel+'" id="deleteSelRsvIP" name="deleteSelRsvIP" onClick="return deleteClick()">')
+	document.write("&nbsp;&nbsp;&nbsp;")
+	   document.write('<input type="submit" class="submit" value="'+share.delall+'" id="deleteAllRsvIP" name="deleteAllRsvIP" onClick="return deleteAllClick()">')
+	document.write("&nbsp;&nbsp;&nbsp;")
+  document.write('<input type="reset" class="submit" value="'+share.reset+'" name="reset" id="reset">')  
+	</script></td></tr></table>
+	
+	
+
+  <p><input type="hidden" value="/tcpip_staticdhcp.htm" name="submit-url"></p>
+
+</form>
+
+
+</body>
+</html>
