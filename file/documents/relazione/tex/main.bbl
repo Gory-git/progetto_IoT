@@ -40,19 +40,75 @@
       \field{howpublished}{\url{https://nvd.nist.gov/vuln/detail/CVE-2023-30405}}
       \field{title}{CVE-2023-30405: Aigital Wi-Fi Access Point Cross-Site Scripting Vulnerability}
     \endentry
-    \entry{boya-micro}{misc}{}{}
+    \entry{M12L128168A}{misc}{}{}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.esmt.com.tw/upload/pdf/ESMT/datasheets/M12L128168A(2N).pdf}}
+      \field{title}{M12L128168A Data Sheet}
+    \endentry
+    \entry{RTL8196E}{misc}{}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://datasheet4u.com/download/1461462/RTL8196E.html}}
+      \field{title}{RTL8196E Data Sheet}
+    \endentry
+    \entry{RTL819ER}{misc}{}{}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.xecor.com/product/rtl8192er}}
+      \field{title}{RTL819ER Data Sheet}
+    \endentry
+    \entry{boya-micro}{misc}{}{}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://www.boyamicro.com/storage/upload/pdf/BY25D16AS.pdf}}
       \field{title}{BY25D16AS Data Sheet}
     \endentry
+    \entry{aigital.com}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://web.archive.org/web/20220625053314/https://www.aigital.com/}
+      \field{title}{Aigital web page}
+    \endentry
+    \entry{registrazione}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://uspto.report/TM/87474064}}
+      \field{title}{Aigital Trade Mark}
+    \endentry
+    \entry{aigital.com/gywm}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://web.archive.org/web/20220624221605/https://www.aigital.com/gywm}}
+      \field{title}{Aigital about web page}
+    \endentry
     \entry{mandomat}{misc}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://mandomat.github.io/2023-04-13-testing-a-cheap-wifi-repeater/}}
       \field{title}{CVE-2023-30403, CVE-2023-30404 and CVE-2023-30405: Login By-pass, Remote Code Execution and Cross-Site Scripting Vulnerabilities found in Aigital Wi-Fi Access Point by Matteo Mandolini}
+    \endentry
+    \entry{flashrom}{misc}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.flashrom.org/}}
+      \field{title}{flashrom README}
+    \endentry
+    \entry{rce}{misc}{}{}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://raw.githubusercontent.com/Gory-git/progetto_IoT/refs/heads/main/CVE-2023-30404/exploit.py}}
+      \field{title}{RCE python exploit}
     \endentry
   \enddatalist
 \endrefsection

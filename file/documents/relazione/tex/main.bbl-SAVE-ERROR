@@ -40,9 +40,16 @@
       \field{howpublished}{\url{https://nvd.nist.gov/vuln/detail/CVE-2023-30405}}
       \field{title}{CVE-2023-30405: Aigital Wi-Fi Access Point Cross-Site Scripting Vulnerability}
     \endentry
-    \entry{mandomat}{misc}{}{}
+    \entry{boya-micro}{misc}{}{}
       \field{sortinit}{4}
       \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www.boyamicro.com/storage/upload/pdf/BY25D16AS.pdf}}
+      \field{title}{BY25D16AS Data Sheet}
+    \endentry
+    \entry{mandomat}{misc}{}{}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://mandomat.github.io/2023-04-13-testing-a-cheap-wifi-repeater/}}
       \field{title}{CVE-2023-30403, CVE-2023-30404 and CVE-2023-30405: Login By-pass, Remote Code Execution and Cross-Site Scripting Vulnerabilities found in Aigital Wi-Fi Access Point by Matteo Mandolini}
