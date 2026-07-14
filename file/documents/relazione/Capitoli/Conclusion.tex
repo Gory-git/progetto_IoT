@@ -1,0 +1,12 @@
+\chapter{Conclusion}
+\label{chap:conclusion}
+
+In this project, we performed a security analysis of an Aigital Wi-Fi extender, starting from the physical device and reaching a patched firmware tested in an emulated environment. The work combined hardware inspection, EEPROM dumping, firmware extraction, reverse engineering, exploitation, Firmadyne emulation, and binary patching.
+\\
+The analysis confirmed that the device exposes serious weaknesses in its web management interface. We reproduced the documented login by-pass, the remote command execution through \emph{/boafrm/formSysCmd}, and the XSS caused by unsafe rendering of user-controlled configuration values. The most critical issue was the RCE, since it allowed us to move from authenticated web access to command execution and then to an interactive reverse shell.
+\\
+After the physical device became unreliable because of EEPROM and PCB damage, Firmadyne allowed us to continue the work in a controlled environment. The emulation was not a perfect reproduction of the proprietary  Realtek platform, especially because of incomplete MIB/NVRAM behavior. However, after stabilizing the Boa/web-interface paths required for testing, it was sufficient to reproduce the relevant attack surfaces and compare vulnerable and patched firmware variants.
+\\
+The fixing phase showed that targeted mitigations can significantly reduce the impact of the vulnerabilities. The RCE handler was neutralized by forcing the vulnerable Boa function to return immediately. The login by-pass was mitigated by reducing the reusable global authentication window, although a complete production-quality fix would require proper server-side session tokens. The XSS was fixed by replacing the unsafe \emph{innerHTML} sink with \emph{textContent}, so that the SSID is treated as text rather than executable markup.
+\\
+Finally, the project achieved its goals: we extracted and analyzed the firmware, reproduced the relevant vulnerabilities, obtained command execution and a reverse shell, and produced patched firmware variants that mitigate the observed issues.
